@@ -1,0 +1,11 @@
+#bloc_center {
+	margin-top: 56px;
+}
+#profil_nounou {
+	display: inline-flex;
+	width: 100%;
+}
+#map {
+	height: 450px;
+	width : 50%;
+}
