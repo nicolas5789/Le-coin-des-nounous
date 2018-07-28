@@ -37,9 +37,6 @@
 					<p>Département de résidence :  <?= $nounou->departement(); ?>   </p>
 				</td>
 				<td>
-					<p>Note des avis :  <?= $nounou->note_avis(); ?>  </p>
-				</td>
-				<td>
 					<a href="index.php?action=showNounou&amp;idNounou= <?= $nounou->id(); ?>">Voir le profil</a>
 				</td>
 			</tr>

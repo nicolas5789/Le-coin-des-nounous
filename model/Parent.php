@@ -1,6 +1,6 @@
 <?php
 
-class Nounou
+class Parents
 {
 	private $_id;
 	private $_pseudo;
@@ -8,8 +8,6 @@ class Nounou
 	private $_prenom;
 	private $_email;
 	private $_password;
-	private $_experience;
-	private $_place_dispo;
 	private $_ville;
 	private $_departement;
 
@@ -32,12 +30,6 @@ class Nounou
 		}
 		if(isset($data['password'])) {
 			$this->setPassword($data['password']);
-		}
-		if(isset($data['experience'])) {
-			$this->setExperience($data['experience']);
-		}
-		if(isset($data['place_dispo'])) {
-			$this->setPlace_dispo($data['place_dispo']);
 		}
 		if(isset($data['ville'])) {
 			$this->setVille($data['ville']);
@@ -92,22 +84,6 @@ class Nounou
 		}
 	}
 
-	public function setExperience($experience)
-	{
-		$experience = (int) $experience;
-		if ($experience > 0) {
-			$this->_experience = $experience;
-		}
-	}
-
-	public function setPlace_dispo($place_dispo)
-	{
-		$place_dispo = (int) $place_dispo;
-		if ($place_dispo > 0) {
-			$this->_place_dispo = $place_dispo;
-		}
-	}
-
 	public function setVille($ville)
 	{
 		if (is_string($ville)) {
@@ -149,14 +125,6 @@ class Nounou
 	public function password()
 	{
 		return $this->_password;
-	}
-	public function experience()
-	{
-		return $this->_experience;
-	}
-	public function place_dispo()
-	{
-		return $this->_place_dispo;
 	}
 	public function ville()
 	{

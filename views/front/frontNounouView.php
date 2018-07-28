@@ -26,7 +26,6 @@
 
 		<p>Département de résidence :  <?= $nounou->departement(); ?>   </p>
 
-		<p>Note des avis :  <?= $nounou->note_avis(); ?>  </p>
 	</div>
 
 <div id="map"></div>
@@ -36,7 +35,24 @@
 
 <div id="avis_nounou">
 	<h2>Découvrir les avis</h2>
+	
+	<p> Note moyenne de <?= $nounou->pseudo(); ?> : <?php echo $noteMoyenne['AVG(note)']; ?> </p>
 	<p>Listing des avis</p>
+
+	<hr>
+
+	<?php foreach($listingAvis as $avis): ?>
+
+	<p> Pseudo du parent : <?= $avis->pseudo_parent() ?></p>
+
+	<p> Note donné : <?= $avis->note() ?></p>
+
+	<p> Commentaire : <?= $avis->contenu() ?></p>
+
+	<hr>
+
+	<?php endforeach ?>
+
 </div>
 
 <div id="contact_nounou">

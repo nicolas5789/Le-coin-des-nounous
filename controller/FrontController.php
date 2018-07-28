@@ -23,8 +23,12 @@ abstract class FrontController
 	{
 		$targetNounou = new Nounou(['id'=>$idNounou]);
 		$nounouManager = new NounouManager();
+		$avisManager = new avisManager();
 
 		$nounou = $nounouManager->getNounou($targetNounou);
+		$listingAvis = $avisManager->listAvis($targetNounou);
+
+		$noteMoyenne = $avisManager->average($targetNounou);
 
 		require("views/front/frontNounouView.php");
 	}
