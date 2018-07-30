@@ -32,7 +32,13 @@
 					<a class="nav-link" href="#">Comment ca marche ?</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="index.php?action=newForm">Inscription/Connexion</a>
+					<a class="nav-link" href="index.php?action=newNounouForm">Inscription Nounou</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php?action=newParentForm">Inscription Parent</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php?action=login">Connexion</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nous contacter</a>

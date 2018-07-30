@@ -4,6 +4,7 @@ session_start();
 //appel des controleurs
 require("controller/FrontController.php");
 require("controller/AdminController.php");
+require("controller/FormController.php");
 
 if(isset($_GET["action"])) {
 	$_action = $_GET["action"];
@@ -35,10 +36,13 @@ if(isset($_action)) {
 			FrontController::home();
 		} break;
 
-		case "newForm":
-			FrontController::newForm();
+		case "newNounouForm":
+			FrontController::newNounouForm();
 			break;
 
+		case "addNounou":
+			FormController::addNounou();
+			break;
 
 		default:
 			FrontController::home();

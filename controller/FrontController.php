@@ -33,8 +33,10 @@ abstract class FrontController
 		require("views/front/frontNounouView.php");
 	}
 
-	public static function newForm()
+	public static function newNounouForm()
 	{
-		require("views/front/frontNewFormView.php");
+		require("views/front/frontNewNounouFormView.php");
 	}
+
+	
 }
