@@ -1,6 +1,6 @@
 <?php
 
-class Parents
+class PereMere
 {
 	private $_id;
 	private $_pseudo;
@@ -100,7 +100,7 @@ class Parents
 	}
 
 
-//getters
+	//getters
 
 	public function id()
 	{

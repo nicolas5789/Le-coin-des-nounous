@@ -43,30 +43,95 @@ abstract class FrontController
 		require("views/front/frontLoginView.php");
 	}
 
-	public static function connectNounou()
+	public static function connect()
 	{
 		$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'],'password'=>$_POST['password']]);
+		$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'],'password'=>$_POST['password']]);
 		$nounouManager = new NounouManager();
+		$parentManager = new ParentManager();
 
-		$passwordOnFile = $nounouManager->accessNounou($nounouToCheck);
-		$passwordToCheck = $_POST['password'];
+		$nounouOnFile = $nounouManager->accessNounou($nounouToCheck);
+		$parentOnFile = $parentManager->accessParent($parentToCheck);
 
-		if(isset($passwordOnFile)) 
+		if(isset($nounouOnFile))
 		{
-			if(password_verify($passwordToCheck, $passwordOnFile))
+			$passwordNounouToCheck = $nounouToCheck->password();
+			$passwordNounouOnFile = $nounouOnFile->password();	
+
+			if(isset($passwordNounouOnFile) && isset($passwordNounouToCheck)) 
 			{
-				echo "cool ca passe";
+				if(password_verify($passwordNounouToCheck, $passwordNounouOnFile))
+				{
+					$_SESSION['profil'] = "nounou";
+					$_SESSION['pseudo'] = $nounouOnFile->pseudo();
+					header("Location: index.php");
+				} else 
+				{
+					$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 1";
+					header("Location: index.php?action=login");
+				}
 			} else 
 			{
-				echo "2 Pass ou id faux";
+				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 2";
+				header("Location: index.php?action=login");
+			}
+		} elseif(isset($parentOnFile))
+		{
+			$passwordParentToCheck = $parentToCheck->password();
+			$passwordParentOnFile = $parentOnFile->password();	
+
+			if(isset($passwordParentOnFile) && isset($passwordParentToCheck)) 
+			{
+				//if(password_verify($passwordParentToCheck, $passwordParentOnFile))
+				if($passwordParentToCheck == $passwordParentOnFile)
+				{
+					$_SESSION['profil'] = "parent";
+					$_SESSION['pseudo'] = $parentOnFile->pseudo();
+					header("Location: index.php");
+				} else 
+				{
+					$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 3";
+					header("Location: index.php?action=login");
+				}
+			} else 
+			{
+				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 4";
+				header("Location: index.php?action=login");
 			}
 		} else 
 		{
-			//$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
-			echo "Pseudo ou mdp incorrect 3";
+			$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 5";
+			header("Location: index.php?action=login");
 		}
 
+		
+/*
+		$passwordParentToCheck = $parentToCheck->password();
+		$passwordParentOnFile = $parentOnFile->password();
+		
+
+		if(isset($passwordNounouOnFile) && isset($passwordNounouToCheck)) 
+		{
+			if(password_verify($passwordNounouToCheck, $passwordNounouOnFile))
+			{
+				$_SESSION['profil'] = "nounou";
+				$_SESSION['pseudo'] = $nounouOnFile->pseudo();
+				header("Location: index.php");
+			} else 
+			{
+				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
+				header("Location: index.php?action=login");
+			}
+		} else 
+		{
+			$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
+			header("Location: index.php?action=login");
+		}
+*/
 	}
+
+
+
 
 	
 }

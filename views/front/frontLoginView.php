@@ -8,6 +8,10 @@
     </div>
 </div>
 
+<?php if(isset($_SESSION['connect_message'])) { ?>
+    <h2> <?= $_SESSION['connect_message'] ?> </h2>
+<?php } ?>
+
 <div id="formulaire_connexion" style="text-align: center;">
     <form action="index.php?action=connect" method="POST">
         <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required> </label> <br/> 
@@ -15,6 +19,8 @@
         <input type="submit" value="Envoyer"/>      
     </form>
 </div>
+
+
 
 
 

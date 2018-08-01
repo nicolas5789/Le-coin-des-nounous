@@ -49,7 +49,12 @@ if(isset($_action)) {
 			break;
 
 		case "connect":
-			FrontController::connectNounou();
+			FrontController::connect();
+			break;
+
+		case "logout":
+			session_destroy();
+			header("Location: index.php");
 			break;
 
 		default:

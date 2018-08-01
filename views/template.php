@@ -43,6 +43,14 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nous contacter</a>
 				</li>
+				<?php if(isset($_SESSION['pseudo'])) { ?>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Bonjour <?= $_SESSION['pseudo']; ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php?action=logout">Déconnexion</a>
+				</li>
+				<?php } ?>
 			</ul>
 		</div>
 	</nav>
