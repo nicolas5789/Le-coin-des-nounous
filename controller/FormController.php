@@ -12,49 +12,37 @@ abstract class FormController
 				{
 					if($_POST['password'] == $_POST['confirm_password'])
 					{
-						echo "cool !";
+						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+						$nounouManger = new NounouManager();
+
+						$existNounou = $nounouManger->existNounou($nounouToCheck);
+						if ($existNounou!=0)
+						{
+							$_SESSION['form_message'] = "Pseudo ou Email déjà utilisé";
+						} else 
+						{
+							$nounou = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+							$nounouManager = new NounouManager();
+
+							$nounouManager->newNounou($nounou);
+							$_SESSION['form_message'] = "Félicitation, vous pouvez désormais vous connecter avec votre profil";
+						}
 					} else 
 					{
-						$_SESSION['form_error'] = "Les mots de passe ne correspondent pas"; 
+						$_SESSION['form_message'] = "Les mots de passe ne correspondent pas"; 
 					}
 				} else 
 				{
-					$_SESSION['form_error'] = "Les adresses email doivent correspondre";
+					$_SESSION['form_message'] = "Les adresses email doivent correspondre";
 				}
 
 			} else 
 			{
-				$_SESSION['form_error'] = "Tous les champs ne sont pas remplis";
+				$_SESSION['form_message'] = "Tous les champs ne sont pas remplis";
 			}
 		} 
-/*
-	var_dump($_POST['pseudo']);
-	var_dump($_POST['nom']);
-	var_dump($_POST['prenom']);
-	var_dump($_POST['email']);
-	var_dump($_POST['confirm_email']);
-	var_dump($_POST['password']);
-	var_dump($_POST['confirm_password']);
-	var_dump($_POST['experience']);
-	var_dump($_POST['dispo']);
-	var_dump($_POST['ville']);
-	var_dump($_POST['departement']);
-*/
+
 	header("Location: index.php?action=newNounouForm");
 
 	}
 }
-
-		/*
-			$nounou = new Nounou([
-				'pseudo'=>$_POST['pseudo'],
-				'nom'=>$_POST['nom'],
-				'prenom'=>$_POST['prenom'],
-				'email'=>$_POST['email'],
-				'password'=>$_POST['password'], // A Hasher
-				'experience'=>$_POST['experience'],
-				'dispo'=>$_POST['dispo'],
-				'ville'=>$_POST['ville'],
-				'departement'=>$_POST['departement']
-			]);
-		*/

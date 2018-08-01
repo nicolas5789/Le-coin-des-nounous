@@ -38,5 +38,35 @@ abstract class FrontController
 		require("views/front/frontNewNounouFormView.php");
 	}
 
+	public static function login()
+	{
+		require("views/front/frontLoginView.php");
+	}
+
+	public static function connectNounou()
+	{
+		$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'],'password'=>$_POST['password']]);
+		$nounouManager = new NounouManager();
+
+		$passwordOnFile = $nounouManager->accessNounou($nounouToCheck);
+		$passwordToCheck = $_POST['password'];
+
+		if(isset($passwordOnFile)) 
+		{
+			if(password_verify($passwordToCheck, $passwordOnFile))
+			{
+				echo "cool ca passe";
+			} else 
+			{
+				echo "2 Pass ou id faux";
+			}
+		} else 
+		{
+			//$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
+			echo "Pseudo ou mdp incorrect 3";
+		}
+
+	}
+
 	
 }

@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div id="formulaire" style="text-align: center;">
+<div id="formulaire_newNounou" style="text-align: center;">
     <form action="index.php?action=addNounou" method="POST">
 
         <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required> </label> <br/> 
@@ -37,8 +37,8 @@
 
     </form>
 
-    <?php if(isset($_SESSION['form_error'])) {
-        echo $_SESSION['form_error'];
+    <?php if(isset($_SESSION['form_message'])) {
+        echo $_SESSION['form_message'];
     } ?>
 </div>
 

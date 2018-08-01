@@ -44,6 +44,14 @@ if(isset($_action)) {
 			FormController::addNounou();
 			break;
 
+		case "login":
+			FrontController::login();
+			break;
+
+		case "connect":
+			FrontController::connectNounou();
+			break;
+
 		default:
 			FrontController::home();
 			break;
