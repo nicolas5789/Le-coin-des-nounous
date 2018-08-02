@@ -38,6 +38,11 @@ abstract class FrontController
 		require("views/front/frontNewNounouFormView.php");
 	}
 
+	public static function newParentForm()
+	{
+		require("views/front/frontNewParentFormView.php");
+	}
+
 	public static function login()
 	{
 		require("views/front/frontLoginView.php");
@@ -82,8 +87,7 @@ abstract class FrontController
 
 			if(isset($passwordParentOnFile) && isset($passwordParentToCheck)) 
 			{
-				//if(password_verify($passwordParentToCheck, $passwordParentOnFile))
-				if($passwordParentToCheck == $passwordParentOnFile)
+				if(password_verify($passwordParentToCheck, $passwordParentOnFile))
 				{
 					$_SESSION['profil'] = "parent";
 					$_SESSION['pseudo'] = $parentOnFile->pseudo();
@@ -103,31 +107,12 @@ abstract class FrontController
 			$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 5";
 			header("Location: index.php?action=login");
 		}
+	}
 
-		
-/*
-		$passwordParentToCheck = $parentToCheck->password();
-		$passwordParentOnFile = $parentOnFile->password();
-		
-
-		if(isset($passwordNounouOnFile) && isset($passwordNounouToCheck)) 
-		{
-			if(password_verify($passwordNounouToCheck, $passwordNounouOnFile))
-			{
-				$_SESSION['profil'] = "nounou";
-				$_SESSION['pseudo'] = $nounouOnFile->pseudo();
-				header("Location: index.php");
-			} else 
-			{
-				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
-				header("Location: index.php?action=login");
-			}
-		} else 
-		{
-			$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
-			header("Location: index.php?action=login");
-		}
-*/
+	public static function addAvis($id_nounou)
+	{
+		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
+		var_dump($avis);
 	}
 
 

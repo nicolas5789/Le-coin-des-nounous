@@ -44,12 +44,24 @@ if(isset($_action)) {
 			FormController::addNounou();
 			break;
 
+		case "newParentForm":
+			FrontController::newParentForm();
+			break;
+
+		case "addParent":
+			FormController::addParent();
+			break;
+
 		case "login":
 			FrontController::login();
 			break;
 
 		case "connect":
 			FrontController::connect();
+			break;
+
+		case "addAvis":
+			FrontController::addAvis($_GET['id']);
 			break;
 
 		case "logout":

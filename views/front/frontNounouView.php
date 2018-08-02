@@ -6,17 +6,11 @@
 	<div id="infos_nounou">	
 		<h1>Profil de la Nounou</h1>
 
-		<p>Id :  <?= $nounou->id(); ?>   </p>
-
 		<p>Pseudo : <?= $nounou->pseudo(); ?> </p>
 
 		<p>Nom :  <?= $nounou->nom(); ?>    </p>
 
 		<p>Prénom : <?= $nounou->prenom(); ?>     </p>
-
-		<p>Email :  <?= $nounou->email(); ?>      </p>
-
-		<p>Mot de passe : <?= $nounou->password(); ?>     </p>
 
 		<p>Expérience : <?= $nounou->experience(); ?>  </p>
 
@@ -55,10 +49,45 @@
 
 </div>
 
-<div id="contact_nounou">
-	<h2>Contacter la nounou</h2>
-	<span>Formulaire de contact à venir</span>
+
+<div id="contact_avis_nous">
+	<?php if(isset($_SESSION['profil']) && $_SESSION['profil'] = "parent") { ?>
+		
+		<div id="contact_nounou">
+			<h2>Contacter la nounou</h2>
+			<span>Formulaire de contact à venir</span>
+		</div>
+
+		<div id="set_avis_nounou">
+			<div id="formulaire_avis">
+    			<form action="index.php?action=addAvis&amp;id=<?= $nounou->id(); ?>)" method="POST">
+       				<label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>" disabled="disabled"> </label> <br/> 
+					<label for="departement"> Note  : 
+						<select required name="note" id="note">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+						</select> 
+					</label> <br/>
+					<label for="contenu"> Commentaire : <input type="text" name="contenu" id="contenu" required> </label>
+        			<input type="submit" value="Envoyer"/>      
+    			</form>
+			</div>
+		</div>
+	<?php } else { ?>
+		<h2>Connectez-vous pour contacter la nounou ou laisser un avis</h2>
+		<a href="index.php?action=login">Page de connexion</a>
+	<?php } ?>
 </div>
+
+
 
 
 
