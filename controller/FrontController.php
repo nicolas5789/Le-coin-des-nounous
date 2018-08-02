@@ -27,8 +27,21 @@ abstract class FrontController
 
 		$nounou = $nounouManager->getNounou($targetNounou);
 		$listingAvis = $avisManager->listAvis($targetNounou);
-
 		$noteMoyenne = $avisManager->average($targetNounou);
+
+		//vérification si avis déjà donné
+		$listPseudo_parents = [];
+		foreach($listingAvis as $avis):
+			$listPseudo_parents[] = $avis->pseudo_parent();
+		endforeach;
+
+		if(in_array($_SESSION['pseudo'], $listPseudo_parents))
+		{
+			$_SESSION['avis'] = "done";
+		} else 
+		{
+			$_SESSION['avis'] = "clear";
+		}
 
 		require("views/front/frontNounouView.php");
 	}
@@ -112,7 +125,10 @@ abstract class FrontController
 	public static function addAvis($id_nounou)
 	{
 		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
-		var_dump($avis);
+		$avisManager = new AvisManager();
+		$avisManager->newAvis($avis);
+
+		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
 	}
 
 

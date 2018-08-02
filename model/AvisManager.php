@@ -3,9 +3,16 @@ require_once("model/Database.php");
 
 class AvisManager extends Database 
 {
-	public function newAvis() 
+	public function newAvis($avis) 
 	{
-		//CREATE
+		$id_nounouSafe = htmlspecialchars($avis->id_nounou());
+		$pseudo_parentSafe = htmlspecialchars($avis->pseudo_parent());
+		$noteSafe = htmlspecialchars($avis->note());
+		$contenuSafe = htmlspecialchars($avis->contenu());
+
+		$db = $this->dbConnect();
+		$req = $db->prepare("INSERT INTO avis(id_nounou, pseudo_parent, note, contenu) VALUES(?, ?, ?, ?) ");
+		$req->execute(array($id_nounouSafe, $pseudo_parentSafe, $noteSafe, $contenuSafe));
 	}
 
 	public function listAvis($targetNounou)
