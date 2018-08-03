@@ -45,7 +45,7 @@
 				</li>
 				<?php if(isset($_SESSION['pseudo'])) { ?>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Bonjour <?= $_SESSION['pseudo']; ?> - <?= $_SESSION['profil']; ?></a>
+					<a class="nav-link" href="#">Bonjour <?= $_SESSION['pseudo']; ?> (<?= $_SESSION['profil']; ?>)</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="index.php?action=logout">Déconnexion</a>

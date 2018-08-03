@@ -61,11 +61,27 @@ if(isset($_action)) {
 			break;
 
 		case "addAvis":
+		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {
 			FrontController::addAvis($_GET['id']);
+		} else {
+			FrontController::home();
+		}
+			break;
+		
+		case "updateAvis":
+		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {
+			FrontController::updateAvis($_GET['id']);
+		} else {
+			FrontController::home();
+		}
 			break;
 
-		case "updateAvis":
-			FrontController::updateAvis($_GET['id']);
+		case "deleteAvis":
+		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {
+			FrontController::deleteAvis($_GET['idAvis'], $_GET['idNounou']);
+		} else {
+			FrontController::home();
+		}
 			break;
 
 		case "logout":

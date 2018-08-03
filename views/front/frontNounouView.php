@@ -6,17 +6,15 @@
 
 		<p>Pseudo : <?= $nounou->pseudo(); ?> </p>
 
-		<p>Nom :  <?= $nounou->nom(); ?>    </p>
-
-		<p>Prénom : <?= $nounou->prenom(); ?>     </p>
-
-		<p>Expérience : <?= $nounou->experience(); ?>  </p>
+		<p>Expérience : <?= $nounou->experience(); ?> an(s)  </p>
 
 		<p>Place(s) disponible(s) :  <?= $nb = $nounou->place_dispo(); ?>    </p>
 
 		<p>Ville de résidence :  <?= $nounou->ville(); ?>    </p>
 
 		<p>Département de résidence :  <?= $nounou->departement(); ?>   </p>
+
+		<p> Note moyenne de <?= $nounou->pseudo(); ?> : <?php echo $noteMoyenne['AVG(note)']; ?> </p>
 
 	</div>
 
@@ -26,25 +24,26 @@
 
 
 <div id="avis_nounou">
-	<h2>Découvrir les avis</h2>
+	<h2>Les avis des parents</h2>
+
+	<table id="table_avis">
+		<tr>
+			<th>Pseudo</th>
+			<th>Commentaires</th>
+			<th>Notes</th>
+		</tr>
+		
+		<?php foreach($listingAvis as $avis): ?>
+			<tr>
+				<td> <?= $avis->pseudo_parent() ?></td>
+				<td> <?= $avis->contenu() ?></td>
+				<td> <?= $avis->note() ?>/10</td>
+			</tr>
+		<?php endforeach ?>	
+
+	</table>
 	
-	<p> Note moyenne de <?= $nounou->pseudo(); ?> : <?php echo $noteMoyenne['AVG(note)']; ?> </p>
-	<p>Listing des avis</p>
-
-	<hr>
-
-	<?php foreach($listingAvis as $avis): ?>
-
-	<p> Pseudo du parent : <?= $avis->pseudo_parent() ?></p>
-
-	<p> Note donné : <?= $avis->note() ?></p>
-
-	<p> Commentaire : <?= $avis->contenu() ?></p>
-
-	<hr>
-
-	<?php endforeach ?>
-
+	<p>Note moyenne de <?= $nounou->pseudo(); ?> : <?php echo $noteMoyenne['AVG(note)']; ?></p>
 </div>
 
 
@@ -98,7 +97,8 @@
 							</select> 
 						</label> <br/>
 						<label for="contenu"> Commentaire : <input type="text" name="contenu" id="contenu" value="<?= $avisOnFile->contenu() ?>" required> </label>
-	        			<input type="submit" value="Modifier mon avis"/>      
+	        			<input type="submit" value="Modifier mon avis"/>  
+	        			<a href="index.php?action=deleteAvis&amp;idAvis=<?= htmlspecialchars($avisOnFile->id()); ?>&amp;idNounou=<?= htmlspecialchars($avisOnFile->id_nounou()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre avis ?');">Supprimer mon avis</a>    
 	    			</form>
 				</div>
 			</div>
@@ -106,13 +106,14 @@
 
 		<div id="contact_nounou">
 			<h2>Contacter la nounou</h2>
-			<span>Adresse mail de la nounou</span>
-			<p> <?= $nounou->email(); ?> </p>
+			<p>Nom : <?= $nounou->nom(); ?></p>
+			<p>Prénom : <?= $nounou->prenom(); ?></p>
+			<p>Adresse email : <?= $nounou->email(); ?></p>
+			<p><a href="mailto:<?= $nounou->email(); ?>">Envoyer un email</a></p>
 		</div>
 
 	<?php } else { ?>
-		<h2>Connectez-vous comme parent pour obtenir l'email de la nounou ou laisser un avis</h2>
-		<a href="index.php?action=login">Page de connexion</a>
+		<h2><a href="index.php?action=login">Connectez-vous</a> comme parent pour obtenir les coordonnées de la nounou ou laisser un avis</h2>
 	<?php } ?>
 </div>
 

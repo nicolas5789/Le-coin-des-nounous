@@ -39,6 +39,13 @@ class AvisManager extends Database
 		$req->execute(array($noteSafe, $contenuSafe, $id_nounouSafe, $pseudo_parentSafe));
 	}
 
+	public function deleteAvis($avis) //DELETE
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("DELETE FROM avis WHERE id= ?");
+		$req->execute(array($avis->id()));
+	}
+
 	public function listAvis($targetNounou)
 	{
 		$listingAvis = [];
@@ -53,6 +60,17 @@ class AvisManager extends Database
 		}
 
 		return $listingAvis;
+	}
+
+	public function existAvis($avis)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM avis WHERE id_nounou= ? AND pseudo_parent= ?");
+		$req->execute(array($avis->id_nounou(), $avis->pseudo_parent()));
+		$count_req = $req->fetchAll();
+		$existAvis = count($count_req);
+
+		return $existAvis;
 	}
 
 	public function average($targetNounou)

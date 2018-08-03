@@ -132,7 +132,13 @@ abstract class FrontController
 	{
 		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
 		$avisManager = new AvisManager();
-		$avisManager->newAvis($avis);
+		$existAvis = $avisManager->existAvis($avis);
+
+		if($existAvis==0) 
+		{
+			$avisManager->newAvis($avis);
+		}
+
 
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
 	}
@@ -146,7 +152,14 @@ abstract class FrontController
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
 	}
 
-
+	public static function deleteAvis($id_avis, $id_nounou)
+	{
+		$avis = new Avis(['id'=>$id_avis, 'id_nounou'=>$id_nounou]);
+		$avisManager = new AvisManager();
+		$avisManager->deleteAvis($avis);
+		
+		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
+	}
 
 
 	

@@ -5,7 +5,24 @@
 	display: inline-flex;
 	width: 100%;
 }
+#infos_nounou {
+	margin: auto;
+}
 #map {
 	height: 450px;
 	width : 50%;
+	margin: auto;
+}
+h2 {
+	text-align: center;
+}
+#avis_nounou p {
+	text-align: center;
+}
+#table_avis, #table_nounous {
+	margin: auto;
+	width: 70%;
+}
+#table_avis td, #table_avis th, #table_nounous td, #table_nounou th {
+	border: 1px solid black;
 }
