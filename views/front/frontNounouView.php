@@ -49,12 +49,12 @@
 
 
 <div id="contact_avis_nous">
-	<?php if(isset($_SESSION['profil']) && $_SESSION['profil'] = "parent") { ?>
+	<?php if(isset($_SESSION['profil']) && $_SESSION['profil'] == "parent") { ?>
 		
 		<?php if(isset($_SESSION['avis']) && $_SESSION['avis'] == "clear") { ?>
 			<div id="set_avis_nounou">
 				<h2>Notez votre nounou</h2>
-				<div id="formulaire_avis">
+				<div class="formulaire_avis">
 	    			<form action="index.php?action=addAvis&amp;id=<?= $nounou->id(); ?>)" method="POST">
 	       				<label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>" disabled="disabled"> </label> <br/> 
 						<label for="departement"> Note  : 
@@ -78,18 +78,40 @@
 			</div>
 		<?php } else { ?>
 			<div>
-				<h2>Avis enregistré</h2>
-				<p>Votre avis a déjà été enregistré</p>
+
+				<h3>Votre avis :</h3>
+				<div class="formulaire_avis">
+	    			<form action="index.php?action=updateAvis&amp;id=<?= $nounou->id(); ?>)" method="POST">
+						<p> Note actuelle : <?= $avisOnFile->note() ?> </p>
+						<label for="departement"> Changer la note  : 
+							<select required name="note" id="note">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+							</select> 
+						</label> <br/>
+						<label for="contenu"> Commentaire : <input type="text" name="contenu" id="contenu" value="<?= $avisOnFile->contenu() ?>" required> </label>
+	        			<input type="submit" value="Modifier mon avis"/>      
+	    			</form>
+				</div>
 			</div>
 		<?php } ?>
 
 		<div id="contact_nounou">
 			<h2>Contacter la nounou</h2>
-			<span>Formulaire de contact à venir</span>
+			<span>Adresse mail de la nounou</span>
+			<p> <?= $nounou->email(); ?> </p>
 		</div>
 
 	<?php } else { ?>
-		<h2>Connectez-vous pour contacter la nounou ou laisser un avis</h2>
+		<h2>Connectez-vous comme parent pour obtenir l'email de la nounou ou laisser un avis</h2>
 		<a href="index.php?action=login">Page de connexion</a>
 	<?php } ?>
 </div>

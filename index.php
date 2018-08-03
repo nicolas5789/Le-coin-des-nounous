@@ -64,6 +64,10 @@ if(isset($_action)) {
 			FrontController::addAvis($_GET['id']);
 			break;
 
+		case "updateAvis":
+			FrontController::updateAvis($_GET['id']);
+			break;
+
 		case "logout":
 			session_destroy();
 			header("Location: index.php");

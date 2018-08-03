@@ -3,7 +3,7 @@ require_once("model/Database.php");
 
 class AvisManager extends Database 
 {
-	public function newAvis($avis) 
+	public function newAvis($avis) //CREATE
 	{
 		$id_nounouSafe = htmlspecialchars($avis->id_nounou());
 		$pseudo_parentSafe = htmlspecialchars($avis->pseudo_parent());
@@ -13,6 +13,30 @@ class AvisManager extends Database
 		$db = $this->dbConnect();
 		$req = $db->prepare("INSERT INTO avis(id_nounou, pseudo_parent, note, contenu) VALUES(?, ?, ?, ?) ");
 		$req->execute(array($id_nounouSafe, $pseudo_parentSafe, $noteSafe, $contenuSafe));
+	}
+
+	public function getAvis($targetAvis) //READ
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM avis WHERE id_nounou= ? AND pseudo_parent = ?");
+		$req->execute(array($targetAvis->id_nounou(), $targetAvis->pseudo_parent()));
+		$avisOnFile = $req->fetch(PDO::FETCH_ASSOC);
+
+		if($avisOnFile!= false){
+			return new Avis($avisOnFile);
+		}
+	}
+
+	public function updateAvis($avis) // UPDATE
+	{
+		$id_nounouSafe = htmlspecialchars($avis->id_nounou());
+		$pseudo_parentSafe = htmlspecialchars($avis->pseudo_parent());
+		$noteSafe = htmlspecialchars($avis->note());
+		$contenuSafe = htmlspecialchars($avis->contenu());
+
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE avis SET note= ?, contenu= ? WHERE id_nounou= ? AND pseudo_parent= ? ");
+		$req->execute(array($noteSafe, $contenuSafe, $id_nounouSafe, $pseudo_parentSafe));
 	}
 
 	public function listAvis($targetNounou)

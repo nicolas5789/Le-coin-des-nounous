@@ -29,6 +29,12 @@ abstract class FrontController
 		$listingAvis = $avisManager->listAvis($targetNounou);
 		$noteMoyenne = $avisManager->average($targetNounou);
 
+		//affichage de l'avis déjà enregistré
+		if(isset($_SESSION['profil']) && isset($_SESSION['pseudo']) && $_SESSION['profil'] == "parent") {
+			$targetAvis = new Avis(['id_nounou'=>$idNounou, 'pseudo_parent'=>$_SESSION['pseudo']]);
+			$avisOnFile = $avisManager->getAvis($targetAvis);
+		}
+
 		//vérification si avis déjà donné
 		$listPseudo_parents = [];
 		foreach($listingAvis as $avis):
@@ -127,6 +133,15 @@ abstract class FrontController
 		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
 		$avisManager = new AvisManager();
 		$avisManager->newAvis($avis);
+
+		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
+	}
+
+	public static function updateAvis($id_nounou)
+	{
+		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
+		$avisManager = new AvisManager();
+		$avisManager->updateAvis($avis);
 
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
 	}
