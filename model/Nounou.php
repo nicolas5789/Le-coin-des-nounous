@@ -12,6 +12,7 @@ class Nounou
 	private $_place_dispo;
 	private $_ville;
 	private $_departement;
+	private $_signalement;
 
 	public function __construct(array $data)
 	{
@@ -44,6 +45,9 @@ class Nounou
 		}
 		if(isset($data['departement'])) {
 			$this->setDepartement($data['departement']);
+		}
+		if(isset($data['signalement'])) {
+			$this->setSignalement($data['signalement']);
 		}
 	}
 
@@ -123,6 +127,14 @@ class Nounou
 		}
 	}
 
+	public function setSignalement($signalement)
+	{
+		$signalement = (int) $signalement;
+		if ($signalement >= 0) {
+			$this->_signalement = $signalement;
+		}
+	}
+
 
 //getters
 
@@ -165,5 +177,9 @@ class Nounou
 	public function departement()
 	{
 		return $this->_departement;
+	}
+	public function signalement()
+	{
+		return $this->_signalement;
 	}
 }

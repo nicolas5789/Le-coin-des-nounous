@@ -16,6 +16,8 @@
 
 		<p> Note moyenne de <?= $nounou->pseudo(); ?> : <?php echo $noteMoyenne['AVG(note)']; ?> </p>
 
+		<p><a href="index.php?action=reportNounou&amp;idNounou=<?= $nounou->id(); ?>">Signaler le profil</a></p>
+
 	</div>
 
 <div id="map"></div>
@@ -31,6 +33,7 @@
 			<th>Pseudo</th>
 			<th>Commentaires</th>
 			<th>Notes</th>
+			<th>Signaler</th>
 		</tr>
 		
 		<?php foreach($listingAvis as $avis): ?>
@@ -38,6 +41,7 @@
 				<td> <?= $avis->pseudo_parent() ?></td>
 				<td> <?= $avis->contenu() ?></td>
 				<td> <?= $avis->note() ?>/10</td>
+				<td><a href="index.php?action=reportAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $nounou->id(); ?>">Signaler cet avis</a></td>
 			</tr>
 		<?php endforeach ?>	
 

@@ -3,7 +3,7 @@ require_once("model/Database.php");
 
 class ParentManager extends Database 
 {
-	public function newParent($parent)
+	public function newParent($parent) // CREATE
 	{
 		$password = htmlspecialchars($parent->password());
 		
@@ -20,14 +20,56 @@ class ParentManager extends Database
 		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $villeSafe, $departementSafe));
 	}
 
-	public function getParent($targetParent)
+	public function getParent($targetParent) // READ
 	{
-		//READ
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM parents WHERE pseudo= ?");
+		$req->execute(array($targetParent->pseudo()));
+		$parent = $req->fetch(PDO::FETCH_ASSOC);
+
+		return new PereMere($parent);
+
 	}
 
-	//UPDATE
+	public function updateParent($parent) // UPDATE
+	{
+		$password = htmlspecialchars($parent->password());
+		
+		$pseudoSafe = htmlspecialchars($parent->pseudo());
+		$nomSafe = htmlspecialchars($parent->nom());
+		$prenomSafe = htmlspecialchars($parent->prenom());
+		$emailSafe = htmlspecialchars($parent->email());
+		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
+		$villeSafe = htmlspecialchars($parent->ville());
+		$departementSafe = htmlspecialchars($parent->departement());
+		$pseudoCurrent = $_SESSION['pseudo'];
 
-	//DELETE
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE parents SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, ville= ?, departement= ? WHERE pseudo= ?");
+		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $villeSafe, $departementSafe, $pseudoCurrent));
+	}
+
+	public function deleteParent($targetParent) //DELETE
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("DELETE FROM parents WHERE pseudo= ?");
+		$req->execute(array($targetParent->pseudo()));
+	}
+
+	public function listAllParents()
+	{
+		$parents = [];
+
+		$db = $this->dbConnect();
+		$req = $db->query("SELECT * FROM parents ORDER BY id DESC");
+		
+		while($data = $req->fetch(PDO::FETCH_ASSOC))
+		{
+			$parents[] = new PereMere($data);
+		}
+
+		return $parents;
+	}
 
 	//contrôle le mdp en fonction du pseudo
 	public function accessParent($parent)
@@ -41,10 +83,9 @@ class ParentManager extends Database
 		if($parentOnFile !== false) {
 			return new PereMere($parentOnFile);
 		}
-
 	}
 
-		//verifie si le profil existe déjà dans la db
+	//verifie si le profil existe déjà dans la db
 	public function existParent($targetParent) 
 	{
 		$db = $this->dbConnect();

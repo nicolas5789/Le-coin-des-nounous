@@ -18,6 +18,9 @@ if(isset($_GET["idNounou"])) {
 
 if(isset($_action)) {
 	switch ($_action) {
+
+		//front 
+
 		case "home":
 			FrontController::home();
 			break;
@@ -56,7 +59,7 @@ if(isset($_action)) {
 			FrontController::login();
 			break;
 
-		case "connect":
+		case "connect": 
 			FrontController::connect();
 			break;
 
@@ -76,6 +79,15 @@ if(isset($_action)) {
 		}
 			break;
 
+		case "reportAvis":
+		if(isset($_GET['idAvis']) && isset($_idNounou) && $_GET['idAvis'] > 0 && $_idNounou > 0) {
+			FrontController::reportAvis($_GET['idAvis'], $_idNounou);
+		} else {
+			FrontController::home();
+		}
+			break;
+
+
 		case "deleteAvis":
 		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {
 			FrontController::deleteAvis($_GET['idAvis'], $_GET['idNounou']);
@@ -83,6 +95,87 @@ if(isset($_action)) {
 			FrontController::home();
 		}
 			break;
+
+		case "nounouProfil":
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'nounou') {
+			FrontController::nounouProfil($_SESSION['pseudo']);
+		} else {
+			FrontController::home();
+		}
+			break;
+
+		case "editNounou":
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'nounou') {
+			FormController::editNounou($_SESSION['pseudo']);
+		} else {
+			FrontController::home();
+		}
+			break;
+
+		case "reportNounou":
+		if(isset($_idNounou) && $_idNounou > 0) {
+			FrontController::reportNounou($_idNounou);
+		} else {
+			FrontController::home();
+		}
+			break;
+
+
+		case "deleteNounou":
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'nounou') {
+			FrontController::deleteNounou($_SESSION['pseudo']);
+			session_destroy();
+		} else {
+			FrontController::home();
+		}
+			break;
+
+
+		case "parentProfil" :
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'parent') {
+			FrontController::parentProfil($_SESSION['pseudo']);
+		} else {
+			FrontController::home();
+		}
+			break;
+
+		case "editParent":
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'parent') {
+			FormController::editParent($_SESSION['pseudo']);
+		} else {
+			FrontController::home();
+		}
+			break;
+
+		case "deleteParent":
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'parent') {
+			FrontController::deleteParent($_SESSION['pseudo']);
+			session_destroy();
+		} else {
+			FrontController::home();
+		}
+			break;
+
+		//admin
+
+		case "adminLogin":
+			AdminController::adminLogin();
+			break;
+
+		case "adminConnect":
+			AdminController::adminConnect();
+			break;
+
+		case "adminPanel":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminPanel();	
+			} else {
+				FrontController::home();
+			}
+			break;
+			
+
+		//mutual
 
 		case "logout":
 			session_destroy();

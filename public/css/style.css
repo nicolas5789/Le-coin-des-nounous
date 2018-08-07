@@ -19,10 +19,10 @@ h2 {
 #avis_nounou p {
 	text-align: center;
 }
-#table_avis, #table_nounous {
+#table_avis, #table_nounous, #table_parents {
 	margin: auto;
 	width: 70%;
 }
-#table_avis td, #table_avis th, #table_nounous td, #table_nounou th {
+#table_avis td, #table_avis th, #table_nounous td, #table_nounou th, #table_parents th, #table_parents td {
 	border: 1px solid black;
 }

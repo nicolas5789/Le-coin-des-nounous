@@ -1,6 +1,16 @@
 <?php
+/*
 require("model/Autoloader.php");
 Autoloader::register();
+*/
+require("model/Avis.php");
+require("model/AvisManager.php");
+require("model/Nounou.php");
+require("model/NounouManager.php");
+require("model/ParentManager.php");
+require("model/PereMere.php");
+require("model/AdministrateurManager.php");
+require("model/Administrateur.php");
 
 abstract class FrontController
 {
@@ -36,17 +46,20 @@ abstract class FrontController
 		}
 
 		//vérification si avis déjà donné
-		$listPseudo_parents = [];
-		foreach($listingAvis as $avis):
-			$listPseudo_parents[] = $avis->pseudo_parent();
-		endforeach;
+		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'parent')
+		{
+			$listPseudo_parents = [];
+			foreach($listingAvis as $avis):
+				$listPseudo_parents[] = $avis->pseudo_parent();
+			endforeach;
 
-		if(in_array($_SESSION['pseudo'], $listPseudo_parents))
-		{
-			$_SESSION['avis'] = "done";
-		} else 
-		{
-			$_SESSION['avis'] = "clear";
+			if(in_array($_SESSION['pseudo'], $listPseudo_parents))
+			{
+				$_SESSION['avis'] = "done";
+			} else 
+			{
+				$_SESSION['avis'] = "clear";
+			}
 		}
 
 		require("views/front/frontNounouView.php");
@@ -57,9 +70,52 @@ abstract class FrontController
 		require("views/front/frontNewNounouFormView.php");
 	}
 
+	public static function nounouProfil($pseudoNounou)
+	{
+		$targetNounou = new Nounou(['pseudo'=>$pseudoNounou]);
+		$nounouManager = new NounouManager();
+		$nounou = $nounouManager->getNounouByPseudo($targetNounou);
+
+		require("views/front/frontNounouProfilView.php");
+	}
+
+	public static function reportNounou($idNounou)
+	{
+		$nounou = new Nounou(['id'=>$idNounou]);
+		$nounouManager = new NounouManager();
+		$nounouManager->reportNounou($nounou);
+
+		header("Location: index.php?action=showNounou&idNounou=".$idNounou);
+	}
+
+	public static function deleteNounou($pseudoNounou)
+	{
+		$targetNounou = new Nounou(['pseudo'=>$pseudoNounou]);
+		$nounouManager = new NounouManager();
+		$nounouManager->deleteNounou($targetNounou);
+	}
+
 	public static function newParentForm()
 	{
 		require("views/front/frontNewParentFormView.php");
+	}
+
+	public static function parentProfil($pseudoParent)
+	{
+		$targetParent = new PereMere(['pseudo'=>$pseudoParent]);
+		$parentManager = new ParentManager();
+		$parent = $parentManager->getParent($targetParent);
+		
+		require("views/front/frontParentProfilView.php");
+	}
+
+	public static function deleteParent($pseudoParent)
+	{
+		$targetParent = new PereMere(['pseudo'=>$pseudoParent]);
+		$parentManager = new ParentManager();
+		$parentManager->deleteParent($targetParent);
+
+		header("Location: index.php");
 	}
 
 	public static function login()
@@ -150,6 +206,15 @@ abstract class FrontController
 		$avisManager->updateAvis($avis);
 
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
+	}
+
+	public static function reportAvis($idAvis, $idNounou)
+	{
+		$avis = new Avis(['id'=>$idAvis]);
+		$avisManager = new AvisManager();
+		$avisManager->reportAvis($avis);
+
+		header("Location: index.php?action=showNounou&idNounou=".$idNounou);
 	}
 
 	public static function deleteAvis($id_avis, $id_nounou)

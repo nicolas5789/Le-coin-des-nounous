@@ -43,6 +43,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nous contacter</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php?action=adminLogin">Admin</a>
+				</li>
 				<?php if(isset($_SESSION['pseudo'])) { ?>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Bonjour <?= $_SESSION['pseudo']; ?> (<?= $_SESSION['profil']; ?>)</a>
@@ -51,6 +54,22 @@
 					<a class="nav-link" href="index.php?action=logout">Déconnexion</a>
 				</li>
 				<?php } ?>
+
+
+
+				<?php if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') { ?>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php?action=parentProfil&amp;pseudo=<?= $_SESSION['pseudo']?>">Editer mon profil parent</a>	
+				</li>
+				<?php } elseif(isset($_SESSION['profil']) && $_SESSION['profil'] == 'nounou') {  ?>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php?action=nounouProfil">Editer mon profil nounou</a>	
+				</li>
+				<?php } ?>
+
+
+
+
 			</ul>
 		</div>
 	</nav>

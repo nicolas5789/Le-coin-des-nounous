@@ -7,6 +7,7 @@ class Avis
 	private $_pseudo_parent;
 	private $_note;
 	private $_contenu;
+	private $_signalement;
 	
 	public function __construct(array $data)
 	{
@@ -24,6 +25,9 @@ class Avis
 		}
 		if(isset($data['contenu'])) {
 			$this->setContenu($data['contenu']);
+		}
+		if(isset($data['signalement'])) {
+			$this->setSignalement($data['signalement']);
 		}
 	}
 
@@ -67,6 +71,14 @@ class Avis
 		}
 	}
 
+	public function setSignalement($signalement)
+	{
+		$signalement = (int) $signalement;
+		if ($signalement >= 0) {
+			$this->_signalement = $signalement;
+		}
+	}
+
 //getters
 
 	public function id()
@@ -88,5 +100,9 @@ class Avis
 	public function contenu()
 	{
 		return $this->_contenu;
+	}
+	public function signalement()
+	{
+		return $this->_signalement;
 	}
 }

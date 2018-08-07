@@ -4,7 +4,7 @@
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>Formulaire d'inscription NOUNOUS</h2>
-        <p class="lead">Remplissez les champs ci dessous pour vous inscire</p>
+        <p class="lead">Remplissez les champs ci dessous pour vous inscrire</p>
     </div>
 </div>
 
@@ -23,14 +23,14 @@
         <label for="ville"> Ville : <input type="text" name="ville" id="ville" required> </label>  <br/> 
         <label for="departement"> Département  : 
             <select required name="departement" id="departement">
-                <option>75</option>
-                <option>78</option>
-                <option>92</option>
-                <option>93</option>
-                <option>94</option>
-                <option>95</option>
-                <option>77</option>
-            </select> 
+                <option value="75">Paris</option>
+                <option value="78">Yvelines</option>
+                <option value="92">Hauts de Seine</option>
+                <option value="93">Seine Saint Denis</option>
+                <option value="94">Val de Marne</option>
+                <option value="95">Val d'Oise</option>
+                <option value="77">Seine et Marne</option>
+            </select>  
         </label> <br/> 
      
         <input type="submit" value="Envoyer"/>      

@@ -62,6 +62,21 @@ class AvisManager extends Database
 		return $listingAvis;
 	}
 
+	public function listAllAvis()
+	{
+		$listAvis = [];
+
+		$db = $this->dbConnect();
+		$req = $db->query("SELECT * FROM avis ORDER BY signalement DESC");
+		
+		while($data = $req->fetch(PDO::FETCH_ASSOC))
+		{
+			$listAvis[] = new Avis($data);
+		}
+
+		return $listAvis;
+	}
+
 	public function existAvis($avis)
 	{
 		$db = $this->dbConnect();
@@ -81,5 +96,12 @@ class AvisManager extends Database
 		$noteMoyenne = $req->fetch(PDO::FETCH_ASSOC);
 
 		return $noteMoyenne;
+	}
+
+	public function reportAvis($avis)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE avis SET signalement= signalement+1 WHERE id= ?");
+		$req->execute(array($avis->id()));
 	}
 }

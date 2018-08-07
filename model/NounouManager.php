@@ -42,6 +42,22 @@ class NounouManager extends Database
 		return $nounous;
 	}
 
+	//affichage de toutes les nounous
+	public function listAllNounous()
+	{
+		$nounous = [];
+
+		$db = $this->dbConnect();
+		$req = $db->query("SELECT * FROM nounous ORDER BY signalement DESC");
+		
+		while($data = $req->fetch(PDO::FETCH_ASSOC))
+		{
+			$nounous[] = new Nounou($data);
+		}
+
+		return $nounous;
+	}
+
 	//affichage du profil d'une nounou
 	public function getNounou($targetNounou)
 	{
@@ -54,16 +70,52 @@ class NounouManager extends Database
 		return new Nounou($nounou);
 	}
 
-	//modifier un profil de nounou (UPDATE)
-	public function editNounou()
+	//affichage du profil d'une nounou par pseudo
+	public function getNounouByPseudo($targetNounou)
 	{
-		//idem que new en update avec un id d'objet en param	
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM nounous WHERE pseudo= ?");
+		$req->execute(array($targetNounou->pseudo()));
+		
+		$nounou = $req->fetch(PDO::FETCH_ASSOC);
+
+		return new Nounou($nounou);
+	}
+
+	//modifier un profil de nounou (UPDATE)
+	public function updateNounou($nounou)
+	{
+		$password = htmlspecialchars($nounou->password());
+		
+		$pseudoSafe = htmlspecialchars($nounou->pseudo());
+		$nomSafe = htmlspecialchars($nounou->nom());
+		$prenomSafe = htmlspecialchars($nounou->prenom());
+		$emailSafe = htmlspecialchars($nounou->email());
+		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
+		$experienceSafe = htmlspecialchars($nounou->experience());
+		$dispoSafe = htmlspecialchars($nounou->place_dispo());
+		$villeSafe = htmlspecialchars($nounou->ville());
+		$departementSafe = htmlspecialchars($nounou->departement());
+		$pseudoCurrent = $_SESSION['pseudo'];
+	
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE nounous SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, experience= ?, place_dispo= ?, ville= ?, departement= ? WHERE pseudo= ? ");
+		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $experienceSafe, $dispoSafe, $villeSafe, $departementSafe, $pseudoCurrent));	
+	}
+
+	public function reportNounou($nounou)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE nounous SET signalement= signalement+1 WHERE id= ?");
+		$req->execute(array($nounou->id()));
 	}
 
 	//supprimer le profil d'une nounou (DELETE)
-	public function deleteNounou()
+	public function deleteNounou($targetNounou)
 	{
-		//
+		$db = $this->dbConnect();
+		$req= $db->prepare("DELETE FROM nounous WHERE pseudo= ?");
+		$req->execute(array($targetNounou->pseudo()));
 	}
 
 	//verifie si le profil existe déjà dans la db
