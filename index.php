@@ -173,6 +173,47 @@ if(isset($_action)) {
 				FrontController::home();
 			}
 			break;
+
+		case "adminEditNounou":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminEditNounou($_idNounou);
+			} else {
+				FrontController::home();
+			}
+			break;
+
+
+		case "adminEditParent":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminEditParent($_GET['pseudo']);	
+			} else {
+				FrontController::home();
+			}
+			break;
+
+		case "adminUpdateParent":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				FormController::editParent($_GET['pseudo']);	
+			} else {
+				FrontController::home();
+			}
+			break;
+
+		case "adminDeleteParent":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				FrontController::deleteParent($_GET['pseudo']);	
+			} else {
+				FrontController::home();
+			}
+			break;
+
+		case "adminEditAvis":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminEditAvis();
+			} else {
+				FrontController::home();
+			}
+
 			
 
 		//mutual

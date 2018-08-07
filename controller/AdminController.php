@@ -46,6 +46,25 @@ abstract class AdminController
 		require("views/admin/adminPanelView.php");
 	}
 
+	public static function adminEditParent($pseudoParent)
+	{
+		$parentTarget = new PereMere(['pseudo'=>$pseudoParent]);
+		$parentManager = new ParentManager();
+		$parent = $parentManager->getParent($parentTarget);
+
+		require("views/admin/adminEditParentView.php");
+	}
+
+	public static function adminEditNounou($idNounou)
+	{
+		$nounouTarget = new Nounou(['id'=>$idNounou]);
+		$nounouManager = new NounouManager();
+		$avisManager = new AvisManager();
+		$listingAvis = $avisManager->listAvis($nounouTarget);
+		$nounou = $nounouManager->getNounou($nounouTarget);
+
+		require("views/admin/adminEditNounouView.php");
+	}
 
 
 

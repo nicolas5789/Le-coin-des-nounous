@@ -42,7 +42,7 @@ class ParentManager extends Database
 		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
 		$villeSafe = htmlspecialchars($parent->ville());
 		$departementSafe = htmlspecialchars($parent->departement());
-		$pseudoCurrent = $_SESSION['pseudo'];
+		$pseudoCurrent = $_SESSION['pseudoCurrent'];
 
 		$db = $this->dbConnect();
 		$req = $db->prepare("UPDATE parents SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, ville= ?, departement= ? WHERE pseudo= ?");

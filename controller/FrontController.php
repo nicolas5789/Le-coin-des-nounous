@@ -115,7 +115,12 @@ abstract class FrontController
 		$parentManager = new ParentManager();
 		$parentManager->deleteParent($targetParent);
 
-		header("Location: index.php");
+		if($_SESSION['profil'] == 'admin'){
+			header("Location: index.php?action=adminPanel");
+		} else {
+			header("Location: index.php");	
+		}
+		
 	}
 
 	public static function login()
