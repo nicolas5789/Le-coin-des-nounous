@@ -25,7 +25,7 @@
         <p>Département enregistré : <?= $nounou->departement(); ?></p>
         <label for="departement"> Mofifier le département  : 
             <select required name="departement" id="departement">
-                <option value="75">Paris</option>
+                <option value="75">Paris</option> 
                 <option value="78">Yvelines</option>
                 <option value="92">Hauts de Seine</option>
                 <option value="93">Seine Saint Denis</option>

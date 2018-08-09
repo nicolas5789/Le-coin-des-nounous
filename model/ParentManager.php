@@ -91,9 +91,38 @@ class ParentManager extends Database
 		$db = $this->dbConnect();
 		$req = $db->prepare("SELECT * FROM parents WHERE pseudo = ? OR email = ?");
 		$req->execute(array($targetParent->pseudo(), $targetParent->email()));
-		$count_req = $req->fetchAll();
-		$existParent = count($count_req);
+		
+		$existParent = $req->fetch(PDO::FETCH_ASSOC);
+		if($existParent == TRUE) {
+			return new PereMere($existParent);
+		}
+		//$count_req = $req->fetchAll();
+		//$existParent = count($count_req);
 
-		return $existParent;
+		//return $existParent;
 	}
+
+	public function existPseudoParent($targetParent) 
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM parents WHERE pseudo = ?");
+		$req->execute(array($targetParent->pseudo()));
+		$count_req = $req->fetchAll();
+		$existPseudoParent = count($count_req);
+
+		return $existPseudoParent;
+	}
+
+	public function existMailParent($targetParent)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM parents WHERE email = ?");
+		$req->execute(array($targetParent->email()));
+		$count_req = $req->fetchAll();
+		$existMailParent = count($count_req);
+
+		return $existMailParent;
+	}
+
+
 }

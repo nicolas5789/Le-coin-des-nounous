@@ -124,11 +124,39 @@ class NounouManager extends Database
 		$db = $this->dbConnect();
 		$req = $db->prepare("SELECT * FROM nounous WHERE pseudo = ? OR email = ?");
 		$req->execute(array($targetNounou->pseudo(), $targetNounou->email()));
-		$count_req = $req->fetchAll();
-		$existNounou = count($count_req);
+		$existNounou = $req->fetch(PDO::FETCH_ASSOC);
+		if($existNounou == TRUE) {
+			return new Nounou($existNounou);
+		}
+		//$count_req = $req->fetchAll();
+		//$existNounou = count($count_req);
 
-		return $existNounou;
+		//return $existNounou;
 	}
+
+	public function existPseudoNounou($targetNounou) 
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM nounous WHERE pseudo = ?");
+		$req->execute(array($targetNounou->pseudo()));
+		$count_req = $req->fetchAll();
+		$existPseudoNounou = count($count_req);
+
+		return $existPseudoNounou;
+	}
+
+	public function existMailNounou($targetNounou) 
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM nounous WHERE email = ?");
+		$req->execute(array($targetNounou->email()));
+		$count_req = $req->fetchAll();
+		$existMailNounou = count($count_req);
+
+		return $existMailNounou;
+	}
+
+
 
 	//contrôle le mdp en fonction du pseudo
 	public function accessNounou($nounou)

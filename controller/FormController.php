@@ -154,10 +154,129 @@ abstract class FormController
 	}
 
 
+	public static function editParent($pseudoParent)
+	{
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement'])) 
+		{
+			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
+			{
+				if($_POST['email'] == $_POST['confirm_email'])
+				{
+					if($_POST['password'] == $_POST['confirm_password'])
+					{
+						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+						$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+						$nounouManager = new NounouManager();
+						$parentManager = new ParentManager();
+
+						$existNounou = $nounouManager->existNounou($nounouToCheck);
+						$existParent = $parentManager->existParent($parentToCheck);	
+
+						$existPseudoParent = $parentManager->existPseudoParent($parentToCheck);
+						$existMailParent = $parentManager->existMailParent($parentToCheck);
+
+						$existPseudoNounou = $nounouManager->existPseudoNounou($parentToCheck);
+						$existMailNounou = $nounouManager->existMailNounou($parentToCheck);
+
+						$parentTarget = new PereMere(['pseudo'=>$pseudoParent]);
+						$parent = $parentManager->getParent($parentTarget);
+
+
+						//if(isset($existParent)){echo "1 parent exist";} 
+						//if(isset($existNounou)){echo "1 nounou exist";}
+
+						
 
 
 
 
+						//Si le pseudo exist dans la db
+							// 1 fois
+								//Si le pseudo saisi = le pseudo de la db
+									//si le mail existe dans la db
+
+							// pseudo déjà pris
+						//modification
+
+						if($_POST['pseudo'] == $pseudoParent)
+						{
+							if($_POST['email'] == $parent->email()) 
+							{
+								echo "modif ok 1";
+							} else
+							{
+								if($existMailParent !== 0 || $existMailNounou !== 0)
+								{
+									echo "mail déjà utlisé 1";
+								} else 
+								{
+									echo "modif ok 2";
+								}
+							}
+						} else 
+						{
+							if($existPseudoParent !== 0 || $existPseudoNounou !== 0)
+							{
+								echo "pseudo utilisé 1";
+							} else
+							{
+								if($_POST['email'] == $parent->email())
+								{
+									echo "ok modif 3";
+								} else
+								{
+									if($existMailParent !== 0 || $existMailNounou !== 0) 
+									{
+										echo "mail déjà utilisé 2";
+									} else 
+									{
+										echo "modif ok 4";
+									}
+								}
+							}
+						}
+						
+
+
+
+						
+						
+						
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					} else 
+					{
+						echo "Les mots de passe doivent être identiques";
+					}
+				} else
+				{
+					echo "Les emails doivent correspondre";
+				}
+			} else 
+			{
+				echo "Tous les champs doivent être remplis";
+			}
+		}
+	}
+
+
+
+/*
 	public static function editParent($pseudoParent)
 	{
 		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement'])) 
@@ -177,11 +296,10 @@ abstract class FormController
 						$existNounou = $nounouManger->existNounou($nounouToCheck);
 						$existParent = $parentManager->existParent($parentToCheck);
 
-
-
+						
 						if($pseudoParent != $_POST['pseudo']) //si changement de pseudo
 						{
-							if ($existNounou > 1 || $existParent > 1 ) //si le pseudo existe stop PROBLEME 
+							if ($existNounou != 0 || $existParent > 1 ) //si le pseudo existe stop PROBLEME 
 							{
 								$_SESSION['editParent_message'] = "Pseudo ou Email déjà utilisé";
 
@@ -212,7 +330,7 @@ abstract class FormController
 							$parentManager = new ParentManager();
 							$_SESSION['pseudoCurrent'] = $pseudoParent;
 							$parentManager->updateParent($parent);
-							$_SESSION['editParent_message'] = "Vos modifications ont bien été prises en compte";
+							$_SESSION['editParent_message'] = "Vos modifications ont bien été prises en compte 2";
 
 							if($_SESSION['profil'] == 'parent') {
 								$_SESSION["pseudo"] = $parent->pseudo();
@@ -264,18 +382,9 @@ abstract class FormController
 
 
 			}
-		} 
-		/*
-		if($_SESSION['profil'] == 'parent') {
-			$_SESSION["pseudo"] = $parent->pseudo();
-			header("Location: index.php?action=parentProfil");	
-		} elseif($_SESSION['profil'] == 'admin') {
-			header("Location: index.php?action=adminEditParent&pseudo=".$parent->pseudo());
-		}
-		*/
-		
+		} 	
 	}
-
+*/
 
 
 
