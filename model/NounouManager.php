@@ -124,14 +124,10 @@ class NounouManager extends Database
 		$db = $this->dbConnect();
 		$req = $db->prepare("SELECT * FROM nounous WHERE pseudo = ? OR email = ?");
 		$req->execute(array($targetNounou->pseudo(), $targetNounou->email()));
-		$existNounou = $req->fetch(PDO::FETCH_ASSOC);
-		if($existNounou == TRUE) {
-			return new Nounou($existNounou);
-		}
-		//$count_req = $req->fetchAll();
-		//$existNounou = count($count_req);
+		$count_req = $req->fetchAll();
+		$existNounou = count($count_req);
 
-		//return $existNounou;
+		return $existNounou;
 	}
 
 	public function existPseudoNounou($targetNounou) 

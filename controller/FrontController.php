@@ -94,8 +94,9 @@ abstract class FrontController
 		$targetAvis = new Avis(['id_nounou'=>$id_nounou]);
 		$nounouManager = new NounouManager();
 		$avisManager = new AvisManager();
-		$nounouManager->deleteNounou($targetNounou);
 		$avisManager->deleteAvisByNounou($targetAvis);
+		$nounouManager->deleteNounou($targetNounou);
+		
 
 		if($_SESSION['profil'] == 'admin'){
 			header("Location: index.php?action=adminPanel");
@@ -124,8 +125,9 @@ abstract class FrontController
 		$targetAvis = new Avis(['pseudo_parent'=>$pseudoParent]);
 		$parentManager = new ParentManager();
 		$avisManager = new AvisManager();
-		$parentManager->deleteParent($targetParent);
 		$avisManager->deleteAvisByParent($targetAvis);
+		$parentManager->deleteParent($targetParent);
+		
 
 		if($_SESSION['profil'] == 'admin'){
 			header("Location: index.php?action=adminPanel");

@@ -104,14 +104,14 @@ class AvisManager extends Database
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare("DELETE FROM avis WHERE id_nounou= ?");
-		$req->execute(array($avis->id_nounou()));
+		$req->execute(array($targetAvis->id_nounou()));
 	}
 
 	public function deleteAvisByParent($targetAvis) 
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare("DELETE FROM avis WHERE pseudo_parent= ?");
-		$req->execute(array($avis->pseudo_parent()));
+		$req->execute(array($targetAvis->pseudo_parent()));
 	}
 
 	public function average($targetNounou)
