@@ -66,6 +66,36 @@ abstract class AdminController
 		require("views/admin/adminEditNounouView.php");
 	}
 
+	public static function adminEditAvis($idAvis, $idNounou)
+	{
+		$avis = new Avis(['id'=>$idAvis, 'pseudo_parent'=>$_POST['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
+		$avisManager = new AvisManager();
+		$avisManager->updateAvisById($avis);
+
+		header("Location: index.php?action=adminEditNounou&idNounou=".$idNounou);
+		
+	}
+
+	public static function adminDeleteAvis($idAvis, $idNounou)
+	{
+		$avis = new Avis(['id'=>$idAvis]);
+		$avisManager = new AvisManager();
+		$avisManager->deleteAvis($avis);
+
+
+
+		header("Location: index.php?action=adminEditNounou&idNounou=".$idNounou);
+	}
+
+	public static function adminPanelDeleteAvis($idAvis)
+	{
+		$avis = new Avis(['id'=>$idAvis]);
+		$avisManager = new AvisManager();
+		$avisManager->deleteAvis($avis);
+
+		header("Location: index.php?action=adminPanel");
+	}
+
 
 
 

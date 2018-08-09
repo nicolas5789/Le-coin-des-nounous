@@ -38,7 +38,7 @@
 
     </form>
 
-        <a href="index.php?action=deleteNounou">Supprimer mon profil</a>
+        <a href="index.php?action=deleteNounou&amp;idNounou=<?= $nounou->id(); ?>">Supprimer mon profil</a>
 
     <?php if(isset($_SESSION['editNounou_message'])) {
         echo $_SESSION['editNounou_message'];

@@ -114,8 +114,8 @@ class NounouManager extends Database
 	public function deleteNounou($targetNounou)
 	{
 		$db = $this->dbConnect();
-		$req= $db->prepare("DELETE FROM nounous WHERE pseudo= ?");
-		$req->execute(array($targetNounou->pseudo()));
+		$req= $db->prepare("DELETE FROM nounous WHERE id= ?");
+		$req->execute(array($targetNounou->id()));
 	}
 
 	//verifie si le profil existe déjà dans la db

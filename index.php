@@ -123,7 +123,7 @@ if(isset($_action)) {
 
 		case "deleteNounou":
 		if(isset($_SESSION['pseudo']) && $_SESSION['profil'] == 'nounou') {
-			FrontController::deleteNounou($_SESSION['pseudo']);
+			FrontController::deleteNounou($_idNounou);
 			session_destroy();
 		} else {
 			FrontController::home();
@@ -182,6 +182,22 @@ if(isset($_action)) {
 			}
 			break;
 
+		case "adminUpdateNounou":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				FormController::editNounou($_GET['pseudo']);	
+			} else {
+				FrontController::home();
+			}
+			break;
+
+		case "adminDeleteNounou":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				FrontController::deleteNounou($_idNounou);	
+			} else {
+				FrontController::home();
+			}
+			break;
+
 
 		case "adminEditParent":
 			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
@@ -209,10 +225,28 @@ if(isset($_action)) {
 
 		case "adminEditAvis":
 			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
-				AdminController::adminEditAvis();
+				AdminController::adminEditAvis($_GET['idAvis'], $_idNounou);
 			} else {
 				FrontController::home();
 			}
+			break;
+
+		case "adminDeleteAvis":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminDeleteAvis($_GET['idAvis'], $_idNounou);
+			} else {
+				FrontController::home();
+			}
+			break;
+
+		case "adminPanelDeleteAvis":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminPanelDeleteAvis($_GET['idAvis']);
+			} else {
+				FrontController::home();
+			}
+			break;
+
 
 			
 

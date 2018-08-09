@@ -88,11 +88,20 @@ abstract class FrontController
 		header("Location: index.php?action=showNounou&idNounou=".$idNounou);
 	}
 
-	public static function deleteNounou($pseudoNounou)
+	public static function deleteNounou($idNounou)
 	{
-		$targetNounou = new Nounou(['pseudo'=>$pseudoNounou]);
+		$targetNounou = new Nounou(['id'=>$idNounou]);
+		$targetAvis = new Avis(['id_nounou'=>$id_nounou]);
 		$nounouManager = new NounouManager();
+		$avisManager = new AvisManager();
 		$nounouManager->deleteNounou($targetNounou);
+		$avisManager->deleteAvisByNounou($targetAvis);
+
+		if($_SESSION['profil'] == 'admin'){
+			header("Location: index.php?action=adminPanel");
+		} else {
+			header("Location: index.php");	
+		}
 	}
 
 	public static function newParentForm()
@@ -112,8 +121,11 @@ abstract class FrontController
 	public static function deleteParent($pseudoParent)
 	{
 		$targetParent = new PereMere(['pseudo'=>$pseudoParent]);
+		$targetAvis = new Avis(['pseudo_parent'=>$pseudoParent]);
 		$parentManager = new ParentManager();
+		$avisManager = new AvisManager();
 		$parentManager->deleteParent($targetParent);
+		$avisManager->deleteAvisByParent($targetAvis);
 
 		if($_SESSION['profil'] == 'admin'){
 			header("Location: index.php?action=adminPanel");

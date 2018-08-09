@@ -26,3 +26,8 @@ h2 {
 #table_avis td, #table_avis th, #table_nounous td, #table_nounou th, #table_parents th, #table_parents td {
 	border: 1px solid black;
 }
+#footer {
+	text-align: center;
+	background-color: #343a40;
+	margin-top: 100px;
+}

@@ -39,53 +39,12 @@
 
     </form>
 
-        <a href="index.php?action=adminDeleteNounou&amp;pseudo=<?= $nounou->pseudo(); ?>">Supprimer ce profil</a>
+        <a href="index.php?action=adminDeleteNounou&amp;pseudo=<?= $nounou->id(); ?>">Supprimer ce profil</a>
 
     <?php if(isset($_SESSION['editNounou_message'])) {
         echo $_SESSION['editNounou_message'];
     } ?>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div id="avis_nounou">
@@ -103,7 +62,7 @@
 		
 		<?php foreach($listingAvis as $avis): ?>
 			<tr>
-				<form>
+				<form action="index.php?action=adminEditAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $avis->id_nounou(); ?>" method="POST">
 					<td><label for="pseudo"><input type="text" name="pseudo" id="pseudo" value="<?= $avis->pseudo_parent(); ?>" required> </label></td>
 					<td><label for="contenu"><input type="text" name="contenu" id="contenu" value="<?= $avis->contenu(); ?>" required> </label></td>
 					<td>
@@ -125,8 +84,8 @@
 						</label>
 					</td>
 					<td><?= $avis->signalement(); ?></td>
-					<td><a href="">Valider</a></td>
-					<td><a href="">Supprimer</a></td>
+					<td><input type="submit" value="Valider"/></td>  
+					<td><a href="index.php?action=adminDeleteAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $avis->id_nounou(); ?>">Supprimer</a></td>
 				</form>
 			</tr>
 		<?php endforeach ?>	
@@ -134,6 +93,8 @@
 	</table>
 	
 </div>
+
+<h2><a href="index.php?action=adminLogin">Revenir au Panel</a></h2>
 
 <!--
 

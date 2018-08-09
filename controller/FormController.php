@@ -169,8 +169,6 @@ abstract class FormController
 					if($_POST['password'] == $_POST['confirm_password'])
 					{
 
-						//$nounouToCheck = new Nounou(['pseudo'=>$_SESSION['pseudo'], 'email'=>$_POST['email']]);
-						//$parentToCheck = new PereMere(['pseudo'=>$_SESSION['pseudo'], 'email'=>$_POST['email']]);
 						$nounouToCheck = new Nounou(['pseudo'=>$pseudoParent, 'email'=>$_POST['email']]);
 						$parentToCheck = new PereMere(['pseudo'=>$pseudoParent, 'email'=>$_POST['email']]);
 						$nounouManger = new NounouManager();
@@ -180,38 +178,101 @@ abstract class FormController
 						$existParent = $parentManager->existParent($parentToCheck);
 
 
-						if ($existNounou > 1 || $existParent > 1)
+
+						if($pseudoParent != $_POST['pseudo']) //si changement de pseudo
 						{
-							$_SESSION['editParent_message'] = "Pseudo ou Email déjà utilisé";
-						} else 
+							if ($existNounou > 1 || $existParent > 1 ) //si le pseudo existe stop PROBLEME 
+							{
+								$_SESSION['editParent_message'] = "Pseudo ou Email déjà utilisé";
+
+
+								if($_SESSION['profil'] == 'parent') {
+									header("Location: index.php?action=parentProfil");	
+								} elseif($_SESSION['profil'] == 'admin') {
+									header("Location: index.php?action=adminEditParent&pseudo=".$pseudoParent);
+								}
+							} else //sinon ok
+							{
+								$parent = new PereMere(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+								$parentManager = new ParentManager();
+								$_SESSION['pseudoCurrent'] = $pseudoParent;
+								$parentManager->updateParent($parent);
+								$_SESSION['editParent_message'] = "Vos modifications ont bien été prises en compte";
+
+								if($_SESSION['profil'] == 'parent') {
+									$_SESSION["pseudo"] = $parent->pseudo();
+									header("Location: index.php?action=parentProfil");	
+								} elseif($_SESSION['profil'] == 'admin') {
+									header("Location: index.php?action=adminEditParent&pseudo=".$parent->pseudo());
+								}
+							}
+						} else //si pas de changement pseudo
 						{
 							$parent = new PereMere(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
 							$parentManager = new ParentManager();
 							$_SESSION['pseudoCurrent'] = $pseudoParent;
 							$parentManager->updateParent($parent);
 							$_SESSION['editParent_message'] = "Vos modifications ont bien été prises en compte";
+
+							if($_SESSION['profil'] == 'parent') {
+								$_SESSION["pseudo"] = $parent->pseudo();
+								header("Location: index.php?action=parentProfil");	
+							} elseif($_SESSION['profil'] == 'admin') {
+								header("Location: index.php?action=adminEditParent&pseudo=".$parent->pseudo());
+							}
 						}
+					
 					} else 
 					{
+
 						$_SESSION['editParent_message'] = "Les mots de passe ne correspondent pas"; 
+
+
+						if($_SESSION['profil'] == 'parent') {
+							header("Location: index.php?action=parentProfil");	
+						} elseif($_SESSION['profil'] == 'admin') {
+							header("Location: index.php?action=adminEditParent&pseudo=".$pseudoParent);
+						}
+
+
 					}
 				} else 
 				{
+
 					$_SESSION['editParent_message'] = "Les adresses email doivent correspondre";
+
+
+					if($_SESSION['profil'] == 'parent') {
+						header("Location: index.php?action=parentProfil");	
+					} elseif($_SESSION['profil'] == 'admin') {
+						header("Location: index.php?action=adminEditParent&pseudo=".$pseudoParent);
+					}
+
 				}
 
 			} else 
 			{
+
 				$_SESSION['editParent_message'] = "Tous les champs ne sont pas remplis";
+
+
+				if($_SESSION['profil'] == 'parent') {
+					header("Location: index.php?action=parentProfil");	
+				} elseif($_SESSION['profil'] == 'admin') {
+					header("Location: index.php?action=adminEditParent&pseudo=".$pseudoParent);
+				}
+
+
 			}
 		} 
-
+		/*
 		if($_SESSION['profil'] == 'parent') {
 			$_SESSION["pseudo"] = $parent->pseudo();
 			header("Location: index.php?action=parentProfil");	
 		} elseif($_SESSION['profil'] == 'admin') {
 			header("Location: index.php?action=adminEditParent&pseudo=".$parent->pseudo());
 		}
+		*/
 		
 	}
 

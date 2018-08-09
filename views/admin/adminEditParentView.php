@@ -7,6 +7,10 @@
     </div>
 </div>
 
+<?php if(isset($_SESSION['editParent_message'])) {
+        echo $_SESSION['editParent_message'];
+    } ?>
+
 <div id="formulaire_newParent" style="text-align: center;">
     <form action="index.php?action=adminUpdateParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
 
@@ -37,9 +41,7 @@
 
         <a href="index.php?action=adminDeleteParent&amp;pseudo=<?= $parent->pseudo(); ?>">Supprimer ce profil</a>
 
-    <?php if(isset($_SESSION['editParent_message'])) {
-        echo $_SESSION['editParent_message'];
-    } ?>
+    
 </div>
 
 <?php $content = ob_get_clean(); ?>

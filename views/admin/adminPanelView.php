@@ -53,6 +53,8 @@
 		<th>Pseudo de l'auteur</th>
 		<th>Commentaire</th>
 		<th>Note</th>
+		<th>Nb signalement(s)</th>
+		<th>Supprimer l'avis</th>
 		<th>Profil de la nounou notée</th>	
 	</tr>
 	<?php foreach ($listAvis as $avis): ?>
@@ -60,7 +62,9 @@
 		<td><?= $avis->pseudo_parent(); ?></td>
 		<td><?= $avis->contenu(); ?></td>
 		<td><?= $avis->note(); ?></td>
-		<td><a href="index.php?action=adminEditAvis&amp;idAvis=<?= $avis->id_nounou(); ?>">Nounou liée</a></td>	
+		<td><?= $avis->signalement(); ?></td>
+		<td><a href="index.php?action=adminPanelDeleteAvis&amp;idAvis=<?= $avis->id(); ?>">Supprimer</a></td>
+		<td><a href="index.php?action=adminEditNounou&amp;idNounou=<?= $avis->id_nounou(); ?>">Nounou liée</a></td>	
 	</tr>
 	<?php endforeach; ?>
 </table>

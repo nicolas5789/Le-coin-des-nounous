@@ -31,6 +31,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">Comment ca marche ?</a>
 				</li>
+				<?php if(!isset($_SESSION['profil'])) { ?>
 				<li class="nav-item">
 					<a class="nav-link" href="index.php?action=newNounouForm">Inscription Nounou</a>
 				</li>
@@ -40,15 +41,13 @@
 				<li class="nav-item">
 					<a class="nav-link" href="index.php?action=login">Connexion</a>
 				</li>
+				<?php } ?>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nous contacter</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="index.php?action=adminLogin">Admin</a>
-				</li>
 				<?php if(isset($_SESSION['pseudo'])) { ?>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Bonjour <?= $_SESSION['pseudo']; ?> (<?= $_SESSION['profil']; ?>)</a>
+					<a class="nav-link" href="index.php?action=<?= $_SESSION['profil'] ?>Profil&amp;pseudo=<?= $_SESSION['pseudo']?>">Bonjour <?= $_SESSION['pseudo']; ?> (<?= $_SESSION['profil']; ?>)</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="index.php?action=logout">Déconnexion</a>
@@ -56,7 +55,7 @@
 				<?php } ?>
 
 
-
+<!--
 				<?php if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') { ?>
 				<li class="nav-item">
 					<a class="nav-link" href="index.php?action=parentProfil&amp;pseudo=<?= $_SESSION['pseudo']?>">Editer mon profil parent</a>	
@@ -66,7 +65,7 @@
 					<a class="nav-link" href="index.php?action=nounouProfil">Editer mon profil nounou</a>	
 				</li>
 				<?php } ?>
-
+-->
 
 
 
@@ -80,6 +79,12 @@
 		<?= $content ?> 
  	</div>
 </section>
+
+<footer class="container-fluid" id="footer">
+	
+	<a class="nav-link" href="index.php?action=adminLogin">Admin</a>
+	
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

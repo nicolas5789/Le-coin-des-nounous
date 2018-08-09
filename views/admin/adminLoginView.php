@@ -1,5 +1,9 @@
 <?php ob_start(); ?>
 
+<?php if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+    header("Location: index.php?action=adminPanel");
+} ?>
+
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">

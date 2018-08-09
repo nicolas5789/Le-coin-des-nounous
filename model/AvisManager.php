@@ -88,6 +88,32 @@ class AvisManager extends Database
 		return $existAvis;
 	}
 
+	public function updateAvisById($avis)
+	{
+		$idSafe = htmlspecialchars($avis->id());
+		$pseudo_parentSafe = htmlspecialchars($avis->pseudo_parent());
+		$noteSafe = htmlspecialchars($avis->note());
+		$contenuSafe = htmlspecialchars($avis->contenu());
+
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE avis SET pseudo_parent= ?, note= ?, contenu= ?, signalement= 0 WHERE id= ?");
+		$req->execute(array($pseudo_parentSafe, $noteSafe, $contenuSafe, $idSafe));
+	}
+
+	public function deleteAvisByNounou($targetAvis) 
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("DELETE FROM avis WHERE id_nounou= ?");
+		$req->execute(array($avis->id_nounou()));
+	}
+
+	public function deleteAvisByParent($targetAvis) 
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("DELETE FROM avis WHERE pseudo_parent= ?");
+		$req->execute(array($avis->pseudo_parent()));
+	}
+
 	public function average($targetNounou)
 	{
 		$db = $this->dbConnect();
