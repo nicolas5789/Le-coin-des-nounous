@@ -19,7 +19,7 @@
         <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
         <label for="experience"> Expérience  : <input type="text" name="experience" id="experience" required value="<?= $nounou->experience(); ?>"> </label> <br/> 
-        <label for="dispo"> Place disponible  : <input type="text" name="dispo" id="dispo" required value="<?= $nounou->place_dispo(); ?>"> </label> <br/> 
+        <label for="place_dispo"> Place disponible  : <input type="text" name="place_dispo" id="place_dispo" required value="<?= $nounou->place_dispo(); ?>"> </label> <br/> 
         <label for="ville"> Ville : <input type="text" name="ville" id="ville" required value="<?= $nounou->ville(); ?>"> </label>  <br/> 
         <p>Département enregistré : <?= $nounou->departement(); ?></p>
         <label for="departement"> Mofifier le département  : 

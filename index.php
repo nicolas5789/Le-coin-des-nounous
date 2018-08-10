@@ -176,7 +176,7 @@ if(isset($_action)) {
 
 		case "adminEditNounou":
 			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
-				AdminController::adminEditNounou($_idNounou);
+				AdminController::adminEditNounou($_GET['pseudo']);
 			} else {
 				FrontController::home();
 			}

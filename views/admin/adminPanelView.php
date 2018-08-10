@@ -20,7 +20,7 @@
 		<td><?= $nb = $nounou->place_dispo(); ?></td>
 		<td><?= $nounou->ville(); ?></td>
 		<td><?= $nounou->signalement(); ?></td>
-		<td><a href="index.php?action=adminEditNounou&amp;idNounou=<?= $nounou->id(); ?>">Découvrir</a></td>
+		<td><a href="index.php?action=adminEditNounou&amp;pseudo=<?= $nounou->pseudo(); ?>">Découvrir</a></td>
 	</tr>
 	<?php endforeach; ?>
 </table>

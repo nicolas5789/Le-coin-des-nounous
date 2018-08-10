@@ -48,96 +48,89 @@ abstract class FormController
 	header("Location: index.php?action=newNounouForm");
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public static function editNounou()
+	public static function editNounou($pseudoNounou)
 	{
-		if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && isset($_POST['dispo']) && isset($_POST['ville']) && isset($_POST['departement'])) 
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && isset($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement'])) 
 		{
-			if(($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['experience']!="") && ($_POST['dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
+			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['experience']!="") && ($_POST['place_dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
 					if($_POST['password'] == $_POST['confirm_password'])
 					{
-						$nounouToCheck = new Nounou(['pseudo'=>$_SESSION['pseudo'], 'email'=>$_POST['email']]);
-						$parentToCheck = new PereMere(['pseudo'=>$_SESSION['pseudo'], 'email'=>$_POST['email']]);
-						$nounouManger = new NounouManager();
+						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+						$nounouManager = new NounouManager();
 						$parentManager = new ParentManager();
 
-						$existNounou = $nounouManger->existNounou($nounouToCheck);
-						$existParent = $parentManager->existParent($parentToCheck);
+						$existPseudoParent = $parentManager->existPseudoParent($nounouToCheck);
+						$existMailParent = $parentManager->existMailParent($nounouToCheck);
+						$existPseudoNounou = $nounouManager->existPseudoNounou($nounouToCheck);
+						$existMailNounou = $nounouManager->existMailNounou($nounouToCheck);
 
+						$nounouTarget = new Nounou(['pseudo'=>$pseudoNounou]);
 
-						if ($existNounou > 1 || $existParent > 1)
-						{
-							$_SESSION['editNounou_message'] = "Pseudo ou Email déjà utilisé";
-						} else 
-						{
-							$nounou = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
-							$nounouManager = new NounouManager();
-							$nounouManager->updateNounou($nounou);
+						$nounou = $nounouManager->getNounouByPseudo($nounouTarget);
 
-							$_SESSION['editNounou_message'] = "Vos modifications ont bien été prises en compte";
-						}
+						//Vérification existance pseudo ou email dans la db
+
+						if($_POST['pseudo'] == $pseudoNounou) {
+							if($_POST['email'] == $nounou->email()) {
+								$update = "ok";
+							} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
+									$_SESSION['editNounou_message'] = "Adresse email déjà utilisée";
+								} else {
+									$update = "ok";
+								}
+						} elseif($existPseudoParent !== 0 || $existPseudoNounou !== 0) {
+								$_SESSION['editNounou_message'] = "Pseudo indisponible";
+							} elseif($_POST['email'] == $nounou->email()) {
+									$update = "ok";
+								} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
+										$_SESSION['editNounou_message'] = "Adresse email déjà utilisée";
+									} else {
+										$update = "ok";
+									}
 					} else 
 					{
-						$_SESSION['editNounou_message'] = "Les mots de passe ne correspondent pas"; 
+						$_SESSION['editNounou_message'] = "Les mots de passe doivent être identiques";
 					}
-				} else 
+				} else
 				{
-					$_SESSION['editNounou_message'] = "Les adresses email doivent correspondre";
+					$_SESSION['editNounou_message'] = "Les emails doivent correspondre";
 				}
-
 			} else 
 			{
-				$_SESSION['editNounou_message'] = "Tous les champs ne sont pas remplis";
+				$_SESSION['editNounou_message'] = "Tous les champs doivent être remplis";
 			}
-		} 
-	$_SESSION["pseudo"] = $nounou->pseudo();
-	header("Location: index.php?action=nounouProfil");	
+		} else {
+			$_SESSION['editNounou_message'] = "Tous les champs doivent être transmis";
+		}
+
+		//Si conditions ok -> update dans la db
+		if(isset($update) && $update == "ok"){
+
+			$nounouToUpdate = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['place_dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+
+			$nounouManager = new NounouManager();
+			$_SESSION['pseudoCurrent'] = $pseudoNounou;
+			$nounouManager->updateNounou($nounouToUpdate); 
+			$_SESSION['editNounou_message'] = "Vos modifications ont bien été prises en compte";
+
+			if($_SESSION['profil'] == 'nounou') {
+			$_SESSION["pseudo"] = $nounouToUpdate->pseudo();
+			header("Location: index.php?action=nounouProfil");	
+			} elseif($_SESSION['profil'] == 'admin') {
+				header("Location: index.php?action=adminEditNounou&pseudo=".$nounouToUpdate->pseudo());
+			}
+
+		} else {
+			if($_SESSION['profil'] == 'nounou') {
+			header("Location: index.php?action=nounouProfil");	
+			} elseif($_SESSION['profil'] == 'admin') {
+				header("Location: index.php?action=adminEditNounou&pseudo=".$pseudoNounou);
+			}
+		}	
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public static function addParent()
 	{

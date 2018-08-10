@@ -80,6 +80,7 @@ class NounouManager extends Database
 		$nounou = $req->fetch(PDO::FETCH_ASSOC);
 
 		return new Nounou($nounou);
+
 	}
 
 	//modifier un profil de nounou (UPDATE)
@@ -96,10 +97,16 @@ class NounouManager extends Database
 		$dispoSafe = htmlspecialchars($nounou->place_dispo());
 		$villeSafe = htmlspecialchars($nounou->ville());
 		$departementSafe = htmlspecialchars($nounou->departement());
-		$pseudoCurrent = $_SESSION['pseudo'];
-	
+		
+		if($_SESSION['profil'] == 'admin') {
+			$pseudoCurrent = $_SESSION['pseudoCurrent'];
+		} else {
+			$pseudoCurrent = $_SESSION['pseudo'];
+			}
+
+
 		$db = $this->dbConnect();
-		$req = $db->prepare("UPDATE nounous SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, experience= ?, place_dispo= ?, ville= ?, departement= ? WHERE pseudo= ? ");
+		$req = $db->prepare("UPDATE nounous SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, experience= ?, place_dispo= ?, ville= ?, departement= ? WHERE pseudo= ?");
 		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $experienceSafe, $dispoSafe, $villeSafe, $departementSafe, $pseudoCurrent));	
 	}
 

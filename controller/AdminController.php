@@ -55,13 +55,16 @@ abstract class AdminController
 		require("views/admin/adminEditParentView.php");
 	}
 
-	public static function adminEditNounou($idNounou)
+	public static function adminEditNounou($pseudoNounou)
 	{
-		$nounouTarget = new Nounou(['id'=>$idNounou]);
+		$nounouTarget = new Nounou(['pseudo'=>$pseudoNounou]);
 		$nounouManager = new NounouManager();
 		$avisManager = new AvisManager();
-		$listingAvis = $avisManager->listAvis($nounouTarget);
-		$nounou = $nounouManager->getNounou($nounouTarget);
+		
+		$nounou = $nounouManager->getNounouByPseudo($nounouTarget);
+
+		$listingAvis = $avisManager->listAvis($nounou);
+		
 
 		require("views/admin/adminEditNounouView.php");
 	}
