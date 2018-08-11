@@ -4,36 +4,42 @@ abstract class FormController
 {
 	public static function addNounou()
 	{
-		if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && isset($_POST['dispo']) && isset($_POST['ville']) && isset($_POST['departement'])) 
+		if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && is_numeric($_POST['experience']) && isset($_POST['dispo']) && is_numeric($_POST['dispo']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
 		{
 			if(($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['experience']!="") && ($_POST['dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
-					if($_POST['password'] == $_POST['confirm_password'])
+					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 					{
-						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$nounouManger = new NounouManager();
-						$parentManager = new ParentManager();
-
-						$existNounou = $nounouManger->existNounou($nounouToCheck);
-						$existParent = $parentManager->existParent($parentToCheck);
-
-						if ($existNounou!=0 || $existParent!=0)
+						if($_POST['password'] == $_POST['confirm_password'])
 						{
-							$_SESSION['form_message'] = "Pseudo ou Email déjà utilisé";
+							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$nounouManger = new NounouManager();
+							$parentManager = new ParentManager();
+
+							$existNounou = $nounouManger->existNounou($nounouToCheck);
+							$existParent = $parentManager->existParent($parentToCheck);
+
+							if ($existNounou!=0 || $existParent!=0)
+							{
+								$_SESSION['form_message'] = "Pseudo ou Email déjà utilisé";
+							} else 
+							{
+								$nounou = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+								$nounouManager = new NounouManager();
+
+								$nounouManager->newNounou($nounou);
+								$_SESSION['form_message'] = "Félicitation, vous pouvez désormais vous connecter avec votre profil";
+							}
 						} else 
 						{
-							$nounou = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
-							$nounouManager = new NounouManager();
-
-							$nounouManager->newNounou($nounou);
-							$_SESSION['form_message'] = "Félicitation, vous pouvez désormais vous connecter avec votre profil";
+							$_SESSION['form_message'] = "Les mots de passe ne correspondent pas"; 
 						}
 					} else 
 					{
-						$_SESSION['form_message'] = "Les mots de passe ne correspondent pas"; 
+						$_SESSION['form_message'] = "Adresse email invalide";	
 					}
 				} else 
 				{
@@ -44,55 +50,64 @@ abstract class FormController
 			{
 				$_SESSION['form_message'] = "Tous les champs ne sont pas remplis";
 			}
-		} 
+		} else 
+		{
+			$_SESSION['form_message'] = "Saisi invalide";
+		}
 	header("Location: index.php?action=newNounouForm");
 	}
 
 	public static function editNounou($pseudoNounou)
 	{
-		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && isset($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement'])) 
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && is_numeric($_POST['experience']) && isset($_POST['place_dispo']) && is_numeric($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
 		{
 			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['experience']!="") && ($_POST['place_dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
-					if($_POST['password'] == $_POST['confirm_password'])
+					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 					{
-						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$nounouManager = new NounouManager();
-						$parentManager = new ParentManager();
+						if($_POST['password'] == $_POST['confirm_password'])
+						{
+							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$nounouManager = new NounouManager();
+							$parentManager = new ParentManager();
 
-						$existPseudoParent = $parentManager->existPseudoParent($nounouToCheck);
-						$existMailParent = $parentManager->existMailParent($nounouToCheck);
-						$existPseudoNounou = $nounouManager->existPseudoNounou($nounouToCheck);
-						$existMailNounou = $nounouManager->existMailNounou($nounouToCheck);
+							$existPseudoParent = $parentManager->existPseudoParent($nounouToCheck);
+							$existMailParent = $parentManager->existMailParent($nounouToCheck);
+							$existPseudoNounou = $nounouManager->existPseudoNounou($nounouToCheck);
+							$existMailNounou = $nounouManager->existMailNounou($nounouToCheck);
 
-						$nounouTarget = new Nounou(['pseudo'=>$pseudoNounou]);
+							$nounouTarget = new Nounou(['pseudo'=>$pseudoNounou]);
 
-						$nounou = $nounouManager->getNounouByPseudo($nounouTarget);
+							$nounou = $nounouManager->getNounouByPseudo($nounouTarget);
 
-						//Vérification existance pseudo ou email dans la db
+							//Vérification existance pseudo ou email dans la db
 
-						if($_POST['pseudo'] == $pseudoNounou) {
-							if($_POST['email'] == $nounou->email()) {
-								$update = "ok";
-							} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
-									$_SESSION['editNounou_message'] = "Adresse email déjà utilisée";
-								} else {
-									$update = "ok";
-								}
-						} elseif($existPseudoParent !== 0 || $existPseudoNounou !== 0) {
-								$_SESSION['editNounou_message'] = "Pseudo indisponible";
-							} elseif($_POST['email'] == $nounou->email()) {
+							if($_POST['pseudo'] == $pseudoNounou) {
+								if($_POST['email'] == $nounou->email()) {
 									$update = "ok";
 								} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
 										$_SESSION['editNounou_message'] = "Adresse email déjà utilisée";
 									} else {
 										$update = "ok";
 									}
+							} elseif($existPseudoParent !== 0 || $existPseudoNounou !== 0) {
+									$_SESSION['editNounou_message'] = "Pseudo indisponible";
+								} elseif($_POST['email'] == $nounou->email()) {
+										$update = "ok";
+									} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
+											$_SESSION['editNounou_message'] = "Adresse email déjà utilisée";
+										} else {
+											$update = "ok";
+										}
+						} else 
+						{
+							$_SESSION['editNounou_message'] = "Les mots de passe doivent être identiques";
+						}
 					} else 
 					{
-						$_SESSION['editNounou_message'] = "Les mots de passe doivent être identiques";
+						$_SESSION['editNounou_message'] = "Adresse email invalide";	
 					}
 				} else
 				{
@@ -103,7 +118,7 @@ abstract class FormController
 				$_SESSION['editNounou_message'] = "Tous les champs doivent être remplis";
 			}
 		} else {
-			$_SESSION['editNounou_message'] = "Tous les champs doivent être transmis";
+			$_SESSION['editNounou_message'] = "Saisi invalide";
 		}
 
 		//Si conditions ok -> update dans la db
@@ -134,37 +149,43 @@ abstract class FormController
 
 	public static function addParent()
 	{
-		if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement'])) 
+		if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
 		{
 			if(($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
-					if($_POST['password'] == $_POST['confirm_password'])
+					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 					{
-						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$nounouManger = new NounouManager();
-						$parentManager = new ParentManager();
-
-						$existNounou = $nounouManger->existNounou($nounouToCheck);
-						$existParent = $parentManager->existParent($parentToCheck);
-
-
-						if ($existNounou!=0 || $existParent!=0)
+						if($_POST['password'] == $_POST['confirm_password'])
 						{
-							$_SESSION['form_message'] = "Pseudo ou Email déjà utilisé";
+							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$nounouManger = new NounouManager();
+							$parentManager = new ParentManager();
+
+							$existNounou = $nounouManger->existNounou($nounouToCheck);
+							$existParent = $parentManager->existParent($parentToCheck);
+
+
+							if ($existNounou!=0 || $existParent!=0)
+							{
+								$_SESSION['form_message'] = "Pseudo ou Email déjà utilisé";
+							} else 
+							{
+								$parent = new PereMere(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+								$parentManager = new ParentManager();
+								$parentManager->newParent($parent);
+
+								$_SESSION['form_message'] = "Félicitation, vous pouvez désormais vous connecter avec votre profil";
+							}
 						} else 
 						{
-							$parent = new PereMere(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
-							$parentManager = new ParentManager();
-							$parentManager->newParent($parent);
-
-							$_SESSION['form_message'] = "Félicitation, vous pouvez désormais vous connecter avec votre profil";
+							$_SESSION['form_message'] = "Les mots de passe ne correspondent pas"; 
 						}
 					} else 
 					{
-						$_SESSION['form_message'] = "Les mots de passe ne correspondent pas"; 
+						$_SESSION['form_message'] = "Adresse email invalide";	
 					}
 				} else 
 				{
@@ -175,57 +196,66 @@ abstract class FormController
 			{
 				$_SESSION['form_message'] = "Tous les champs ne sont pas remplis";
 			}
-		} 
+		} else 
+		{
+			$_SESSION['form_message'] = "Saisi invalide";
+		}
 	header("Location: index.php?action=newParentForm");
 	}
 
 
 	public static function editParent($pseudoParent)
 	{
-		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement'])) 
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
 		{
 			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
-					if($_POST['password'] == $_POST['confirm_password'])
+					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 					{
-						$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-						$nounouManager = new NounouManager();
-						$parentManager = new ParentManager();
+						if($_POST['password'] == $_POST['confirm_password'])
+						{
+							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$nounouManager = new NounouManager();
+							$parentManager = new ParentManager();
 
-						$existPseudoParent = $parentManager->existPseudoParent($parentToCheck);
-						$existMailParent = $parentManager->existMailParent($parentToCheck);
-						$existPseudoNounou = $nounouManager->existPseudoNounou($parentToCheck);
-						$existMailNounou = $nounouManager->existMailNounou($parentToCheck);
+							$existPseudoParent = $parentManager->existPseudoParent($parentToCheck);
+							$existMailParent = $parentManager->existMailParent($parentToCheck);
+							$existPseudoNounou = $nounouManager->existPseudoNounou($parentToCheck);
+							$existMailNounou = $nounouManager->existMailNounou($parentToCheck);
 
-						$parentTarget = new PereMere(['pseudo'=>$pseudoParent]);
+							$parentTarget = new PereMere(['pseudo'=>$pseudoParent]);
 
-						$parent = $parentManager->getParent($parentTarget);
+							$parent = $parentManager->getParent($parentTarget);
 
-						//Vérification existance pseudo ou email dans la db
+							//Vérification existance pseudo ou email dans la db
 
-						if($_POST['pseudo'] == $pseudoParent) {
-							if($_POST['email'] == $parent->email()) {
-								$update = "ok";
-							} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
-									$_SESSION['editParent_message'] = "Adresse email déjà utilisée";
-								} else {
-									$update = "ok";
-								}
-						} elseif($existPseudoParent !== 0 || $existPseudoNounou !== 0) {
-								$_SESSION['editParent_message'] = "Pseudo indisponible";
-							} elseif($_POST['email'] == $parent->email()) {
+							if($_POST['pseudo'] == $pseudoParent) {
+								if($_POST['email'] == $parent->email()) {
 									$update = "ok";
 								} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
 										$_SESSION['editParent_message'] = "Adresse email déjà utilisée";
 									} else {
 										$update = "ok";
 									}
+							} elseif($existPseudoParent !== 0 || $existPseudoNounou !== 0) {
+									$_SESSION['editParent_message'] = "Pseudo indisponible";
+								} elseif($_POST['email'] == $parent->email()) {
+										$update = "ok";
+									} elseif($existMailParent !== 0 || $existMailNounou !== 0) {
+											$_SESSION['editParent_message'] = "Adresse email déjà utilisée";
+										} else {
+											$update = "ok";
+										}
+						} else 
+						{
+							$_SESSION['editParent_message'] = "Les mots de passe doivent être identiques";
+						}
 					} else 
 					{
-						$_SESSION['editParent_message'] = "Les mots de passe doivent être identiques";
+						$_SESSION['editParent_message'] = "Adresse email invalide";	
 					}
 				} else
 				{
@@ -235,6 +265,9 @@ abstract class FormController
 			{
 				$_SESSION['editParent_message'] = "Tous les champs doivent être remplis";
 			}
+		} else
+		{
+			$_SESSION['editParent_message'] = "Saisi invalide";
 		}
 
 		//Si conditions ok -> update dans la db

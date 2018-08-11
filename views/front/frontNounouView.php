@@ -114,6 +114,14 @@
 			<p>Prénom : <?= $nounou->prenom(); ?></p>
 			<p>Adresse email : <?= $nounou->email(); ?></p>
 			<p><a href="mailto:<?= $nounou->email(); ?>">Envoyer un email</a></p>
+
+
+			<form>
+				<label for="email_nounou">Email de <?= $nounou->pseudo(); ?> : <input type="text" name="email_nounou" value="<?= $nounou->email(); ?>" required readonly></label>
+				<label for="message">Votre message : <input type="text" name="message" placeholder="Tapez votre message ici" required ></label>
+				<input type="submit" value="Envoyer votre message">
+			</form>
+
 		</div>
 
 	<?php } else { ?>
