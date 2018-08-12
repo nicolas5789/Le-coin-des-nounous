@@ -70,6 +70,14 @@ if(isset($_action)) {
 			FrontController::home();
 		}
 			break;
+
+		case "mailToNounou":
+		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {
+			FrontController::mailToNounou();
+		} else {
+			FrontController::home();
+		}
+			break;
 		
 		case "updateAvis":
 		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {

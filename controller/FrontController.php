@@ -34,6 +34,7 @@ abstract class FrontController
 		$targetNounou = new Nounou(['id'=>$idNounou]);
 		$nounouManager = new NounouManager();
 		$avisManager = new avisManager();
+		$parentManager = new ParentManager();
 
 		$nounou = $nounouManager->getNounou($targetNounou);
 		$listingAvis = $avisManager->listAvis($targetNounou);
@@ -43,6 +44,8 @@ abstract class FrontController
 		if(isset($_SESSION['profil']) && isset($_SESSION['pseudo']) && $_SESSION['profil'] == "parent") {
 			$targetAvis = new Avis(['id_nounou'=>$idNounou, 'pseudo_parent'=>$_SESSION['pseudo']]);
 			$avisOnFile = $avisManager->getAvis($targetAvis);
+			$parentTarget = new PereMere(['pseudo'=>$_SESSION['pseudo']]);
+			$parent = $parentManager->getParent($parentTarget);
 		}
 
 		//vérification si avis déjà donné
@@ -216,6 +219,22 @@ abstract class FrontController
 
 
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
+	}
+
+	public static function mailToNounou()
+	{
+		$to = $_POST['email_nounou'];
+		$pseudo_parent = $_POST['pseudo_parent'];
+		$mail_parent = $_POST['email_parent'];
+		$subject = "Le coin des nounous - $pseudo_parent souhaite vous contacter";
+		$message = $_POST['message'];
+		$messageToSend = wordwrap($message, 70, "\r\n");
+		$headers = 'From: admin@lecoindesnounous.sailtheweb.com' . "\r\n" .'Reply-To:' . $mail_parent . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+
+		mail('nicolas5789@gmail.com', $subject, $messageToSend, $headers);
+
+
+
 	}
 
 	public static function updateAvis($id_nounou)

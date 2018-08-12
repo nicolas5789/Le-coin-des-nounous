@@ -116,8 +116,10 @@
 			<p><a href="mailto:<?= $nounou->email(); ?>">Envoyer un email</a></p>
 
 
-			<form>
+			<form action="index.php?action=mailToNounou" method="POST">
 				<label for="email_nounou">Email de <?= $nounou->pseudo(); ?> : <input type="text" name="email_nounou" value="<?= $nounou->email(); ?>" required readonly></label>
+				<label for="pseudo_parent">Votre Pseudo <input type="text" name="pseudo_parent" value="<?= $parent->pseudo(); ?>" required readonly></label>
+				<label for="email_parent">Votre Email <input type="text" name="email_parent" value="<?= $parent->email(); ?>" required readonly></label>
 				<label for="message">Votre message : <input type="text" name="message" placeholder="Tapez votre message ici" required ></label>
 				<input type="submit" value="Envoyer votre message">
 			</form>
