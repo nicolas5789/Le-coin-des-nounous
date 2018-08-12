@@ -221,7 +221,7 @@ abstract class FrontController
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
 	}
 
-	public static function mailToNounou()
+	public static function mailToNounou($idNounou)
 	{
 		$to = $_POST['email_nounou'];
 		$pseudo_parent = $_POST['pseudo_parent'];
@@ -231,9 +231,11 @@ abstract class FrontController
 		$messageToSend = wordwrap($message, 70, "\r\n");
 		$headers = 'From: admin@lecoindesnounous.sailtheweb.com' . "\r\n" .'Reply-To:' . $mail_parent . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
-		mail('nicolas5789@gmail.com', $subject, $messageToSend, $headers);
+		mail($to, $subject, $messageToSend, $headers);
 
+		$_SESSION['info_message'] = "Votre message a été envoyé";
 
+		header("Location: index.php?action=showNounou&idNounou=".$idNounou);
 
 	}
 

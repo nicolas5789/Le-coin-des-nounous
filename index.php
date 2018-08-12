@@ -73,7 +73,7 @@ if(isset($_action)) {
 
 		case "mailToNounou":
 		if(isset($_SESSION['profil']) && $_SESSION['profil'] == 'parent') {
-			FrontController::mailToNounou();
+			FrontController::mailToNounou($_idNounou);
 		} else {
 			FrontController::home();
 		}
