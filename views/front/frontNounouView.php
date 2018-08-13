@@ -85,19 +85,18 @@
 				<h3>Votre avis :</h3>
 				<div class="formulaire_avis">
 	    			<form action="index.php?action=updateAvis&amp;id=<?= $nounou->id(); ?>)" method="POST">
-						<p> Note actuelle : <?= $avisOnFile->note() ?> </p>
-						<label for="departement"> Changer la note  : 
+						<label for="departement"> Modifier ma note  : 
 							<select required name="note" id="note">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
-								<option>9</option>
-								<option>10</option>
+								<option <?php if($avisOnFile->note()=="1"){echo "selected";} ?> >1</option>
+								<option <?php if($avisOnFile->note()=="2"){echo "selected";} ?> >2</option>
+								<option <?php if($avisOnFile->note()=="3"){echo "selected";} ?> >3</option>
+								<option <?php if($avisOnFile->note()=="4"){echo "selected";} ?> >4</option>
+								<option <?php if($avisOnFile->note()=="5"){echo "selected";} ?> >5</option>
+								<option <?php if($avisOnFile->note()=="6"){echo "selected";} ?> >6</option>
+								<option <?php if($avisOnFile->note()=="7"){echo "selected";} ?> >7</option>
+								<option <?php if($avisOnFile->note()=="8"){echo "selected";} ?> >8</option>
+								<option <?php if($avisOnFile->note()=="9"){echo "selected";} ?> >9</option>
+								<option <?php if($avisOnFile->note()=="10"){echo "selected";} ?> >10</option>
 							</select> 
 						</label> <br/>
 						<label for="contenu"> Commentaire : <input type="text" name="contenu" id="contenu" value="<?= $avisOnFile->contenu() ?>" required> </label>
@@ -110,12 +109,7 @@
 
 		<div id="contact_nounou">
 			<h2>Contacter la nounou</h2>
-			<p>Nom : <?= $nounou->nom(); ?></p>
-			<p>Prénom : <?= $nounou->prenom(); ?></p>
-			<p>Adresse email : <?= $nounou->email(); ?></p>
-			<p><a href="mailto:<?= $nounou->email(); ?>">Envoyer un email</a></p>
-
-
+			
 			<form action="index.php?action=mailToNounou&amp;idNounou=<?= $nounou->id(); ?>" method="POST">
 				<label for="email_nounou">Email de <?= $nounou->pseudo(); ?> : <input type="text" name="email_nounou" value="<?= $nounou->email(); ?>" required readonly></label>
 				<label for="pseudo_parent">Votre Pseudo <input type="text" name="pseudo_parent" value="<?= $parent->pseudo(); ?>" required readonly></label>

@@ -231,6 +231,15 @@ if(isset($_action)) {
 			}
 			break;
 
+		case "adminShowAvis":
+			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
+				AdminController::adminShowAvis($_idNounou);
+			} else {
+				FrontController::home();
+			}
+			break;
+
+
 		case "adminEditAvis":
 			if(isset($_SESSION['profil']) && $_SESSION['profil'] == "admin") {
 				AdminController::adminEditAvis($_GET['idAvis'], $_idNounou);

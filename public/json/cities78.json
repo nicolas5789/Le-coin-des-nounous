@@ -1,0 +1,788 @@
+[
+  {
+    "city": "Ablis"
+  },
+  {
+    "city": "Achères"
+  },
+  {
+    "city": "Adainville"
+  },
+  {
+    "city": "Aigremont"
+  },
+  {
+    "city": "Allainville"
+  },
+  {
+    "city": "Les-Alluets-le-Roi"
+  },
+  {
+    "city": "Andelu"
+  },
+  {
+    "city": "Andrésy"
+  },
+  {
+    "city": "Arnouville-lès-Mantes"
+  },
+  {
+    "city": "Aubergenville"
+  },
+  {
+    "city": "Auffargis"
+  },
+  {
+    "city": "Auffreville-Brasseuil"
+  },
+  {
+    "city": "Aulnay-sur-Mauldre"
+  },
+  {
+    "city": "Auteuil"
+  },
+  {
+    "city": "Autouillet"
+  },
+  {
+    "city": "Bailly"
+  },
+  {
+    "city": "Bazainville"
+  },
+  {
+    "city": "Bazemont"
+  },
+  {
+    "city": "Bazoches-sur-Guyonne"
+  },
+  {
+    "city": "Béhoust"
+  },
+  {
+    "city": "Bennecourt"
+  },
+  {
+    "city": "Beynes"
+  },
+  {
+    "city": "Blaru"
+  },
+  {
+    "city": "Boinville-en-Mantois"
+  },
+  {
+    "city": "Boinville-le-Gaillard"
+  },
+  {
+    "city": "Boinvilliers"
+  },
+  {
+    "city": "Bois-d'Arcy"
+  },
+  {
+    "city": "Boissets"
+  },
+  {
+    "city": "La-Boissière-École"
+  },
+  {
+    "city": "Boissy-Mauvoisin"
+  },
+  {
+    "city": "Boissy-sans-Avoir"
+  },
+  {
+    "city": "Bonnelles"
+  },
+  {
+    "city": "Bonnières-sur-Seine"
+  },
+  {
+    "city": "Bouafle"
+  },
+  {
+    "city": "Bougival"
+  },
+  {
+    "city": "Bourdonné"
+  },
+  {
+    "city": "Breuil-Bois-Robert"
+  },
+  {
+    "city": "Bréval"
+  },
+  {
+    "city": "Les-Bréviaires"
+  },
+  {
+    "city": "Brueil-en-Vexin"
+  },
+  {
+    "city": "Buc"
+  },
+  {
+    "city": "Buchelay"
+  },
+  {
+    "city": "Bullion"
+  },
+  {
+    "city": "Carrières-sous-Poissy"
+  },
+  {
+    "city": "Carrières-sur-Seine"
+  },
+  {
+    "city": "La-Celle-les-Bordes"
+  },
+  {
+    "city": "La-Celle-Saint-Cloud"
+  },
+  {
+    "city": "Cernay-la-Ville"
+  },
+  {
+    "city": "Chambourcy"
+  },
+  {
+    "city": "Chanteloup-les-Vignes"
+  },
+  {
+    "city": "Chapet"
+  },
+  {
+    "city": "Châteaufort"
+  },
+  {
+    "city": "Chatou"
+  },
+  {
+    "city": "Chaufour-lès-Bonnières"
+  },
+  {
+    "city": "Chavenay"
+  },
+  {
+    "city": "Le-Chesnay"
+  },
+  {
+    "city": "Chevreuse"
+  },
+  {
+    "city": "Choisel"
+  },
+  {
+    "city": "Civry-la-Forêt"
+  },
+  {
+    "city": "Clairefontaine-en-Yvelines"
+  },
+  {
+    "city": "Les-Clayes-sous-Bois"
+  },
+  {
+    "city": "Coignières"
+  },
+  {
+    "city": "Condé-sur-Vesgre"
+  },
+  {
+    "city": "Conflans-Sainte-Honorine"
+  },
+  {
+    "city": "Courgent"
+  },
+  {
+    "city": "Cravent"
+  },
+  {
+    "city": "Crespières"
+  },
+  {
+    "city": "Croissy-sur-Seine"
+  },
+  {
+    "city": "Dammartin-en-Serve"
+  },
+  {
+    "city": "Dampierre-en-Yvelines"
+  },
+  {
+    "city": "Dannemarie"
+  },
+  {
+    "city": "Davron"
+  },
+  {
+    "city": "Drocourt"
+  },
+  {
+    "city": "Ecquevilly"
+  },
+  {
+    "city": "Élancourt"
+  },
+  {
+    "city": "Émancé"
+  },
+  {
+    "city": "Épône"
+  },
+  {
+    "city": "Les-Essarts-le-Roi"
+  },
+  {
+    "city": "L'Étang-la-Ville"
+  },
+  {
+    "city": "Évecquemont"
+  },
+  {
+    "city": "La-Falaise"
+  },
+  {
+    "city": "Favrieux"
+  },
+  {
+    "city": "Feucherolles"
+  },
+  {
+    "city": "Flacourt"
+  },
+  {
+    "city": "Flexanville"
+  },
+  {
+    "city": "Flins-Neuve-Église"
+  },
+  {
+    "city": "Flins-sur-Seine"
+  },
+  {
+    "city": "Follainville-Dennemont"
+  },
+  {
+    "city": "Fontenay-le-Fleury"
+  },
+  {
+    "city": "Fontenay-Mauvoisin"
+  },
+  {
+    "city": "Fontenay-Saint-Père"
+  },
+  {
+    "city": "Fourqueux"
+  },
+  {
+    "city": "Freneuse"
+  },
+  {
+    "city": "Gaillon-sur-Montcient"
+  },
+  {
+    "city": "Galluis"
+  },
+  {
+    "city": "Gambais"
+  },
+  {
+    "city": "Gambaiseuil"
+  },
+  {
+    "city": "Garancières"
+  },
+  {
+    "city": "Gargenville"
+  },
+  {
+    "city": "Gazeran"
+  },
+  {
+    "city": "Gommecourt"
+  },
+  {
+    "city": "Goupillières"
+  },
+  {
+    "city": "Goussonville"
+  },
+  {
+    "city": "Grandchamp"
+  },
+  {
+    "city": "Gressey"
+  },
+  {
+    "city": "Grosrouvre"
+  },
+  {
+    "city": "Guernes"
+  },
+  {
+    "city": "Guerville"
+  },
+  {
+    "city": "Guitrancourt"
+  },
+  {
+    "city": "Guyancourt"
+  },
+  {
+    "city": "Hardricourt"
+  },
+  {
+    "city": "Hargeville"
+  },
+  {
+    "city": "La-Hauteville"
+  },
+  {
+    "city": "Herbeville"
+  },
+  {
+    "city": "Hermeray"
+  },
+  {
+    "city": "Houdan"
+  },
+  {
+    "city": "Houilles"
+  },
+  {
+    "city": "Issou"
+  },
+  {
+    "city": "Jambville"
+  },
+  {
+    "city": "Jeufosse"
+  },
+  {
+    "city": "Jouars-Pontchartrain"
+  },
+  {
+    "city": "Jouy-en-Josas"
+  },
+  {
+    "city": "Jouy-Mauvoisin"
+  },
+  {
+    "city": "Jumeauville"
+  },
+  {
+    "city": "Juziers"
+  },
+  {
+    "city": "Lainville-en-Vexin"
+  },
+  {
+    "city": "Lévis-Saint-Nom"
+  },
+  {
+    "city": "Limay"
+  },
+  {
+    "city": "Limetz-Villez"
+  },
+  {
+    "city": "Les-Loges-en-Josas"
+  },
+  {
+    "city": "Lommoye"
+  },
+  {
+    "city": "Longnes"
+  },
+  {
+    "city": "Longvilliers"
+  },
+  {
+    "city": "Louveciennes"
+  },
+  {
+    "city": "Magnanville"
+  },
+  {
+    "city": "Magny-les-Hameaux"
+  },
+  {
+    "city": "Maisons-Laffitte"
+  },
+  {
+    "city": "Mantes-la-Jolie"
+  },
+  {
+    "city": "Mantes-la-Ville"
+  },
+  {
+    "city": "Marcq"
+  },
+  {
+    "city": "Mareil-le-Guyon"
+  },
+  {
+    "city": "Mareil-Marly"
+  },
+  {
+    "city": "Mareil-sur-Mauldre"
+  },
+  {
+    "city": "Marly-le-Roi"
+  },
+  {
+    "city": "Maule"
+  },
+  {
+    "city": "Maulette"
+  },
+  {
+    "city": "Maurecourt"
+  },
+  {
+    "city": "Maurepas"
+  },
+  {
+    "city": "Médan"
+  },
+  {
+    "city": "Ménerville"
+  },
+  {
+    "city": "Méré"
+  },
+  {
+    "city": "Méricourt"
+  },
+  {
+    "city": "Le-Mesnil-le-Roi"
+  },
+  {
+    "city": "Le-Mesnil-Saint-Denis"
+  },
+  {
+    "city": "Les-Mesnuls"
+  },
+  {
+    "city": "Meulan-en-Yvelines"
+  },
+  {
+    "city": "Mézières-sur-Seine"
+  },
+  {
+    "city": "Mézy-sur-Seine"
+  },
+  {
+    "city": "Millemont"
+  },
+  {
+    "city": "Milon-la-Chapelle"
+  },
+  {
+    "city": "Mittainville"
+  },
+  {
+    "city": "Moisson"
+  },
+  {
+    "city": "Mondreville"
+  },
+  {
+    "city": "Montainville"
+  },
+  {
+    "city": "Montalet-le-Bois"
+  },
+  {
+    "city": "Montchauvet"
+  },
+  {
+    "city": "Montesson"
+  },
+  {
+    "city": "Montfort-l'Amaury"
+  },
+  {
+    "city": "Montigny-le-Bretonneux"
+  },
+  {
+    "city": "Morainvilliers"
+  },
+  {
+    "city": "Mousseaux-sur-Seine"
+  },
+  {
+    "city": "Mulcent"
+  },
+  {
+    "city": "Les-Mureaux"
+  },
+  {
+    "city": "Neauphle-le-Château"
+  },
+  {
+    "city": "Neauphle-le-Vieux"
+  },
+  {
+    "city": "Neauphlette"
+  },
+  {
+    "city": "Nézel"
+  },
+  {
+    "city": "Noisy-le-Roi"
+  },
+  {
+    "city": "Oinville-sur-Montcient"
+  },
+  {
+    "city": "Orcemont"
+  },
+  {
+    "city": "Orgerus"
+  },
+  {
+    "city": "Orgeval"
+  },
+  {
+    "city": "Orphin"
+  },
+  {
+    "city": "Orsonville"
+  },
+  {
+    "city": "Orvilliers"
+  },
+  {
+    "city": "Osmoy"
+  },
+  {
+    "city": "Paray-Douaville"
+  },
+  {
+    "city": "Le-Pecq"
+  },
+  {
+    "city": "Perdreauville"
+  },
+  {
+    "city": "Le-Perray-en-Yvelines"
+  },
+  {
+    "city": "Plaisir"
+  },
+  {
+    "city": "Poigny-la-Forêt"
+  },
+  {
+    "city": "Poissy"
+  },
+  {
+    "city": "Ponthévrard"
+  },
+  {
+    "city": "Porcheville"
+  },
+  {
+    "city": "Le-Port-Marly"
+  },
+  {
+    "city": "Port-Villez"
+  },
+  {
+    "city": "Prunay-le-Temple"
+  },
+  {
+    "city": "Prunay-en-Yvelines"
+  },
+  {
+    "city": "La-Queue-les-Yvelines"
+  },
+  {
+    "city": "Raizeux"
+  },
+  {
+    "city": "Rambouillet"
+  },
+  {
+    "city": "Rennemoulin"
+  },
+  {
+    "city": "Richebourg"
+  },
+  {
+    "city": "Rochefort-en-Yvelines"
+  },
+  {
+    "city": "Rocquencourt"
+  },
+  {
+    "city": "Rolleboise"
+  },
+  {
+    "city": "Rosay"
+  },
+  {
+    "city": "Rosny-sur-Seine"
+  },
+  {
+    "city": "Sailly"
+  },
+  {
+    "city": "Saint-Arnoult-en-Yvelines"
+  },
+  {
+    "city": "Saint-Cyr-l'École"
+  },
+  {
+    "city": "Saint-Forget"
+  },
+  {
+    "city": "Saint-Germain-de-la-Grange"
+  },
+  {
+    "city": "Saint-Germain-en-Laye"
+  },
+  {
+    "city": "Saint-Hilarion"
+  },
+  {
+    "city": "Saint-Illiers-la-Ville"
+  },
+  {
+    "city": "Saint-Illiers-le-Bois"
+  },
+  {
+    "city": "Saint-Lambert"
+  },
+  {
+    "city": "Saint-Léger-en-Yvelines"
+  },
+  {
+    "city": "Saint-Martin-de-Bréthencourt"
+  },
+  {
+    "city": "Saint-Martin-des-Champs"
+  },
+  {
+    "city": "Saint-Martin-la-Garenne"
+  },
+  {
+    "city": "Sainte-Mesme"
+  },
+  {
+    "city": "Saint-Nom-la-Bretèche"
+  },
+  {
+    "city": "Saint-Rémy-lès-Chevreuse"
+  },
+  {
+    "city": "Saint-Rémy-l'Honoré"
+  },
+  {
+    "city": "Sartrouville"
+  },
+  {
+    "city": "Saulx-Marchais"
+  },
+  {
+    "city": "Senlisse"
+  },
+  {
+    "city": "Septeuil"
+  },
+  {
+    "city": "Soindres"
+  },
+  {
+    "city": "Sonchamp"
+  },
+  {
+    "city": "Tacoignières"
+  },
+  {
+    "city": "Le-Tartre-Gaudran"
+  },
+  {
+    "city": "Le-Tertre-Saint-Denis"
+  },
+  {
+    "city": "Tessancourt-sur-Aubette"
+  },
+  {
+    "city": "Thiverval-Grignon"
+  },
+  {
+    "city": "Thoiry"
+  },
+  {
+    "city": "Tilly"
+  },
+  {
+    "city": "Toussus-le-Noble"
+  },
+  {
+    "city": "Trappes"
+  },
+  {
+    "city": "Le-Tremblay-sur-Mauldre"
+  },
+  {
+    "city": "Triel-sur-Seine"
+  },
+  {
+    "city": "Vaux-sur-Seine"
+  },
+  {
+    "city": "Vélizy-Villacoublay"
+  },
+  {
+    "city": "Verneuil-sur-Seine"
+  },
+  {
+    "city": "Vernouillet"
+  },
+  {
+    "city": "La-Verrière"
+  },
+  {
+    "city": "Versailles"
+  },
+  {
+    "city": "Vert"
+  },
+  {
+    "city": "Le-Vésinet"
+  },
+  {
+    "city": "Vicq"
+  },
+  {
+    "city": "Vieille-Église-en-Yvelines"
+  },
+  {
+    "city": "La-Villeneuve-en-Chevrie"
+  },
+  {
+    "city": "Villennes-sur-Seine"
+  },
+  {
+    "city": "Villepreux"
+  },
+  {
+    "city": "Villette"
+  },
+  {
+    "city": "Villiers-le-Mahieu"
+  },
+  {
+    "city": "Villiers-Saint-Frédéric"
+  },
+  {
+    "city": "Viroflay"
+  },
+  {
+    "city": "Voisins-le-Bretonneux"
+  }
+]

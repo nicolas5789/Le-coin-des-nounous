@@ -18,10 +18,11 @@
         <label for="password"> Mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
 
-         <label for="departement"> Département  : 
+        <label for="departement"> Département  : 
             <select class="deptSelect" required name="departement" id="departement">
                 <option value="75">Paris</option>
                 <option value="78">Yvelines</option>
+                <option value="91">Essonne</option>
                 <option value="92">Hauts de Seine</option>
                 <option value="93">Seine Saint Denis</option>
                 <option value="94">Val de Marne</option>

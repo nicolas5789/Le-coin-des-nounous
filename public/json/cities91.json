@@ -1,0 +1,590 @@
+[
+  {
+    "city": "Abbéville-la-Rivière"
+  },
+  {
+    "city": "Angerville"
+  },
+  {
+    "city": "Angervilliers"
+  },
+  {
+    "city": "Arpajon"
+  },
+  {
+    "city": "Arrancourt"
+  },
+  {
+    "city": "Athis-Mons"
+  },
+  {
+    "city": "Authon-la-Plaine"
+  },
+  {
+    "city": "Auvernaux"
+  },
+  {
+    "city": "Auvers-Saint-Georges"
+  },
+  {
+    "city": "Avrainville"
+  },
+  {
+    "city": "Ballainvilliers"
+  },
+  {
+    "city": "Ballancourt-sur-Essonne"
+  },
+  {
+    "city": "Baulne"
+  },
+  {
+    "city": "Bièvres"
+  },
+  {
+    "city": "Blandy"
+  },
+  {
+    "city": "Boigneville"
+  },
+  {
+    "city": "Bois-Herpin"
+  },
+  {
+    "city": "Boissy-la-Rivière"
+  },
+  {
+    "city": "Boissy-le-Cutté"
+  },
+  {
+    "city": "Boissy-le-Sec"
+  },
+  {
+    "city": "Boissy-sous-Saint-Yon"
+  },
+  {
+    "city": "Bondoufle"
+  },
+  {
+    "city": "Boullay-les-Troux"
+  },
+  {
+    "city": "Bouray-sur-Juine"
+  },
+  {
+    "city": "Boussy-Saint-Antoine"
+  },
+  {
+    "city": "Boutervilliers"
+  },
+  {
+    "city": "Boutigny-sur-Essonne"
+  },
+  {
+    "city": "Bouville"
+  },
+  {
+    "city": "Brétigny-sur-Orge"
+  },
+  {
+    "city": "Breuillet"
+  },
+  {
+    "city": "Breux-Jouy"
+  },
+  {
+    "city": "Brières-les-Scellés"
+  },
+  {
+    "city": "Briis-sous-Forges"
+  },
+  {
+    "city": "Brouy"
+  },
+  {
+    "city": "Brunoy"
+  },
+  {
+    "city": "Bruyères-le-Châtel"
+  },
+  {
+    "city": "Buno-Bonnevaux"
+  },
+  {
+    "city": "Bures-sur-Yvette"
+  },
+  {
+    "city": "Cerny"
+  },
+  {
+    "city": "Chalo-Saint-Mars"
+  },
+  {
+    "city": "Chalou-Moulineux"
+  },
+  {
+    "city": "Chamarande"
+  },
+  {
+    "city": "Champcueil"
+  },
+  {
+    "city": "Champlan"
+  },
+  {
+    "city": "Champmotteux"
+  },
+  {
+    "city": "Chatignonville"
+  },
+  {
+    "city": "Chauffour-lès-Étréchy"
+  },
+  {
+    "city": "Cheptainville"
+  },
+  {
+    "city": "Chevannes"
+  },
+  {
+    "city": "Chilly-Mazarin"
+  },
+  {
+    "city": "Congerville-Thionville"
+  },
+  {
+    "city": "Corbeil-Essonnes"
+  },
+  {
+    "city": "Corbreuse"
+  },
+  {
+    "city": "Courances"
+  },
+  {
+    "city": "Courcouronnes"
+  },
+  {
+    "city": "Courdimanche-sur-Essonne"
+  },
+  {
+    "city": "Courson-Monteloup"
+  },
+  {
+    "city": "Crosne"
+  },
+  {
+    "city": "Dannemois"
+  },
+  {
+    "city": "D'Huison-Longueville"
+  },
+  {
+    "city": "Dourdan"
+  },
+  {
+    "city": "Draveil"
+  },
+  {
+    "city": "Écharcon"
+  },
+  {
+    "city": "Égly"
+  },
+  {
+    "city": "Épinay-sous-Sénart"
+  },
+  {
+    "city": "Épinay-sur-Orge"
+  },
+  {
+    "city": "Estouches"
+  },
+  {
+    "city": "Étampes"
+  },
+  {
+    "city": "Étiolles"
+  },
+  {
+    "city": "Étréchy"
+  },
+  {
+    "city": "Évry"
+  },
+  {
+    "city": "Fleury-Mérogis"
+  },
+  {
+    "city": "Fontaine-la-Rivière"
+  },
+  {
+    "city": "Fontenay-lès-Briis"
+  },
+  {
+    "city": "Fontenay-le-Vicomte"
+  },
+  {
+    "city": "Forges-les-Bains"
+  },
+  {
+    "city": "Gif-sur-Yvette"
+  },
+  {
+    "city": "Gironville-sur-Essonne"
+  },
+  {
+    "city": "Gometz-la-Ville"
+  },
+  {
+    "city": "Gometz-le-Châtel"
+  },
+  {
+    "city": "Grigny"
+  },
+  {
+    "city": "Guibeville"
+  },
+  {
+    "city": "Guigneville-sur-Essonne"
+  },
+  {
+    "city": "Guillerval"
+  },
+  {
+    "city": "Igny"
+  },
+  {
+    "city": "Itteville"
+  },
+  {
+    "city": "Janville-sur-Juine"
+  },
+  {
+    "city": "Janvry"
+  },
+  {
+    "city": "Juvisy-sur-Orge"
+  },
+  {
+    "city": "La-Ferté-Alais"
+  },
+  {
+    "city": "La-Forêt-le-Roi"
+  },
+  {
+    "city": "La-Forêt-Sainte-Croix"
+  },
+  {
+    "city": "La-Norville"
+  },
+  {
+    "city": "La-Ville-du-Bois"
+  },
+  {
+    "city": "Lardy"
+  },
+  {
+    "city": "Le-Coudray-Montceaux"
+  },
+  {
+    "city": "Le-Plessis-Pâté"
+  },
+  {
+    "city": "Le-Val-Saint-Germain"
+  },
+  {
+    "city": "Les-Granges-le-Roi"
+  },
+  {
+    "city": "Les-Molières"
+  },
+  {
+    "city": "Les-Ulis"
+  },
+  {
+    "city": "Leudeville"
+  },
+  {
+    "city": "Leuville-sur-Orge"
+  },
+  {
+    "city": "Limours"
+  },
+  {
+    "city": "Linas"
+  },
+  {
+    "city": "Lisses"
+  },
+  {
+    "city": "Longjumeau"
+  },
+  {
+    "city": "Longpont-sur-Orge"
+  },
+  {
+    "city": "Maisse"
+  },
+  {
+    "city": "Marcoussis"
+  },
+  {
+    "city": "Marolles-en-Beauce"
+  },
+  {
+    "city": "Marolles-en-Hurepoix"
+  },
+  {
+    "city": "Massy"
+  },
+  {
+    "city": "Mauchamps"
+  },
+  {
+    "city": "Mennecy"
+  },
+  {
+    "city": "Méréville"
+  },
+  {
+    "city": "Mérobert"
+  },
+  {
+    "city": "Mespuits"
+  },
+  {
+    "city": "Milly-la-Forêt"
+  },
+  {
+    "city": "Moigny-sur-École"
+  },
+  {
+    "city": "Mondeville"
+  },
+  {
+    "city": "Monnerville"
+  },
+  {
+    "city": "Montgeron"
+  },
+  {
+    "city": "Montlhéry"
+  },
+  {
+    "city": "Morangis"
+  },
+  {
+    "city": "Morigny-Champigny"
+  },
+  {
+    "city": "Morsang-sur-Orge"
+  },
+  {
+    "city": "Morsang-sur-Seine"
+  },
+  {
+    "city": "Nainville-les-Roches"
+  },
+  {
+    "city": "Nozay"
+  },
+  {
+    "city": "Ollainville"
+  },
+  {
+    "city": "Oncy-sur-École"
+  },
+  {
+    "city": "Ormoy"
+  },
+  {
+    "city": "Ormoy-la-Rivière"
+  },
+  {
+    "city": "Orsay"
+  },
+  {
+    "city": "Orveau"
+  },
+  {
+    "city": "Palaiseau"
+  },
+  {
+    "city": "Paray-Vieille-Poste"
+  },
+  {
+    "city": "Pecqueuse"
+  },
+  {
+    "city": "Plessis-Saint-Benoist"
+  },
+  {
+    "city": "Prunay-sur-Essonne"
+  },
+  {
+    "city": "Puiselet-le-Marais"
+  },
+  {
+    "city": "Pussay"
+  },
+  {
+    "city": "Quincy-sous-Sénart"
+  },
+  {
+    "city": "Richarville"
+  },
+  {
+    "city": "Ris-Orangis"
+  },
+  {
+    "city": "Roinville"
+  },
+  {
+    "city": "Roinvilliers"
+  },
+  {
+    "city": "Saclas"
+  },
+  {
+    "city": "Saclay"
+  },
+  {
+    "city": "Saint-Aubin"
+  },
+  {
+    "city": "Saint-Chéron"
+  },
+  {
+    "city": "Saint-Cyr-la-Rivière"
+  },
+  {
+    "city": "Saint-Cyr-sous-Dourdan"
+  },
+  {
+    "city": "Sainte-Geneviève-des-Bois"
+  },
+  {
+    "city": "Saint-Escobille"
+  },
+  {
+    "city": "Saint-Germain-lès-Arpajon"
+  },
+  {
+    "city": "Saint-Germain-lès-Corbeil"
+  },
+  {
+    "city": "Saint-Hilaire"
+  },
+  {
+    "city": "Saint-Jean-de-Beauregard"
+  },
+  {
+    "city": "Saint-Maurice-Montcouronne"
+  },
+  {
+    "city": "Saint-Michel-sur-Orge"
+  },
+  {
+    "city": "Saint-Pierre-du-Perray"
+  },
+  {
+    "city": "Saintry-sur-Seine"
+  },
+  {
+    "city": "Saint-Sulpice-de-Favières"
+  },
+  {
+    "city": "Saint-Vrain"
+  },
+  {
+    "city": "Saint-Yon"
+  },
+  {
+    "city": "Saulx-les-Chartreux"
+  },
+  {
+    "city": "Savigny-sur-Orge"
+  },
+  {
+    "city": "Sermaise"
+  },
+  {
+    "city": "Soisy-sur-École"
+  },
+  {
+    "city": "Soisy-sur-Seine"
+  },
+  {
+    "city": "Souzy-la-Briche"
+  },
+  {
+    "city": "Tigery"
+  },
+  {
+    "city": "Torfou"
+  },
+  {
+    "city": "Valpuiseaux"
+  },
+  {
+    "city": "Varennes-Jarcy"
+  },
+  {
+    "city": "Vaugrigneuse"
+  },
+  {
+    "city": "Vauhallan"
+  },
+  {
+    "city": "Vayres-sur-Essonne"
+  },
+  {
+    "city": "Verrières-le-Buisson"
+  },
+  {
+    "city": "Vert-le-Grand"
+  },
+  {
+    "city": "Vert-le-Petit"
+  },
+  {
+    "city": "Videlles"
+  },
+  {
+    "city": "Vigneux-sur-Seine"
+  },
+  {
+    "city": "Villabé"
+  },
+  {
+    "city": "Villebon-sur-Yvette"
+  },
+  {
+    "city": "Villeconin"
+  },
+  {
+    "city": "Villejust"
+  },
+  {
+    "city": "Villemoisson-sur-Orge"
+  },
+  {
+    "city": "Villeneuve-sur-Auvers"
+  },
+  {
+    "city": "Villiers-le-Bâcle"
+  },
+  {
+    "city": "Villiers-sur-Orge"
+  },
+  {
+    "city": "Viry-Châtillon"
+  },
+  {
+    "city": "Wissous"
+  },
+  {
+    "city": "Yerres"
+  }
+]

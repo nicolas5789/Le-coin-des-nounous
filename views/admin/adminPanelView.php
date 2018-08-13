@@ -64,7 +64,7 @@
 		<td><?= $avis->note(); ?></td>
 		<td><?= $avis->signalement(); ?></td>
 		<td><a href="index.php?action=adminPanelDeleteAvis&amp;idAvis=<?= $avis->id(); ?>">Supprimer</a></td>
-		<td><a href="index.php?action=adminEditNounou&amp;idNounou=<?= $avis->id_nounou(); ?>">Nounou liée</a></td>	
+		<td><a href="index.php?action=adminShowAvis&amp;idNounou=<?= $avis->id_nounou(); ?>">Nounou liée</a></td>	
 	</tr>
 	<?php endforeach; ?>
 </table>

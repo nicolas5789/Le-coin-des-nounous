@@ -94,7 +94,7 @@ abstract class FrontController
 	public static function deleteNounou($idNounou)
 	{
 		$targetNounou = new Nounou(['id'=>$idNounou]);
-		$targetAvis = new Avis(['id_nounou'=>$id_nounou]);
+		$targetAvis = new Avis(['id_nounou'=>$idNounou]);
 		$nounouManager = new NounouManager();
 		$avisManager = new AvisManager();
 		$avisManager->deleteAvisByNounou($targetAvis);

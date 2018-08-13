@@ -18,20 +18,26 @@
         <label for="confirm_email"> Confirmation adresse email  : <input type="email" name="confirm email" id="confirm email" required> </label> <br/> 
         <label for="password"> Mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-        <label for="experience"> Expérience  : <input type="text" name="experience" id="experience" required> </label> <br/> 
-        <label for="dispo"> Place disponible  : <input type="text" name="dispo" id="dispo" required> </label> <br/> 
-        <label for="ville"> Ville : <input type="text" name="ville" id="ville" required> </label>  <br/> 
+        <label for="experience"> Expérience : <input type="number" name="experience" id="experience" required> an(s) </label> <br/> 
+        <label for="dispo"> Place disponible  : <input type="number" name="dispo" id="dispo" required> </label> <br/> 
         <label for="departement"> Département  : 
-            <select required name="departement" id="departement">
+            <select class="deptSelect" required name="departement" id="departement">
                 <option value="75">Paris</option>
                 <option value="78">Yvelines</option>
+                <option value="91">Essonne</option>
                 <option value="92">Hauts de Seine</option>
                 <option value="93">Seine Saint Denis</option>
                 <option value="94">Val de Marne</option>
                 <option value="95">Val d'Oise</option>
                 <option value="77">Seine et Marne</option>
-            </select>  
+            </select> 
         </label> <br/> 
+
+
+        <label for="ville"> Ville : 
+            <select class="cityContainer" type="text" name="ville" id="ville" required> 
+            </select>
+        </label>  <br/> 
      
         <input type="submit" value="Envoyer"/>      
 

@@ -80,7 +80,18 @@ class NounouManager extends Database
 		$nounou = $req->fetch(PDO::FETCH_ASSOC);
 
 		return new Nounou($nounou);
+	}
 
+	//affichage du profil d'une nounou par id
+	public function getNounouById($targetNounou)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare("SELECT * FROM nounous WHERE id= ?");
+		$req->execute(array($targetNounou->id()));
+		
+		$nounou = $req->fetch(PDO::FETCH_ASSOC);
+
+		return new Nounou($nounou);
 	}
 
 	//modifier un profil de nounou (UPDATE)
