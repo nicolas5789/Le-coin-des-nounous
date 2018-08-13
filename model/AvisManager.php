@@ -100,6 +100,16 @@ class AvisManager extends Database
 		$req->execute(array($pseudo_parentSafe, $noteSafe, $contenuSafe, $idSafe));
 	}
 
+	public function updateAvisPseudo($targetAvis)
+	{
+		$newPseudoSafe = htmlspecialchars($targetAvis->pseudo_parent());
+		$currentPseudo = $_SESSION['pseudoCurrent'];
+
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE avis SET pseudo_parent= ? WHERE pseudo_parent= ?");
+		$req->execute(array($newPseudoSafe, $currentPseudo));
+	}
+
 	public function deleteAvisByNounou($targetAvis) 
 	{
 		$db = $this->dbConnect();

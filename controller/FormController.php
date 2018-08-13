@@ -277,6 +277,11 @@ abstract class FormController
 			$parentManager = new ParentManager();
 			$_SESSION['pseudoCurrent'] = $pseudoParent;
 			$parentManager->updateParent($parentToUpdate);
+
+			$avisManager = new AvisManager();
+			$targetAvis = new Avis(['pseudo_parent'=>$_POST['pseudo']]);
+			$avisManager->updateAvisPseudo($targetAvis);
+
 			$_SESSION['editParent_message'] = "Vos modifications ont bien été prises en compte";
 
 			if($_SESSION['profil'] == 'parent') {
