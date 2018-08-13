@@ -92,6 +92,7 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZJA9lR171Aipsh0rO3KoASV6ywmwImPA"></script>
 
+<script src="public/js/ajax.js"></script>
 <script src="public/js/Carte.js"></script>
 <script src="public/js/script.js" ></script>
 

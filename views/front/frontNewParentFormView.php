@@ -10,7 +10,6 @@
 
 <div id="formulaire_newParent" style="text-align: center;">
     <form action="index.php?action=addParent" method="POST">
-
         <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required> </label> <br/> 
         <label for="nom"> Nom  : <input type="text" name="nom" id="nom" required> </label> <br/> 
         <label for="prenom"> Prenom  : <input type="text" name="prenom" id="prenom" required> </label> <br/> 
@@ -18,9 +17,9 @@
         <label for="confirm_email"> Confirmation adresse email  : <input type="email" name="confirm email" id="confirm email" required> </label> <br/> 
         <label for="password"> Mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-        <label for="ville"> Ville : <input type="text" name="ville" id="ville" required> </label>  <br/> 
-        <label for="departement"> Département  : 
-            <select required name="departement" id="departement">
+
+         <label for="departement"> Département  : 
+            <select class="deptSelect" required name="departement" id="departement">
                 <option value="75">Paris</option>
                 <option value="78">Yvelines</option>
                 <option value="92">Hauts de Seine</option>
@@ -30,6 +29,15 @@
                 <option value="77">Seine et Marne</option>
             </select> 
         </label> <br/> 
+
+
+        <label for="ville"> Ville : 
+            <select class="cityContainer" type="text" name="ville" id="ville" required> 
+            </select>
+        </label>  <br/> 
+
+
+       
      
         <input type="submit" value="Envoyer"/>      
 
