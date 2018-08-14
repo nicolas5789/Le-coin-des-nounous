@@ -27,7 +27,7 @@ class ParentManager extends Database
 		$req->execute(array($targetParent->pseudo()));
 		$parent = $req->fetch(PDO::FETCH_ASSOC);
 
-		return new PereMere($parent);
+		return new Parents($parent);
 
 	}
 
@@ -70,7 +70,7 @@ class ParentManager extends Database
 		
 		while($data = $req->fetch(PDO::FETCH_ASSOC))
 		{
-			$parents[] = new PereMere($data);
+			$parents[] = new Parents($data);
 		}
 
 		return $parents;
@@ -86,7 +86,7 @@ class ParentManager extends Database
 		$parentOnFile = $req->fetch(PDO::FETCH_ASSOC);
 
 		if($parentOnFile !== false) {
-			return new PereMere($parentOnFile);
+			return new Parents($parentOnFile);
 		}
 	}
 

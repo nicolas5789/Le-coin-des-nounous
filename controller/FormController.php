@@ -15,7 +15,7 @@ abstract class FormController
 						if($_POST['password'] == $_POST['confirm_password'])
 						{
 							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-							$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$parentToCheck = new Parents(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
 							$nounouManger = new NounouManager();
 							$parentManager = new ParentManager();
 
@@ -160,7 +160,7 @@ abstract class FormController
 						if($_POST['password'] == $_POST['confirm_password'])
 						{
 							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-							$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$parentToCheck = new Parents(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
 							$nounouManger = new NounouManager();
 							$parentManager = new ParentManager();
 
@@ -173,7 +173,7 @@ abstract class FormController
 								$_SESSION['form_message'] = "Pseudo ou Email déjà utilisé";
 							} else 
 							{
-								$parent = new PereMere(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+								$parent = new Parents(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
 								$parentManager = new ParentManager();
 								$parentManager->newParent($parent);
 
@@ -217,7 +217,7 @@ abstract class FormController
 						if($_POST['password'] == $_POST['confirm_password'])
 						{
 							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
-							$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
+							$parentToCheck = new Parents(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
 							$nounouManager = new NounouManager();
 							$parentManager = new ParentManager();
 
@@ -226,7 +226,7 @@ abstract class FormController
 							$existPseudoNounou = $nounouManager->existPseudoNounou($parentToCheck);
 							$existMailNounou = $nounouManager->existMailNounou($parentToCheck);
 
-							$parentTarget = new PereMere(['pseudo'=>$pseudoParent]);
+							$parentTarget = new Parents(['pseudo'=>$pseudoParent]);
 
 							$parent = $parentManager->getParent($parentTarget);
 
@@ -273,7 +273,7 @@ abstract class FormController
 		//Si conditions ok -> update dans la db
 		if(isset($update) && $update == "ok"){
 
-			$parentToUpdate = new PereMere(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+			$parentToUpdate = new Parents(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
 			$parentManager = new ParentManager();
 			$_SESSION['pseudoCurrent'] = $pseudoParent;
 			$parentManager->updateParent($parentToUpdate);

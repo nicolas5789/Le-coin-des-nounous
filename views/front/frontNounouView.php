@@ -8,7 +8,7 @@
 
 		<p>Expérience : <?= $nounou->experience(); ?> an(s)  </p>
 
-		<p>Place(s) disponible(s) :  <?= $nb = $nounou->place_dispo(); ?>    </p>
+		<p>Place(s) disponible(s) :  <?= $nounou->place_dispo(); ?>    </p>
 
 		<p>Ville de résidence :  <?= $nounou->ville(); ?>    </p>
 
@@ -58,6 +58,7 @@
 			<div id="set_avis_nounou">
 				<h2>Notez votre nounou</h2>
 				<div class="formulaire_avis">
+					<?php if(isset($_SESSION['notice_avis'])){echo $_SESSION['notice_avis'];} ?>
 	    			<form action="index.php?action=addAvis&amp;id=<?= $nounou->id(); ?>)" method="POST">
 	       				<label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>" disabled="disabled"> </label> <br/> 
 						<label for="departement"> Note  : 
@@ -84,6 +85,7 @@
 
 				<h3>Votre avis :</h3>
 				<div class="formulaire_avis">
+					<?php if(isset($_SESSION['notice_avis'])){echo $_SESSION['notice_avis'];} ?>
 	    			<form action="index.php?action=updateAvis&amp;id=<?= $nounou->id(); ?>)" method="POST">
 						<label for="departement"> Modifier ma note  : 
 							<select required name="note" id="note">

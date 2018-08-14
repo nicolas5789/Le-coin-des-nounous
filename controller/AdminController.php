@@ -48,7 +48,7 @@ abstract class AdminController
 
 	public static function adminEditParent($pseudoParent)
 	{
-		$parentTarget = new PereMere(['pseudo'=>$pseudoParent]);
+		$parentTarget = new Parents(['pseudo'=>$pseudoParent]);
 		$parentManager = new ParentManager();
 		$parent = $parentManager->getParent($parentTarget);
 

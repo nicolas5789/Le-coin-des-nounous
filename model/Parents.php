@@ -1,6 +1,6 @@
 <?php
 
-class PereMere
+class Parents
 {
 	private $_id;
 	private $_pseudo;

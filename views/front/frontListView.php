@@ -16,7 +16,7 @@
 		<td></td>
 		<td><?= $nounou->pseudo(); ?></td>
 		<td><?= $nounou->experience(); ?> an(s)</td>
-		<td><?= $nb = $nounou->place_dispo(); ?></td>
+		<td><?= $nounou->place_dispo(); ?></td>
 		<td><?= $nounou->ville(); ?></td>
 		<td><a href="index.php?action=showNounou&amp;idNounou= <?= $nounou->id(); ?>">Découvrir</a></td>
 	</tr>

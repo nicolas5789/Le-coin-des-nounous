@@ -3,6 +3,7 @@ require_once("model/Database.php");
 
 class AvisManager extends Database 
 {
+
 	public function newAvis($avis) //CREATE
 	{
 		$id_nounouSafe = htmlspecialchars($avis->id_nounou());

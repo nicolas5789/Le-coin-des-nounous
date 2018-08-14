@@ -2,6 +2,7 @@
 
 class Database 
 {
+
 	//connexion à la bdd
 	protected function dbConnect()
 	{
@@ -17,4 +18,6 @@ class Database
 			die("Erreur : " . $e->getMessages());
 		}
 	}
+
+
 }

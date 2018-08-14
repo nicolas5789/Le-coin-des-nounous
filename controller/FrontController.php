@@ -1,16 +1,6 @@
 <?php
-/*
 require("model/Autoloader.php");
 Autoloader::register();
-*/
-require("model/Avis.php");
-require("model/AvisManager.php");
-require("model/Nounou.php");
-require("model/NounouManager.php");
-require("model/ParentManager.php");
-require("model/PereMere.php");
-require("model/AdministrateurManager.php");
-require("model/Administrateur.php");
 
 abstract class FrontController
 {
@@ -33,7 +23,7 @@ abstract class FrontController
 	{
 		$targetNounou = new Nounou(['id'=>$idNounou]);
 		$nounouManager = new NounouManager();
-		$avisManager = new avisManager();
+		$avisManager = new AvisManager();
 		$parentManager = new ParentManager();
 
 		$nounou = $nounouManager->getNounou($targetNounou);
@@ -44,7 +34,7 @@ abstract class FrontController
 		if(isset($_SESSION['profil']) && isset($_SESSION['pseudo']) && $_SESSION['profil'] == "parent") {
 			$targetAvis = new Avis(['id_nounou'=>$idNounou, 'pseudo_parent'=>$_SESSION['pseudo']]);
 			$avisOnFile = $avisManager->getAvis($targetAvis);
-			$parentTarget = new PereMere(['pseudo'=>$_SESSION['pseudo']]);
+			$parentTarget = new Parents(['pseudo'=>$_SESSION['pseudo']]);
 			$parent = $parentManager->getParent($parentTarget);
 		}
 
@@ -115,7 +105,7 @@ abstract class FrontController
 
 	public static function parentProfil($pseudoParent)
 	{
-		$targetParent = new PereMere(['pseudo'=>$pseudoParent]);
+		$targetParent = new Parents(['pseudo'=>$pseudoParent]);
 		$parentManager = new ParentManager();
 		$parent = $parentManager->getParent($targetParent);
 		
@@ -124,7 +114,7 @@ abstract class FrontController
 
 	public static function deleteParent($pseudoParent)
 	{
-		$targetParent = new PereMere(['pseudo'=>$pseudoParent]);
+		$targetParent = new Parents(['pseudo'=>$pseudoParent]);
 		$targetAvis = new Avis(['pseudo_parent'=>$pseudoParent]);
 		$parentManager = new ParentManager();
 		$avisManager = new AvisManager();
@@ -148,7 +138,7 @@ abstract class FrontController
 	public static function connect()
 	{
 		$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'],'password'=>$_POST['password']]);
-		$parentToCheck = new PereMere(['pseudo'=>$_POST['pseudo'],'password'=>$_POST['password']]);
+		$parentToCheck = new Parents(['pseudo'=>$_POST['pseudo'],'password'=>$_POST['password']]);
 		$nounouManager = new NounouManager();
 		$parentManager = new ParentManager();
 
@@ -208,17 +198,24 @@ abstract class FrontController
 
 	public static function addAvis($id_nounou)
 	{
-		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
-		$avisManager = new AvisManager();
-		$existAvis = $avisManager->existAvis($avis);
+		if(isset($_POST['note']) && isset($_POST['contenu']) && is_numeric($_POST['note']) && ($_POST['note'] > 0) && ($_POST['note'] < 11) ) {
+			$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
+			
+			$avisManager = new AvisManager();
+			$existAvis = $avisManager->existAvis($avis);
+			unset($_SESSION['notice_avis']);
 
-		if($existAvis==0) 
-		{
-			$avisManager->newAvis($avis);
+			if($existAvis==0) 
+			{
+				$avisManager->newAvis($avis);
+			}
+		} else {
+			$_SESSION['notice_avis'] = "Saisi incorrecte";
 		}
+		
 
 
-		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
+		header("Location: index.php?action=showNounou&idNounou=".$id_nounou);
 	}
 
 	public static function mailToNounou($idNounou)
@@ -241,11 +238,18 @@ abstract class FrontController
 
 	public static function updateAvis($id_nounou)
 	{
-		$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
-		$avisManager = new AvisManager();
-		$avisManager->updateAvis($avis);
+		if(isset($_POST['note']) && isset($_POST['contenu']) && is_numeric($_POST['note']) && ($_POST['note'] > 0) && ($_POST['note'] < 11) )
+		{
+			$avis = new Avis(['id_nounou'=>$id_nounou, 'pseudo_parent'=>$_SESSION['pseudo'], 'note'=>$_POST['note'], 'contenu'=>$_POST['contenu']]);
+			$avisManager = new AvisManager();
+			$avisManager->updateAvis($avis);	
+			unset($_SESSION['notice_avis']);
+		} else {
+			$_SESSION['notice_avis'] = "Saisi incorrecte";
+		}
+		
 
-		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
+		header("Location: index.php?action=showNounou&idNounou=".$id_nounou);
 	}
 
 	public static function reportAvis($idAvis, $idNounou)
