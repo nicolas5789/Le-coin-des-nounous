@@ -5,6 +5,48 @@
 	display: inline-flex;
 	width: 100%;
 }
+#accueil {
+	display: flex;
+	justify-content: space-between;
+}
+#notice {
+	height: 500px;
+	background-color: blue;
+	width: 40%;
+}
+#departements {
+	text-align: right;
+	width: 50%;
+}
+#departements a {
+	display: inline-flex;
+	color: black;
+}
+#departements img {
+	max-width: 100%;
+}
+
+.dept {
+	/*border: 1px solid black;*/
+	margin-bottom: 15px;
+}
+
+.dept span {
+	display: none;
+	position: relative;
+	top: 25px;
+	font-size: 2em;
+	padding-right: 10px;
+	font-family: trebuchet MS;
+}
+
+.logo_dept {
+	border: 1px solid #1be3f2;
+	height: 110px;
+	width: 350px;
+	text-align: center;
+}
+
 #infos_nounou {
 	margin: auto;
 }
