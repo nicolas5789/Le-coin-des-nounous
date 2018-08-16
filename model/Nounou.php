@@ -13,6 +13,7 @@ class Nounou
 	private $_ville;
 	private $_departement;
 	private $_signalement;
+	private $_note;
 
 	public function __construct(array $data)
 	{
@@ -48,6 +49,9 @@ class Nounou
 		}
 		if(isset($data['signalement'])) {
 			$this->setSignalement($data['signalement']);
+		}
+		if(isset($data['note'])) {
+			$this->setNote($data['note']);
 		}
 	}
 
@@ -135,6 +139,14 @@ class Nounou
 		}
 	}
 
+	public function setNote($note)
+	{
+		$note = (int) $note;
+		if ($note >= 0) {
+			$this->_note = $note;
+		}
+	}
+
 
 //getters
 
@@ -181,5 +193,9 @@ class Nounou
 	public function signalement()
 	{
 		return $this->_signalement;
+	}
+	public function note()
+	{
+		return $this->_note;
 	}
 }

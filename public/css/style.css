@@ -1,34 +1,52 @@
+body {
+	/*background-color: #efc3e2;*/
+	background-image: linear-gradient(to bottom right,  #e6bcb5, #5a5ae9 )
+}
+
 #bloc_center {
 	margin-top: 56px;
 }
 #profil_nounou {
 	display: inline-flex;
 	width: 100%;
+	margin-top: 25px;
 }
 #accueil {
 	display: flex;
 	justify-content: space-between;
+	position: relative;
+	top: 20px;
 }
 #notice {
-	height: 500px;
-	background-color: blue;
-	width: 40%;
+	border: 1px solid black;
+	width: 33%;
 }
-#departements {
-	text-align: right;
-	width: 50%;
+#img_accueil img {
+	max-width: 100%;
 }
-#departements a {
+#connectHome_message p {
+	margin: 10px;
+}
+.departements {
+	width: 350px;
+}
+.departements a {
 	display: inline-flex;
 	color: black;
 }
-#departements img {
-	max-width: 100%;
+#dept_col1 {
+	text-align: left;
 }
-
+#dept_col2 {
+	text-align: right;
+}
 .dept {
 	/*border: 1px solid black;*/
 	margin-bottom: 15px;
+}
+
+.dept img {
+	max-width: 100%;
 }
 
 .dept span {
@@ -41,25 +59,56 @@
 }
 
 .logo_dept {
-	border: 1px solid #1be3f2;
+	/*border: 1px solid #1be3f2;*/
 	height: 110px;
 	width: 350px;
 	text-align: center;
+}
+.logo_dept_listNounous {
+	width: 100%;
+	text-align: center;
+	margin-top: 65px;
+	margin-bottom: 15px;
 }
 
 #infos_nounou {
 	margin: auto;
 }
+#table_nounous_length,#table_nounous_filter, #table_avis_length, #table_avis_filter {
+	display: none;
+}
 #map {
-	height: 450px;
-	width : 50%;
+	height: 300px;
+	width : 35%;
 	margin: auto;
+}
+#forms_avis {
+	margin: auto;
+}
+#formulaire_newParent {
+	width: 450px;
+	margin: auto;
+}
+#avis_part {
+	display: inline-flex;
+}
+#text_advice_avis {
+	width: 40%;
+	margin: auto;
+}
+#invit_connect {
+	text-align: center;
 }
 h2 {
 	text-align: center;
 }
 #avis_nounou p {
 	text-align: center;
+}
+#form_mail_nounou {
+	border: 1px solid black;
+	width: 400px;
+	margin: auto;
 }
 #table_avis, #table_nounous, #table_parents {
 	margin: auto;

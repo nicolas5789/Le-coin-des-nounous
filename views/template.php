@@ -15,6 +15,7 @@
 	<meta property="og:url" content=""/>
 	<link rel="icon" type="image/png" href="" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="public/css/style.css">
 	<title>Le coin des Nounous</title>
 </head>
@@ -38,9 +39,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="index.php?action=newParentForm">Inscription Parent</a>
 				</li>
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a class="nav-link" href="index.php?action=login">Connexion</a>
-				</li>
+				</li>-->
 				<?php } ?>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nous contacter</a>
@@ -89,8 +90,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZJA9lR171Aipsh0rO3KoASV6ywmwImPA"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA51WQhNUScdgXw2n10l0xnPY4a5SpbMzE"></script>
 
 <script src="public/js/listingCities.js"></script>
 <script src="public/js/Carte.js"></script>

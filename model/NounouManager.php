@@ -121,6 +121,15 @@ class NounouManager extends Database
 		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $experienceSafe, $dispoSafe, $villeSafe, $departementSafe, $pseudoCurrent));	
 	}
 
+	public function updateNoteNounou($nounouToNote)
+	{
+		$noteSafe = htmlspecialchars($nounouToNote->note());
+	
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE nounous SET note= ? WHERE id= ?");
+		$req->execute(array($noteSafe, $nounouToNote->id()));
+	}
+
 	public function reportNounou($nounou)
 	{
 		$db = $this->dbConnect();

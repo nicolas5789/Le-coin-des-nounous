@@ -30,6 +30,9 @@ abstract class FrontController
 		$listingAvis = $avisManager->listAvis($targetNounou);
 		$noteMoyenne = $avisManager->average($targetNounou);
 
+		$nounouToNote = new Nounou(['id'=>$idNounou, 'note'=>$noteMoyenne['AVG(note)']]);
+		$nounouManager->updateNoteNounou($nounouToNote);
+
 		//affichage de l'avis déjà enregistré
 		if(isset($_SESSION['profil']) && isset($_SESSION['pseudo']) && $_SESSION['profil'] == "parent") {
 			$targetAvis = new Avis(['id_nounou'=>$idNounou, 'pseudo_parent'=>$_SESSION['pseudo']]);
@@ -132,7 +135,8 @@ abstract class FrontController
 
 	public static function login()
 	{
-		require("views/front/frontLoginView.php");
+		//require("views/front/frontLoginView.php");
+		require("views/front/frontHomeView.php");
 	}
 
 	public static function connect()
@@ -156,6 +160,7 @@ abstract class FrontController
 				{
 					$_SESSION['profil'] = "nounou";
 					$_SESSION['pseudo'] = $nounouOnFile->pseudo();
+					$_SESSION['connect_message'] = "Vous êtes connecté";
 					header("Location: index.php");
 				} else 
 				{
@@ -178,6 +183,7 @@ abstract class FrontController
 				{
 					$_SESSION['profil'] = "parent";
 					$_SESSION['pseudo'] = $parentOnFile->pseudo();
+					$_SESSION['connect_message'] = "Vous êtes connecté";
 					header("Location: index.php");
 				} else 
 				{
