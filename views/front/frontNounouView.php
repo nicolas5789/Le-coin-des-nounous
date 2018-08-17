@@ -85,7 +85,6 @@
 					</div>
 				<?php } else { ?>
 					<div>
-
 						<h3>Votre avis :</h3>
 						<div class="formulaire_avis">
 							<?php if(isset($_SESSION['notice_avis'])){echo $_SESSION['notice_avis'];} ?>
@@ -118,62 +117,32 @@
 					Vous pouvez laisser une note et un commentaire cette nounou. Les avis doivent avant tout être utile et dans le respect de chacun. Si avis vous semble inaproprié, n'hésitez pas à le signaler.
 				</p>
 			</div>
-			
+
 		</div>
-
-
 
 		<hr>
 
-		<div id="contact_nounou">
-	
-<!--
-			<h2>Contacter la nounou</h2>
-			
-			<form action="index.php?action=mailToNounou&amp;idNounou=<?= $nounou->id(); ?>" method="POST">
-				<label for="email_nounou">Email de <?= $nounou->pseudo(); ?> : <input class="form-control" type="text" name="email_nounou" value="<?= $nounou->email(); ?>" required readonly></label>
-				<label for="pseudo_parent">Votre Pseudo <input class="form-control" type="text" name="pseudo_parent" value="<?= $parent->pseudo(); ?>" required readonly></label>
-				<label for="email_parent">Votre Email <input class="form-control" type="text" name="email_parent" value="<?= $parent->email(); ?>" required readonly></label>
-				<label for="message">Votre message : <textarea class="form-control" type="text" name="message" placeholder="Tapez votre message ici" required></textarea></label>
-				<input type="submit" value="Envoyer votre message">
-			</form>
-
-			<?php if(isset($_SESSION['info_message'])){ echo $_SESSION['info_message']; } ?>
-
-		</div>
--->
-
 		<div id="form_mail_nounou">
-			    <div class="form-area">  
-			        <form role="form">
-	                    <h3>Contacter la nounou</h3>
-	    				<div class="form-group">
-							<label for="email_nounou">Email de <?= $nounou->pseudo(); ?> : <input class="form-control" type="text" name="email_nounou" value="<?= $nounou->email(); ?>" required readonly></label>
-						</div>
-						<div class="form-group">
-							<label for="pseudo_parent">Votre Pseudo <input class="form-control" type="text" name="pseudo_parent" value="<?= $parent->pseudo(); ?>" required readonly></label>
-						</div>
-						<div class="form-group">
-							<label for="email_parent">Votre Email <input class="form-control" type="text" name="email_parent" value="<?= $parent->email(); ?>" required readonly></label>
-						</div>
-	                    <div class="form-group">
-	                    	<label for="message">Votre message : <textarea rows="7" class="form-control" type="text" name="message" placeholder="Tapez votre message ici" required></textarea></label>                 
-	                    </div>
-	                    <input type="submit" value="Envoyer votre message">
-			        </form>
-			    </div>
-			</div>
+		    <div class="form-area">  
+		        <form action="index.php?action=mailToNounou&amp;idNounou=<?= $nounou->id(); ?>" method="POST">
+                    <h3>Contacter la nounou</h3>
+    				<div class="form-group">
+						<label for="email_nounou">Email de <?= $nounou->pseudo(); ?> : <input class="form-control" type="text" name="email_nounou" value="<?= $nounou->email(); ?>" required readonly></label>
+					</div>
+					<div class="form-group">
+						<label for="pseudo_parent">Votre Pseudo <input class="form-control" type="text" name="pseudo_parent" value="<?= $parent->pseudo(); ?>" required readonly></label>
+					</div>
+					<div class="form-group">
+						<label for="email_parent">Votre Email <input class="form-control" type="text" name="email_parent" value="<?= $parent->email(); ?>" required readonly></label>
+					</div>
+                    <div class="form-group">
+                    	<label for="message">Votre message : <textarea rows="7" class="form-control" type="text" name="message" placeholder="Tapez votre message ici" required></textarea></label>                 
+                    </div>
+                    <input type="submit" value="Envoyer votre message">
+		        </form>
+		        <?php if(isset($_SESSION['info_message'])){ echo $_SESSION['info_message']; } ?>
+		    </div>
 		</div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -183,6 +152,7 @@
 			<p><a href="index.php?action=login">Connectez-vous</a> comme parent pour obtenir les coordonnées de la nounou ou laisser un avis</p>
 		</div>
 	<?php } ?>
+
 </div>
 
 

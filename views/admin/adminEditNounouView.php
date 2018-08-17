@@ -19,9 +19,11 @@
         <label for="prenom"> Prenom  : <input type="text" name="prenom" id="prenom" required value="<?= $nounou->prenom(); ?>"> </label> <br/> 
         <label for="email"> Mofifier mon Adresse email  : <input type="email" name="email" id="email" required value="<?= $nounou->email(); ?>"> </label> <br/> 
         <label for="confirm_email"> Confirmation adresse email  : <input type="email" name="confirm email" id="confirm email" required value="<?= $nounou->email(); ?>"> </label> <br/> 
+
+        <!--
         <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-
+		-->
         <label for="experience"> Expérience  : <input type="number" name="experience" id="experience" required value="<?= $nounou->experience(); ?>"> </label> <br/> 
         <label for="place_dispo"> Place(s) disponible(s)  : <input type="number" name="place_dispo" id="place_dispo" required value="<?= $nounou->place_dispo(); ?>"> </label> <br/> 
 
@@ -48,6 +50,16 @@
         <input type="submit" value="Envoyer"/>      
 
     </form>
+<hr>
+    <div id="updatePassword">
+        <?php if(isset($_SESSION['editPasswordNounou'])) {echo $_SESSION['editPasswordNounou'];} ?>
+
+        <form action="index.php?action=updatePasswordNounou&amp;pseudo=<?= $nounou->pseudo(); ?>" method="POST">
+            <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
+            <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
+            <input type="submit" value="Modifier le mot de passe">  
+        </form>
+    </div>
 
         <a href="index.php?action=adminDeleteNounou&amp;idNounou=<?= $nounou->id(); ?>">Supprimer ce profil</a>
       

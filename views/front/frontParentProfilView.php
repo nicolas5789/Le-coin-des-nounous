@@ -53,22 +53,6 @@
             </tr>
             <tr>
                 <td>
-                    <label for="password"> Définir mon mot de passe : </label> 
-                </td>
-                <td>
-                    <input type="password" name="password" id="password" required> </label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                   <label for="confirm_password"> Confirmation mot de passe  : </label> 
-                </td>
-                <td>
-                    <input type="password" name="confirm password" id="confirm password" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
                    <label for="departement"> Département  : </label> 
                 </td>
                 <td>
@@ -101,11 +85,23 @@
             </tr>
         </table>
     </form>
-    <a href="index.php?action=deleteParent">Supprimer mon profil</a> <br/> 
+     
     <?php if(isset($_SESSION['editParent_message'])) {
         echo $_SESSION['editParent_message'];
     } ?>
 </div>
+
+<div id="updatePassword">
+    <?php if(isset($_SESSION['editPasswordParent'])) {echo $_SESSION['editPasswordParent'];} ?>
+
+    <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
+        <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
+        <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
+        <input type="submit" value="Modifier le mot de passe">  
+    </form>
+    <a href="index.php?action=deleteParent">Supprimer mon profil</a> <br/>
+</div>
+
 
 <?php $content = ob_get_clean(); ?>
 

@@ -44,7 +44,7 @@
 				</li>-->
 				<?php } ?>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Nous contacter</a>
+					<a class="nav-link" href="index.php?action=contactUs">Nous contacter</a>
 				</li>
 				<?php if(isset($_SESSION['pseudo'])) { ?>
 				<li class="nav-item">

@@ -33,13 +33,13 @@ class ParentManager extends Database
 
 	public function updateParent($parent) // UPDATE
 	{
-		$password = htmlspecialchars($parent->password());
+		//$password = htmlspecialchars($parent->password());
 		
 		$pseudoSafe = htmlspecialchars($parent->pseudo());
 		$nomSafe = htmlspecialchars($parent->nom());
 		$prenomSafe = htmlspecialchars($parent->prenom());
 		$emailSafe = htmlspecialchars($parent->email());
-		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
+		//$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
 		$villeSafe = htmlspecialchars($parent->ville());
 		$departementSafe = htmlspecialchars($parent->departement());
 		
@@ -50,8 +50,8 @@ class ParentManager extends Database
 			}
 
 		$db = $this->dbConnect();
-		$req = $db->prepare("UPDATE parents SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, ville= ?, departement= ? WHERE pseudo= ?");
-		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $villeSafe, $departementSafe, $pseudoCurrent));
+		$req = $db->prepare("UPDATE parents SET pseudo= ?, nom= ?, prenom= ?, email= ?, ville= ?, departement= ? WHERE pseudo= ?");
+		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $villeSafe, $departementSafe, $pseudoCurrent));
 	}
 
 	public function deleteParent($targetParent) //DELETE
@@ -122,6 +122,17 @@ class ParentManager extends Database
 		$existMailParent = count($count_req);
 
 		return $existMailParent;
+	}
+
+	public function updatePasswordParent($parent)
+	{
+		$password = htmlspecialchars($parent->password());
+		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
+		$pseudo = $parent->pseudo();
+
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE parents SET password= ? WHERE pseudo= ?");
+		$req->execute(array($passwordSafe, $pseudo));
 	}
 
 

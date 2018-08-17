@@ -2,7 +2,12 @@ body {
 	/*background-color: #efc3e2;*/
 	background-image: linear-gradient(to bottom right,  #e6bcb5, #5a5ae9 )
 }
-
+#logo_form img {
+	width: 10%;
+}
+#form_contactUs{
+	text-align: center;
+}
 #bloc_center {
 	margin-top: 56px;
 }
@@ -88,6 +93,7 @@ body {
 #formulaire_newParent {
 	width: 450px;
 	margin: auto;
+	text-align: right;
 }
 #avis_part {
 	display: inline-flex;

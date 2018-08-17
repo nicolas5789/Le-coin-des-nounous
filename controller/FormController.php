@@ -59,15 +59,16 @@ abstract class FormController
 
 	public static function editNounou($pseudoNounou)
 	{
-		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['experience']) && is_numeric($_POST['experience']) && isset($_POST['place_dispo']) && is_numeric($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && /*isset($_POST['password']) && isset($_POST['confirm_password']) &&*/ isset($_POST['experience']) && is_numeric($_POST['experience']) && isset($_POST['place_dispo']) && is_numeric($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
 		{
-			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['experience']!="") && ($_POST['place_dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
+			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && /*($_POST['password']!="") && ($_POST['confirm_password']!="") &&*/ ($_POST['experience']!="") && ($_POST['place_dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
 					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 					{
-						if($_POST['password'] == $_POST['confirm_password'])
+						//if($_POST['password'] == $_POST['confirm_password'])
+						if($_SESSION['profil']) //Juste pour essai
 						{
 							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
 							$nounouManager = new NounouManager();
@@ -124,7 +125,7 @@ abstract class FormController
 		//Si conditions ok -> update dans la db
 		if(isset($update) && $update == "ok"){
 
-			$nounouToUpdate = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['place_dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+			$nounouToUpdate = new Nounou(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], /*'password'=>$_POST['password'],*/ 'experience'=>$_POST['experience'], 'place_dispo'=>$_POST['place_dispo'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
 
 			$nounouManager = new NounouManager();
 			$_SESSION['pseudoCurrent'] = $pseudoNounou;
@@ -206,15 +207,16 @@ abstract class FormController
 
 	public static function editParent($pseudoParent)
 	{
-		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && /*isset($_POST['password']) && isset($_POST['confirm_password']) && */isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement'])) 
 		{
-			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['password']!="") && ($_POST['confirm_password']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
+			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && /*($_POST['password']!="") && ($_POST['confirm_password']!="") &&*/ ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{
 				if($_POST['email'] == $_POST['confirm_email'])
 				{
 					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
 					{
-						if($_POST['password'] == $_POST['confirm_password'])
+						//if($_POST['password'] == $_POST['confirm_password'])
+						if(isset($_SESSION['profil'])) //Juste pour essai
 						{
 							$nounouToCheck = new Nounou(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
 							$parentToCheck = new Parents(['pseudo'=>$_POST['pseudo'], 'email'=>$_POST['email']]);
@@ -273,7 +275,7 @@ abstract class FormController
 		//Si conditions ok -> update dans la db
 		if(isset($update) && $update == "ok"){
 
-			$parentToUpdate = new Parents(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], 'password'=>$_POST['password'], 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
+			$parentToUpdate = new Parents(['pseudo'=>$_POST['pseudo'], 'nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'email'=>$_POST['email'], /*'password'=>$_POST['password'],*/ 'ville'=>$_POST['ville'], 'departement'=>$_POST['departement']]);
 			$parentManager = new ParentManager();
 			$_SESSION['pseudoCurrent'] = $pseudoParent;
 			$parentManager->updateParent($parentToUpdate);
@@ -298,6 +300,62 @@ abstract class FormController
 				header("Location: index.php?action=adminEditParent&pseudo=".$pseudoParent);
 			}
 		}	
+	}
+
+	public static function updatePasswordParent($pseudo) 
+	{
+		if(isset($_SESSION['profil'])) 
+		{
+			if($_POST['password']!="")
+			{
+				if($_POST['password'] == $_POST['confirm_password']) 
+				{
+					$parentManager = new ParentManager();
+					$parents = new Parents(['pseudo'=>$pseudo, 'password'=>$_POST['password']]);
+					$parentManager->updatePasswordParent($parents);
+					$_SESSION['editPasswordParent'] = "Le mot de passe a été modifié";
+				} else 
+				{
+					$_SESSION['editPasswordParent'] = "Les mots de passe doivent être identiques";
+				}
+			} else 
+			{
+				$_SESSION['editPasswordParent'] = "Les champs doivent être remplis";	
+			}	
+		}
+		if($_SESSION['profil'] == 'parent') {
+			header("Location: index.php?action=parentProfil");	
+			} elseif($_SESSION['profil'] == 'admin') {
+				header("Location: index.php?action=adminEditParent&pseudo=".$pseudo);
+			}
+	}
+
+	public static function updatePasswordNounou($pseudo) 
+	{
+		if(isset($_SESSION['profil'])) 
+		{
+			if($_POST['password']!="")
+			{
+				if($_POST['password'] == $_POST['confirm_password']) 
+				{
+					$nounouManager = new NounouManager();
+					$nounou = new Nounou(['pseudo'=>$pseudo, 'password'=>$_POST['password']]);
+					$nounouManager->updatePasswordNounou($nounou);
+					$_SESSION['editPasswordNounou'] = "Le mot de passe a été modifié";
+				} else 
+				{
+					$_SESSION['editPasswordNounou'] = "Les mots de passe doivent être identiques";
+				}
+			} else 
+			{
+				$_SESSION['editPasswordNounou'] = "Les champs doivent être remplis";	
+			}	
+		}
+		if($_SESSION['profil'] == 'nounou') {
+			header("Location: index.php?action=nounouProfil");	
+			} elseif($_SESSION['profil'] == 'admin') {
+				header("Location: index.php?action=adminEditNounou&pseudo=".$pseudo);
+			}
 	}
 
 }

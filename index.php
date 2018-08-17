@@ -164,6 +164,14 @@ if(isset($_action)) {
 		}
 			break;
 
+		case "contactUs" :
+			FrontController::contactUs();
+			break;
+
+		case "mailToUs":
+			FrontController::mailToUs();
+			break;
+
 		//admin
 
 		case "adminLogin":
@@ -272,6 +280,14 @@ if(isset($_action)) {
 		case "logout":
 			session_destroy();
 			header("Location: index.php");
+			break;
+
+		case "updatePasswordParent": //penser aux if isset
+			FormController::updatePasswordParent($_GET['pseudo']);
+			break;
+
+		case "updatePasswordNounou": //penser aux if isset
+			FormController::updatePasswordNounou($_GET['pseudo']);
 			break;
 
 		default:

@@ -97,13 +97,13 @@ class NounouManager extends Database
 	//modifier un profil de nounou (UPDATE)
 	public function updateNounou($nounou)
 	{
-		$password = htmlspecialchars($nounou->password());
+		//$password = htmlspecialchars($nounou->password());
 		
 		$pseudoSafe = htmlspecialchars($nounou->pseudo());
 		$nomSafe = htmlspecialchars($nounou->nom());
 		$prenomSafe = htmlspecialchars($nounou->prenom());
 		$emailSafe = htmlspecialchars($nounou->email());
-		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
+		//$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
 		$experienceSafe = htmlspecialchars($nounou->experience());
 		$dispoSafe = htmlspecialchars($nounou->place_dispo());
 		$villeSafe = htmlspecialchars($nounou->ville());
@@ -117,8 +117,8 @@ class NounouManager extends Database
 
 
 		$db = $this->dbConnect();
-		$req = $db->prepare("UPDATE nounous SET pseudo= ?, nom= ?, prenom= ?, email= ?, password= ?, experience= ?, place_dispo= ?, ville= ?, departement= ? WHERE pseudo= ?");
-		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $experienceSafe, $dispoSafe, $villeSafe, $departementSafe, $pseudoCurrent));	
+		$req = $db->prepare("UPDATE nounous SET pseudo= ?, nom= ?, prenom= ?, email= ?, experience= ?, place_dispo= ?, ville= ?, departement= ? WHERE pseudo= ?");
+		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $experienceSafe, $dispoSafe, $villeSafe, $departementSafe, $pseudoCurrent));	
 	}
 
 	public function updateNoteNounou($nounouToNote)
@@ -193,7 +193,17 @@ class NounouManager extends Database
 		if($nounouOnFile !== false) {
 			return new Nounou($nounouOnFile);
 		}
+	}
 
+	public function updatePasswordNounou($nounou)
+	{
+		$password = htmlspecialchars($nounou->password());
+		$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
+		$pseudo = $nounou->pseudo();
+
+		$db = $this->dbConnect();
+		$req = $db->prepare("UPDATE nounous SET password= ? WHERE pseudo= ?");
+		$req->execute(array($passwordSafe, $pseudo));
 	}
 
 }

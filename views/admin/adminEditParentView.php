@@ -17,11 +17,16 @@
         <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required value="<?= $parent->pseudo(); ?>"> </label> <br/> 
         <label for="nom"> Nom  : <input type="text" name="nom" id="nom" required value="<?= $parent->nom(); ?>"> </label> <br/> 
         <label for="prenom"> Prenom  : <input type="text" name="prenom" id="prenom" required value="<?= $parent->prenom(); ?>"> </label> <br/> 
-        <label for="email"> Mofifier mon Adresse email  : <input type="email" name="email" id="email" required value="<?= $parent->email(); ?>"> </label> <br/> 
+        <label for="email"> Modifier l'adresse email  : <input type="email" name="email" id="email" required value="<?= $parent->email(); ?>"> </label> <br/> 
         <label for="confirm_email"> Confirmation adresse email  : <input type="email" name="confirm email" id="confirm email" required value="<?= $parent->email(); ?>"> </label> <br/> 
+
+<!--
+
         <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
         
+-->
+
         <label for="departement"> Département  : 
             <select class="deptSelect" required name="departement" id="departement">
                 <option <?php if($parent->departement()=="75"){echo "selected";} ?> value="75">Paris</option>
@@ -45,6 +50,20 @@
         <input type="submit" value="Envoyer"/>      
 
     </form>
+
+<hr>
+
+    <div id="updatePassword">
+        <?php if(isset($_SESSION['editPasswordParent'])) {echo $_SESSION['editPasswordParent'];} ?>
+
+        <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
+            <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
+            <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
+            <input type="submit" value="Modifier le mot de passe">  
+        </form>
+    </div>
+
+
 
         <a href="index.php?action=adminDeleteParent&amp;pseudo=<?= $parent->pseudo(); ?>">Supprimer ce profil</a>
 

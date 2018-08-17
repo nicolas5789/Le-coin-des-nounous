@@ -19,7 +19,10 @@ $(".deptSelect").click(function() {
 	deptSelected = $(".deptSelect").val();
     $(".cityContainer").empty();
 	
-	ajaxGet("http://localhost:8888/p5/le_coin_des_nounous/public/json/cities"+deptSelected+".json", function(reponse) {
+    console.log(deptSelected);
+
+	//ajaxGet("http://localhost:8888/p5/le_coin_des_nounous/public/json/cities"+deptSelected+".json", function(reponse) { 
+    ajaxGet("https://www.lecoindesnounous.sailtheweb.com/public/json/cities"+deptSelected+".json", function(reponse) {     
     	var cities = JSON.parse(reponse);
     	cities.forEach(function(cityObject) {
     		$(".cityContainer").append('<option>'+ cityObject.city + '</option>');

@@ -226,6 +226,7 @@ abstract class FrontController
 
 	public static function mailToNounou($idNounou)
 	{
+	
 		$to = $_POST['email_nounou'];
 		$pseudo_parent = $_POST['pseudo_parent'];
 		$mail_parent = $_POST['email_parent'];
@@ -239,7 +240,7 @@ abstract class FrontController
 		$_SESSION['info_message'] = "Votre message a été envoyé";
 
 		header("Location: index.php?action=showNounou&idNounou=".$idNounou);
-
+		
 	}
 
 	public static function updateAvis($id_nounou)
@@ -276,6 +277,32 @@ abstract class FrontController
 		header("Location: index.php?action=showNounou&idNounou=".$avis->id_nounou());
 	}
 
+	public static function contactUs()
+	{
+		require("views/front/frontContactUsView.php");	
+	}
 
+	public static function mailToUs()
+	{
+	
+		if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']))
+		{
+			$to = 'nicolas5789@gmail.com';
+			$name = $_POST['name'];
+			$visitorMail = $_POST['email'];
+			$subject = "Le coin des nounous - Message de $name";
+			$message = $_POST['message'];
+			$messageToSend = wordwrap($message, 70, "\r\n");
+			$headers = 'From: admin@lecoindesnounous.sailtheweb.com' . "\r\n" .'Reply-To:' . $visitorMail . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+
+			mail($to, $subject, $messageToSend, $headers);
+
+			$_SESSION['info_messageContactUs'] = "Votre message a été envoyé";
+		} else {
+			$_SESSION['info_messageContactUs'] = "Veuillez entrer un email valide";
+		}
+
+		header("Location: index.php?action=contactUs");	
+	}
 	
 }
