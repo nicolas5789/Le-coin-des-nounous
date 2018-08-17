@@ -1,14 +1,18 @@
 $(document).ready( function () {
-    //$('#table_nounous').DataTable();
+
     $('.table_pag').DataTable();
+
+    var carteNounou = Object.create(Carte);
+    carteNounou.initMap('map', "#address");
 } );
 
 /*
 var plan = Object.create(Carte);
 plan.initMap();
 */
-initMap();
 
+/*
+initMap();
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 8,
@@ -33,4 +37,4 @@ function initMap() {
           }
         });
 }
-
+*/

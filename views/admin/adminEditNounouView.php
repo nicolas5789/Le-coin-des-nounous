@@ -84,7 +84,7 @@
 			<tr>
 				<form action="index.php?action=adminEditAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $avis->id_nounou(); ?>" method="POST">
 					<td><label for="pseudo"><input type="text" name="pseudo" id="pseudo" value="<?= $avis->pseudo_parent(); ?>" required> </label></td>
-					<td><label for="contenu"><input type="text" name="contenu" id="contenu" value="<?= $avis->contenu(); ?>" required> </label></td>
+					<td><label for="contenu"><input type="text" name="contenu" id="contenu" value="<?= $avis->contenu(); ?>" required> </label></td> <!-- PASSER EN TEXTAERA -->
 					<td>
 						<label for="departement"> 
 							<select required name="note" id="note">

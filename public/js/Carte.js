@@ -1,31 +1,27 @@
-/* NE FONCTIONNE PAS
-var Carte =  {
+var Carte = {
 
-	initMap : function() {
-		this.coordoInit = {lat: 48.848, lng: 2.28};
-		this.map = new google.maps.Map(document.getElementById("map"), {
-		zoom: 9,
-		center: this.coordoInit});
+    initMap : function(mapContainer, addressContainer) {
+    this.map = new google.maps.Map(document.getElementById(mapContainer), {
+          zoom: 8,
+          center: {lat: 48.848, lng: 2.28}
+        });
+    this.geocoder = new google.maps.Geocoder();
+    this.geocodeAddress(this.geocoder, this.map, addressContainer);
+  },
 
-		//this.geocodeAddress(geocoder, map);
-	}
-
-	geocodeAddress: function(geocoder, resultsMap) {
-		var address = $("#address").html();
-        console.log(address);
-
+    geocodeAddress : function(geocoder, resultsMap, addressContainer) {
+        address = $(addressContainer).html();
         geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location
+                });
+            } else {
             alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });	
-	}
+            }
+        });
+    } 
 
 }
-*/
