@@ -14,7 +14,7 @@
 
 		<p> Note moyenne de <?= $nounou->pseudo(); ?> : <?php echo $noteMoyenne['AVG(note)']; ?> </p>
 
-		<p><a href="index.php?action=reportNounou&amp;idNounou=<?= $nounou->id(); ?>">Signaler le profil</a></p>
+		<p><a class="btn btn-info" href="index.php?action=reportNounou&amp;idNounou=<?= $nounou->id(); ?>">Signaler le profil</a></p>
 
 	</div>
 
@@ -42,7 +42,7 @@
 					<td> <?= $avis->pseudo_parent() ?></td>
 					<td> <?= $avis->contenu() ?></td>
 					<td> <?= $avis->note() ?>/10</td>
-					<td><a href="index.php?action=reportAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $nounou->id(); ?>">Signaler cet avis</a></td>
+					<td><a class="btn btn-info" href="index.php?action=reportAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $nounou->id(); ?>">Signaler cet avis</a></td>
 				</tr>
 			<?php endforeach ?>	
 		</tbody>
@@ -113,7 +113,7 @@
 			</div>
 
 			<div id="text_advice_avis">
-				<p>
+				<p>	Rappel : <br/>
 					Vous pouvez laisser une note et un commentaire cette nounou. Les avis doivent avant tout être utile et dans le respect de chacun. Si avis vous semble inaproprié, n'hésitez pas à le signaler.
 				</p>
 			</div>

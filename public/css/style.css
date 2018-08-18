@@ -1,5 +1,4 @@
 body {
-	/*background-color: #efc3e2;*/
 	background-image: linear-gradient(to bottom right,  #e6bcb5, #5a5ae9 )
 }
 #logo_form img {
@@ -11,10 +10,22 @@ body {
 #bloc_center {
 	margin-top: 56px;
 }
-#profil_nounou {
-	display: inline-flex;
-	width: 100%;
-	margin-top: 25px;
+#table_nounous_length,#table_nounous_filter, #table_avis_length, #table_avis_filter {
+	display: none;
+}
+.table_pag, #table_avis {
+	background-color: #fbf3f3;
+	margin: auto;
+	width: 90%;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464;
+}
+.sorting {
+	width: 10px;
+}
+
+.table_pag th, .table_pag td {
+	border : 1px solid #696464;
 }
 /* HOME */
 #presentation h1 {
@@ -108,25 +119,53 @@ body {
 	text-align: center;
 }
 /* FIN HOME */
-.logo_dept_listNounous {
-	width: 100%;
+
+/* Liste du dept */
+#frontlistview h2 {
+	margin-top: 15px;
+}
+#frontlistview p {
 	text-align: center;
-	margin-top: 65px;
-	margin-bottom: 15px;
 }
 
-#infos_nounou {
+#dept_list {
 	margin: auto;
 }
-#table_nounous_length,#table_nounous_filter, #table_avis_length, #table_avis_filter {
-	display: none;
+
+#table_nounous {
+	width: 90%;
+}
+
+/*Fin Liste du dept */
+
+/*Début show nounou */
+#infos_nounou {
+	margin: auto;
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464;
+}
+#profil_nounou {
+	display: inline-flex;
+	width: 100%;
+	margin-top: 25px;
 }
 #map {
 	height: 300px;
 	width : 35%;
 	margin: auto;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464; 
 }
 #forms_avis {
+	margin: auto;
+}
+#invit_connect {
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464; 
+	background-color: white;
+	width: 80%;
 	margin: auto;
 }
 #formulaire_newParent {
@@ -136,6 +175,13 @@ body {
 }
 #avis_part {
 	display: inline-flex;
+	background-color: white;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464;
+	padding: 10px;
 }
 #text_advice_avis {
 	width: 40%;
@@ -151,10 +197,15 @@ h2 {
 	text-align: center;
 }
 #form_mail_nounou {
-	border: 1px solid black;
-	width: 400px;
+	max-width: 400px;
 	margin: auto;
+	text-align: center;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px;
+	padding: 10px;
 }
+/*
 #table_avis, #table_nounous, #table_parents {
 	margin: auto;
 	width: 70%;
@@ -162,6 +213,7 @@ h2 {
 #table_avis td, #table_avis th, #table_nounous td, #table_nounou th, #table_parents th, #table_parents td {
 	border: 1px solid black;
 }
+*/
 #footer {
 	text-align: center;
 	background-color: #343a40;
