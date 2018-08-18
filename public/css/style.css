@@ -16,28 +16,55 @@ body {
 	width: 100%;
 	margin-top: 25px;
 }
-#accueil {
+/* HOME */
+#presentation h1 {
+	text-align: center;
+	color: white;
+	text-shadow: 5px 5px 5px #696464;
+}
+#carouselPresentation {
+	width: 80%;
+	margin: auto;
+	box-shadow: 5px 5px 5px #696464;
+	border-radius: 5px;
+}
+#carouselPresentation img {
+	border-radius: 5px;
+}
+#dept_login {
 	display: flex;
 	justify-content: space-between;
 	position: relative;
 	top: 20px;
 }
-#notice {
-	border: 1px solid black;
-	width: 33%;
+.notice-type {
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464;
+	background-color: white;
+	margin : 15px 5% 5% 5%;
+	padding: 25px;
 }
+.notice-type h2 {
+	text-align: center;
+}
+#notice_head h1 {
+	text-align: center;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+}
+.notice-type .form-group {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
 #img_accueil img {
 	max-width: 100%;
 }
 #connectHome_message p {
 	margin: 10px;
-}
-.departements {
-	width: 350px;
-}
-.departements a {
-	display: inline-flex;
-	color: black;
 }
 #dept_col1 {
 	text-align: left;
@@ -46,8 +73,16 @@ body {
 	text-align: right;
 }
 .dept {
-	/*border: 1px solid black;*/
+	display: block;
 	margin-bottom: 15px;
+	height: 110px;
+	width: 350px;
+	text-align: center;
+	background-color: #FFF;
+	margin: 15px;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px #696464;
 }
 
 .dept img {
@@ -69,6 +104,10 @@ body {
 	width: 350px;
 	text-align: center;
 }
+#inscriptions {
+	text-align: center;
+}
+/* FIN HOME */
 .logo_dept_listNounous {
 	width: 100%;
 	text-align: center;

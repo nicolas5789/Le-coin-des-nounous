@@ -4,107 +4,124 @@
 
 <div id="accueil">
 
-	<div class="departements" id="dept_col1">
-		<div class="dept" id="dept95">
-			<a href="index.php?action=listNounous&amp;idDept=95">
-				<span>Val d'Oise</span>
-				<div class="logo_dept">
-					<img src="public/images/logo95.png">
-				</div>			
-			</a>
-		</div>
-		<div class="dept" id="dept78">
-			<a href="index.php?action=listNounous&amp;idDept=78">
-				<span>Yvelines</span>
-				<div class="logo_dept">
-					<img src="public/images/logo78.png">
-				</div>		
-			</a>
-		</div>
-		<div class="dept" id="dept92">
-			<a href="index.php?action=listNounous&amp;idDept=92">
-				<span>Hauts de Seine</span>
-				<div class="logo_dept">
-					<img src="public/images/logo92.png">
+	<div id="presentation">
+		<h1>Le coin des Nounous</h1>
+
+		<div id="carouselPresentation" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselPresentation" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselPresentation" data-slide-to="1"></li>
+				<li data-target="#carouselPresentation" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="public/images/slide1.jpg" alt="First slide">
 				</div>
-				
+				<div class="carousel-item">
+					<img class="d-block w-100" src="public/images/slide2.png" alt="Second slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="public/images/slide3.png" alt="Third slide">
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselPresentation" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselPresentation" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
 			</a>
 		</div>
-		<div class="dept" id="dept75">
-			<a href="index.php?action=listNounous&amp;idDept=75">
-				<span>Paris</span>
-				<div class="logo_dept">
-					<img src="public/images/logo75.png">
-				</div>	
-			</a>
-		</div>
+
+
+
 	</div>
 
 
 
-	<div id="notice">
-		<h1>Le coin des nounous</h1>
-		<p>Bienvenue, vous cherchez à faire garder votre enfant...Mais comment trouver la nounou idéale ?</p>
-		<div id="img_accueil">
-			<img src="public/images/mainsEnfants.jpg">
+	<div id="dept_login">
+
+		<div class="departements" id="dept_col1">
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=95">
+					<img src="public/images/logo95.png">	
+			</a>
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=78">
+					<img src="public/images/logo78.png">	
+			</a>
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=92">
+					<img src="public/images/logo92.png">	
+			</a>
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=75">
+					<img src="public/images/logo75.png">	
+			</a>
 		</div>
-		<p>Afin de découvrir les nounous qui vous correspondent, connectez-vous, ou inscrivez-vous, puis cliquez votre département.</p>
 
-		<div id="formulaire_connexion" style="text-align: center;">
+
 			
-		    <form action="index.php?action=connect" method="POST">
-		        <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required> </label> <br/> 
-		        <label for="password"> Mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
-		        <input type="submit" value="M'identifier"/> 
-		        <a href="index.php?action=logout">Me déconnecter</a>     
-		    </form>
 
-		    <div id="connectHome_message">
-			    <?php if(isset($_SESSION['connect_message'])) { ?>
-			    	<p> <?= $_SESSION['connect_message'] ?> </p>
-				<?php } ?>
+
+
+		<div id="notice">
+			<div class="notice-type" id="notice_head">
+				<h1>Le coin des Nounous</h1>
+				<p>Bienvenue, vous cherchez à faire garder votre enfant...Mais comment trouver la nounou idéale ?</p>
+				<div id="img_accueil">
+					<img src="public/images/mainsEnfants.jpg">
+				</div>
+				<p>Afin de découvrir les nounous qui vous correspondent, connectez-vous, ou inscrivez-vous, puis cliquez votre département.</p>
 			</div>
 
+			<div class="notice-type" id="formulaire_connexion" style="text-align: center;">
+				<h2>Me connecter</h2>
+			    <form action="index.php?action=connect" method="POST">
+			    	<div class="form-group">
+			        	<label for="pseudo"> Pseudo  :  </label>
+			        	<input class="form-control" type="text" name="pseudo" id="pseudo" required> 
+			        </div>
+			        <div class="form-group">
+			        	<label for="password"> Mot de passe :  </label>
+			        	<input class="form-control" type="password" name="password" id="password" required>  
+			        </div> 
+			        <div class="form-group">
+			        	<input class="btn btn-primary" type="submit" value="M'identifier"/> 
+			        	<a class="btn btn-primary" href="index.php?action=logout">Me déconnecter</a>  
+			        </div>   
+			    </form>
+
+				    <?php if(isset($_SESSION['connect_message'])) { ?>
+				    	<div class="notice-type" id="connectHome_message">
+				    		<p> <?= $_SESSION['connect_message'] ?> </p>
+				    	</div>
+					<?php } ?>
+			</div>
+
+			<div class="notice-type" id="inscriptions">
+				<h2>Pas encore inscrit ?</h2>
+				<p>Choisissez votre profil et créez votre compte.</p>
+			    <a class="btn btn-primary" href="">Créer un compte Parent</a> 
+			    <a class="btn btn-primary" href="">Créer un compte Nounou</a> 	
+			</div>
 		</div>
-	</div>
 
 
 
-	<div class="departements" id="dept_col2">
-		<div class="dept" id="dept93">
-			<a href="index.php?action=listNounous&amp;idDept=93">
-				<span>Seine Saint Denis</span>
-				<div class="logo_dept">
-					<img src="public/images/logo93.png">
-				</div>	
+		<div class="departements" id="dept_col2">
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=93">
+					<img src="public/images/logo93.png">	
+			</a>
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=94">
+					<img src="public/images/logo94.png">	
+			</a>
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=77">
+					<img src="public/images/logo77.png">	
+			</a>
+			<a class="dept" href="index.php?action=listNounous&amp;idDept=91">
+					<img src="public/images/logo91.png">	
 			</a>
 		</div>
-		<div class="dept" id="dept94">
-			<a href="index.php?action=listNounous&amp;idDept=94">
-				<span>Val de Marne</span>
-				<div class="logo_dept">
-					<img src="public/images/logo94.png">
-				</div>		
-			</a>
-		</div>
-		<div class="dept" id="dept77">
-			<a href="index.php?action=listNounous&amp;idDept=77">
-				<span>Seine et Marne</span>
-				<div class="logo_dept">
-					<img src="public/images/logo77.png">
-				</div>	
-			</a>
-		</div>
-		<div class="dept" id="dept91">
-			<a href="index.php?action=listNounous&amp;idDept=91">
-				<span>Seine et Marne</span>
-				<div class="logo_dept">
-					<img src="public/images/logo91.png">
-				</div>	
-			</a>
-		</div>
-	</div>
 	
+	</div>
 
 </div>
 <?php $content = ob_get_clean(); ?>
