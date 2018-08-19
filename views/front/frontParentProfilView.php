@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div id="formulaire_newParent" style="text-align: right;">
+<div class="formulaire_profil" id="formulaire_newParent" style="text-align: right;">
     <form action="index.php?action=editParent" method="POST">
         <table>
             <tr>
@@ -78,12 +78,8 @@
                 </select>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Envoyer"/>   
-                </td>
-            </tr>
         </table>
+        <input class="btn btn-primary" type="submit" value="Enregistrer"/>
     </form>
      
     <?php if(isset($_SESSION['editParent_message'])) {
@@ -91,15 +87,17 @@
     } ?>
 </div>
 
-<div id="updatePassword">
+<hr>
+
+<div class="formulaire_profil" id="updatePassword">
     <?php if(isset($_SESSION['editPasswordParent'])) {echo $_SESSION['editPasswordParent'];} ?>
 
     <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
         <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-        <input type="submit" value="Modifier le mot de passe">  
+        <input class="btn btn-primary" type="submit" value="Modifier le mot de passe">  
     </form>
-    <a href="index.php?action=deleteParent">Supprimer mon profil</a> <br/>
+    <a id="deleteProfil" class="btn btn-danger" href="index.php?action=deleteParent">Supprimer mon profil</a> <br/>
 </div>
 
 

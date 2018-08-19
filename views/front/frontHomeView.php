@@ -99,8 +99,8 @@
 			<div class="notice-type" id="inscriptions">
 				<h2>Pas encore inscrit ?</h2>
 				<p>Choisissez votre profil et créez votre compte.</p>
-			    <a class="btn btn-primary" href="">Créer un compte Parent</a> 
-			    <a class="btn btn-primary" href="">Créer un compte Nounou</a> 	
+			    <a class="btn btn-primary" href="index.php?action=newParentForm">Créer un compte Parent</a> 
+			    <a class="btn btn-primary" href="index.php?action=newNounouForm">Créer un compte Nounou</a> 	
 			</div>
 		</div>
 

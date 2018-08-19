@@ -6,72 +6,72 @@
             <img src="public/images/parents.gif">  
         </div>
         <h2>Formulaire d'inscription PARENTS</h2>
-        <p class="lead">Remplissez les champs ci dessous pour vous inscrire</p>
     </div>
 </div>
 
-<div id="formulaire_newParent" style="text-align: center;">
+<div class="formulaire_profil" style="text-align: center;">
+    <p>Remplissez les champs ci dessous pour vous inscrire</p>
     <form action="index.php?action=addParent" method="POST">
         <table>
             <tr>
                 <td>
-                    <label for="pseudo"> Pseudo  :</label> 
+                    <label for="pseudo">Pseudo  : </label> 
                 </td>
                 <td>
-                    <input type="text" name="pseudo" id="pseudo" required> 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="nom"> Nom  : </label> 
-                </td>
-                <td>
-                    <input type="text" name="nom" id="nom" required> 
+                    <input class="form-control" type="text" name="pseudo" id="pseudo" required> 
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="prenom"> Prenom  : </label> 
+                    <label for="nom">Nom  : </label> 
                 </td>
                 <td>
-                    <input type="text" name="prenom" id="prenom" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="email"> Mofifier mon Adresse email  : </label> 
-                </td>
-                <td>
-                    <input type="email" name="email" id="email" required>
+                    <input class="form-control" type="text" name="nom" id="nom" required> 
                 </td>
             </tr>
             <tr>
                 <td>
-                   <label for="confirm_email"> Confirmation adresse email  : </label> 
+                    <label for="prenom">Prenom  : </label> 
                 </td>
                 <td>
-                    <input type="email" name="confirm email" id="confirm email" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="password"> Définir mon mot de passe : </label> 
-                </td>
-                <td>
-                    <input type="password" name="password" id="password" required> </label>
+                    <input class="form-control" type="text" name="prenom" id="prenom" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                   <label for="confirm_password"> Confirmation mot de passe  : </label> 
+                    <label for="email">Adresse email  : </label> 
                 </td>
                 <td>
-                    <input type="password" name="confirm password" id="confirm password" required>
+                    <input class="form-control" type="email" name="email" id="email" required>
                 </td>
             </tr>
             <tr>
                 <td>
-                   <label for="departement"> Département  : </label> 
+                   <label for="confirm_email">Confirmation adresse email  : </label> 
+                </td>
+                <td>
+                    <input  class="form-control" type="email" name="confirm email" id="confirm email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Mot de passe : </label> 
+                </td>
+                <td>
+                    <input class="form-control" type="password" name="password" id="password" required> </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="confirm_password">Confirmation mot de passe  : </label> 
+                </td>
+                <td>
+                    <input class="form-control" type="password" name="confirm password" id="confirm password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="departement">Département  : </label> 
                 </td>
                 <td>
                     <select class="deptSelect" required name="departement" id="departement">
@@ -88,19 +88,15 @@
             </tr>
             <tr>
                 <td>
-                   <label for="ville"> Ville : </label> 
+                   <label for="ville">Ville : </label> 
                 </td>
                 <td>
                     <select class="cityContainer" type="text" name="ville" id="ville" required> 
                 </select>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Envoyer"/>   
-                </td>
-            </tr>
         </table>
+        <input class="btn btn-primary" type="submit" value="M'inscrire"/>
     </form>
 
     <?php if(isset($_SESSION['form_message'])) {

@@ -2,9 +2,8 @@
 
 <h2>Liste des Nounous</h2>
 
-<table id="table_nounous">
+<table class="table_pag" id="table_nounous">
 	<tr>
-		<th>Etat</th>
 		<th>Pseudo</th>
 		<th>Expérience</th>
 		<th>Place(s) disponible(s)</th>
@@ -14,7 +13,6 @@
 	</tr>
 	<?php foreach ($nounous as $nounou): ?>
 	<tr>
-		<td></td>
 		<td><?= $nounou->pseudo(); ?></td>
 		<td><?= $nounou->experience(); ?> an(s)</td>
 		<td><?= $nounou->place_dispo(); ?></td>
@@ -27,28 +25,34 @@
 
 <h2>Liste des Parents</h2>
 
-<table id="table_parents">
-	<tr>
-		<th>Pseudo</th>
-		<th>Nom</th>
-		<th>Prénom</th>
-		<th>Ville de résidence</th>	
-		<th>Gérer</th>
-	</tr>
-	<?php foreach ($parents as $parent): ?>
-	<tr>
-		<td><?= $parent->pseudo(); ?></td>
-		<td><?= $parent->nom(); ?></td>
-		<td><?= $parent->prenom(); ?></td>
-		<td><?= $parent->ville(); ?></td>	
-		<td><a href="index.php?action=adminEditParent&amp;pseudo=<?= $parent->pseudo(); ?>">Gérer ce profil</a></td>
-	</tr>
-	<?php endforeach; ?>
+<table class="table_pag" id="table_parents">
+	<thead>
+		<tr>
+			<th>Pseudo</th>
+			<th>Nom</th>
+			<th>Prénom</th>
+			<th>Ville de résidence</th>	
+			<th>Gérer</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<?php foreach ($parents as $parent): ?>
+			<tr>
+				<td><?= $parent->pseudo(); ?></td>
+				<td><?= $parent->nom(); ?></td>
+				<td><?= $parent->prenom(); ?></td>
+				<td><?= $parent->ville(); ?></td>	
+				<td><a href="index.php?action=adminEditParent&amp;pseudo=<?= $parent->pseudo(); ?>">Gérer ce profil</a></td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+	
 </table>
 
 <h2>Liste des Avis</h2>
 
-<table id="table_parents">
+<table class="table_pag" id="table_avis">
 	<tr>
 		<th>Pseudo de l'auteur</th>
 		<th>Commentaire</th>

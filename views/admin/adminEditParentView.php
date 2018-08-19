@@ -11,61 +11,62 @@
         echo $_SESSION['editParent_message'];
     } ?>
 
-<div id="formulaire_newParent" style="text-align: center;">
-    <form action="index.php?action=adminUpdateParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
+<div style="text-align: center;">
+    <div class="formulaire_profil" id="adminEditParentForm">
+        <form action="index.php?action=adminUpdateParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
 
-        <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required value="<?= $parent->pseudo(); ?>"> </label> <br/> 
-        <label for="nom"> Nom  : <input type="text" name="nom" id="nom" required value="<?= $parent->nom(); ?>"> </label> <br/> 
-        <label for="prenom"> Prenom  : <input type="text" name="prenom" id="prenom" required value="<?= $parent->prenom(); ?>"> </label> <br/> 
-        <label for="email"> Modifier l'adresse email  : <input type="email" name="email" id="email" required value="<?= $parent->email(); ?>"> </label> <br/> 
-        <label for="confirm_email"> Confirmation adresse email  : <input type="email" name="confirm email" id="confirm email" required value="<?= $parent->email(); ?>"> </label> <br/> 
+            <label for="pseudo"> Pseudo  : <input type="text" name="pseudo" id="pseudo" required value="<?= $parent->pseudo(); ?>"> </label> <br/> 
+            <label for="nom"> Nom  : <input type="text" name="nom" id="nom" required value="<?= $parent->nom(); ?>"> </label> <br/> 
+            <label for="prenom"> Prenom  : <input type="text" name="prenom" id="prenom" required value="<?= $parent->prenom(); ?>"> </label> <br/> 
+            <label for="email"> Modifier l'adresse email  : <input type="email" name="email" id="email" required value="<?= $parent->email(); ?>"> </label> <br/> 
+            <label for="confirm_email"> Confirmation adresse email  : <input type="email" name="confirm email" id="confirm email" required value="<?= $parent->email(); ?>"> </label> <br/> 
 
-<!--
+    <!--
 
-        <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
-        <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-        
--->
+            <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
+            <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
+            
+    -->
 
-        <label for="departement"> Département  : 
-            <select class="deptSelect" required name="departement" id="departement">
-                <option <?php if($parent->departement()=="75"){echo "selected";} ?> value="75">Paris</option>
-                <option <?php if($parent->departement()=="78"){echo "selected";} ?> value="78">Yvelines</option>
-                <option <?php if($parent->departement()=="91"){echo "selected";} ?> value="91">Essonne</option>
-                <option <?php if($parent->departement()=="92"){echo "selected";} ?> value="92">Hauts de Seine</option>
-                <option <?php if($parent->departement()=="93"){echo "selected";} ?> value="93">Seine Saint Denis</option>
-                <option <?php if($parent->departement()=="94"){echo "selected";} ?> value="94">Val de Marne</option>
-                <option <?php if($parent->departement()=="95"){echo "selected";} ?> value="95">Val d'Oise</option>
-                <option <?php if($parent->departement()=="77"){echo "selected";} ?> value="77">Seine et Marne</option>
-            </select> 
-        </label> <br/> 
+            <label for="departement"> Département  : 
+                <select class="deptSelect" required name="departement" id="departement">
+                    <option <?php if($parent->departement()=="75"){echo "selected";} ?> value="75">Paris</option>
+                    <option <?php if($parent->departement()=="78"){echo "selected";} ?> value="78">Yvelines</option>
+                    <option <?php if($parent->departement()=="91"){echo "selected";} ?> value="91">Essonne</option>
+                    <option <?php if($parent->departement()=="92"){echo "selected";} ?> value="92">Hauts de Seine</option>
+                    <option <?php if($parent->departement()=="93"){echo "selected";} ?> value="93">Seine Saint Denis</option>
+                    <option <?php if($parent->departement()=="94"){echo "selected";} ?> value="94">Val de Marne</option>
+                    <option <?php if($parent->departement()=="95"){echo "selected";} ?> value="95">Val d'Oise</option>
+                    <option <?php if($parent->departement()=="77"){echo "selected";} ?> value="77">Seine et Marne</option>
+                </select> 
+            </label> <br/> 
 
 
-        <label for="ville"> Ville : 
-            <select class="cityContainer" type="text" name="ville" id="ville" required> 
-                <option><?= $parent->ville(); ?></option>
-            </select>
-        </label>  <br/> 
-     
-        <input type="submit" value="Envoyer"/>      
+            <label for="ville"> Ville : 
+                <select class="cityContainer" type="text" name="ville" id="ville" required> 
+                    <option><?= $parent->ville(); ?></option>
+                </select>
+            </label>  <br/> 
+         
+            <input class="btn btn-primary" type="submit" value="Envoyer"/>      
 
-    </form>
-
+        </form>
+    </div>
 <hr>
 
-    <div id="updatePassword">
+    <div class="formulaire_profil" id="updatePassword">
         <?php if(isset($_SESSION['editPasswordParent'])) {echo $_SESSION['editPasswordParent'];} ?>
-
+        <h2>Modifier le mot de passe du profil</h2>
         <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
             <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
             <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-            <input type="submit" value="Modifier le mot de passe">  
+            <input class="btn btn-primary" type="submit" value="Modifier le mot de passe">  
         </form>
     </div>
 
 
 
-        <a href="index.php?action=adminDeleteParent&amp;pseudo=<?= $parent->pseudo(); ?>">Supprimer ce profil</a>
+    <a id="deleteProfil"class="btn btn-danger" href="index.php?action=adminDeleteParent&amp;pseudo=<?= $parent->pseudo(); ?>">Supprimer ce profil</a>
 
     
 </div>
