@@ -1,8 +1,8 @@
 var Carte = {
 
-    initMap : function(mapContainer, addressContainer) {
+    initMap : function(mapContainer, addressContainer, setZoom) {
     this.map = new google.maps.Map(document.getElementById(mapContainer), {
-          zoom: 8,
+          zoom: setZoom,
           center: {lat: 48.848, lng: 2.28}
         });
     this.geocoder = new google.maps.Geocoder();

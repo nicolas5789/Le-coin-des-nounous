@@ -9,6 +9,10 @@ body {
 .btn-primary {
 	background-color: #c4a4c2;
 	border-color: #c4a4c2;
+	margin-top: 10px;
+}
+.nav-link {
+	display: initial;
 }
 #logo_form img {
 	width: 10%;
@@ -39,6 +43,15 @@ body {
 #updatePassword {
 	text-align: center;
 }
+
+#return_home {
+	text-align: center;
+	margin-top: 40px;
+}
+
+#return_home a {
+	box-shadow: 5px 5px 5px #696464;
+}
 /* HOME */
 #presentation h1 {
 	text-align: center;
@@ -51,21 +64,83 @@ body {
 	box-shadow: 5px 5px 5px #696464;
 	border-radius: 5px;
 }
+@media all and (max-width: 768px){
+	#carouselPresentation {
+		display: none;
+	}
+}
 #carouselPresentation img {
 	border-radius: 5px;
 }
 #dept_login {
-	display: flex;
 	justify-content: space-between;
 	position: relative;
 	top: 20px;
+	text-align: center;
+}
+#dept_choice  {
+	margin: auto;
+	padding: 0;
+	width: 220px;
+}
+#notice {
+	display: inline-flex;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+@media all and (max-width: 768px){
+	#notice {
+		display: block;
+		width: 80%;
+	}
+}
+#notice_head {
+	width: 55%;
+	margin-left: 0;
+	margin-bottom: 23px;
+}
+@media all and (max-width: 768px){
+	#notice_head {
+		width: 100%;
+		margin: auto;
+		margin-bottom: 23px;
+		margin-top: 23px;
+	}
+}
+#notice_head h1 {
+	margin-bottom: 50px;
+	font-size: 380%;
+}
+#connectHomeRight {
+	width: 40%;
+	margin-right: 0;
+}
+@media all and (max-width: 768px){
+	#connectHomeRight {
+		width: 100%;
+	}
+}
+#formulaire_connexion {
+	margin-right: 0;
+}
+#inscriptions {
+	margin-right: 0;
+}
+#inscriptions a {
+	margin-top: 10px;
 }
 .notice-type {
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px #696464;
-	background-color: white;
+	background-color: #f7f7f7;
 	margin : 15px 5% 5% 5%;
-	padding: 25px;
+	padding: 15px;
+}
+@media all and (max-width: 768px){
+	.notice-type {
+		margin-left: 0;
+	}
 }
 .notice-type h2 {
 	text-align: center;
@@ -85,6 +160,7 @@ body {
 
 #img_accueil img {
 	max-width: 100%;
+	border-radius: 5px;
 }
 #connectHome_message {
 	background-color: #c4a4c2;
@@ -92,17 +168,21 @@ body {
 #connectHome_message p {
 	margin: 10px;
 }
-#dept_col1 {
-	text-align: left;
+#dept_col1, #dept_col2 {
+	display: inline-flex;
 }
-#dept_col2 {
-	text-align: right;
+@media all and (max-width: 1023px) {
+	#dept_col1, #dept_col2 {
+	display: block;
+	margin: auto;
+	width: 255px;
+	}
 }
 .dept {
 	display: block;
 	margin-bottom: 15px;
 	height: 110px;
-	width: 350px;
+	width: 220px;
 	text-align: center;
 	background-color: #FFF;
 	margin: 15px;
@@ -135,6 +215,18 @@ body {
 }
 /* FIN HOME */
 
+/* début comment ca marche */
+
+#explain {
+	width: 60%;
+	margin-top: 76px;
+}
+#explain h3 {
+	text-align: center;
+}
+
+/* fin comment ca marche */
+
 /* Liste du dept */
 #frontlistview h2 {
 	margin-top: 15px;
@@ -150,6 +242,11 @@ body {
 #table_nounous {
 	width: 90%;
 }
+@media all and (max-width: 768px){
+	.xp_table {
+		display: none;
+	}
+}
 
 /*Fin Liste du dept */
 
@@ -161,10 +258,22 @@ body {
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px #696464;
 }
+@media all and (max-width: 768px) {
+	#infos_nounou {
+		width: 80%;
+	}
+}
 #profil_nounou {
 	display: inline-flex;
 	width: 100%;
 	margin-top: 25px;
+}
+@media all and (max-width: 768px) {
+	#profil_nounou {
+		display: initial;
+		position: relative;
+		top: 20px;
+	}
 }
 #map {
 	height: 300px;
@@ -172,6 +281,12 @@ body {
 	margin: auto;
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px #696464; 
+}
+@media all and (max-width: 768px) {
+	#map {
+		width: 80%;
+		margin-top: 20px;
+	}
 }
 #forms_avis {
 	margin: auto;
@@ -194,9 +309,20 @@ body {
 	box-shadow: 5px 5px 5px #696464;
 	padding: 10px;
 }
+@media all and (max-width: 768px) {
+	#avis_part {
+		display: block;
+	}
+}
 #text_advice_avis {
 	width: 40%;
 	margin: auto;
+}
+@media all and (max-width: 768px) {
+	#text_advice_avis {
+		max-width: none;
+		width: 90%;
+	}
 }
 #invit_connect {
 	text-align: center;
@@ -209,28 +335,22 @@ h2 {
 }
 #form_mail_nounou {
 	max-width: 400px;
-	margin: auto;
 	text-align: center;
-	background-color: white;
-	border-radius: 5px;
-	box-shadow: 5px 5px 5px;
-	padding: 10px;
-}
-#return_home {
-	text-align: center;
-	margin-top: 40px;
 }
 /* Fin show nounou */
 
 /* form inscrip */
 .formulaire_profil {
-	width: 490px;
+	max-width: 490px;
+	width: 90%;
 	margin: auto;
 	background-color: white;
+	/*background-color: #f9f3f3;*/
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px #696464;
 	padding: 10px;
 }
+
 .formulaire_profil td {
 	text-align: right;
 }
@@ -240,6 +360,30 @@ h2 {
 }
 /* fin form inscrip */
 
+/*form modif*/
+#modifParentBouton {
+	margin-left: 37%;
+	margin-right: 37%;
+}
+/*fin form modif*/
+
+/* début contact */
+#part_contactUs {
+	display: flex;
+}
+
+#part_contactUs #map {
+	height: 450px;
+}
+
+#form_contactUs {
+	margin-top: 76px;
+	width: 450px;
+}
+
+/* fin contact */
+
+
 /* début admin */
 #adminEditParentForm {
 	text-align: right;
@@ -247,9 +391,12 @@ h2 {
 #deleteProfil {
 	margin-top: 20px;
 }
+/* fin admin */
 
 #footer {
 	text-align: center;
 	background-color: #343a40;
 	margin-top: 100px;
+	position: relative;
+	bottom: -5px;
 }

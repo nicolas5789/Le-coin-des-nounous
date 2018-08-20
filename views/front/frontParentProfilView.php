@@ -16,7 +16,7 @@
                     <label for="pseudo"> Pseudo  :</label> 
                 </td>
                 <td>
-                    <input type="text" name="pseudo" id="pseudo" required value="<?= $parent->pseudo(); ?>"> 
+                    <input class="form-control" type="text" name="pseudo" id="pseudo" required value="<?= $parent->pseudo(); ?>"> 
                 </td>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                     <label for="nom"> Nom  : </label> 
                 </td>
                 <td>
-                    <input type="text" name="nom" id="nom" required value="<?= $parent->nom(); ?>"> 
+                    <input class="form-control" type="text" name="nom" id="nom" required value="<?= $parent->nom(); ?>"> 
                 </td>
             </tr>
             <tr>
@@ -32,7 +32,7 @@
                     <label for="prenom"> Prenom  : </label> 
                 </td>
                 <td>
-                    <input type="text" name="prenom" id="prenom" required value="<?= $parent->prenom(); ?>">
+                    <input class="form-control" type="text" name="prenom" id="prenom" required value="<?= $parent->prenom(); ?>">
                 </td>
             </tr>
             <tr>
@@ -40,7 +40,7 @@
                     <label for="email"> Mofifier mon Adresse email  : </label> 
                 </td>
                 <td>
-                    <input type="email" name="email" id="email" required value="<?= $parent->email(); ?>">
+                    <input class="form-control" type="email" name="email" id="email" required value="<?= $parent->email(); ?>">
                 </td>
             </tr>
             <tr>
@@ -48,7 +48,7 @@
                    <label for="confirm_email"> Confirmation adresse email  : </label> 
                 </td>
                 <td>
-                    <input type="email" name="confirm email" id="confirm email" required value="<?= $parent->email(); ?>">
+                    <input class="form-control" type="email" name="confirm email" id="confirm email" required value="<?= $parent->email(); ?>">
                 </td>
             </tr>
             <tr>
@@ -79,7 +79,7 @@
                 </td>
             </tr>
         </table>
-        <input class="btn btn-primary" type="submit" value="Enregistrer"/>
+        <input id="modifParentBouton" class="btn btn-primary" type="submit" value="Enregistrer"/>
     </form>
      
     <?php if(isset($_SESSION['editParent_message'])) {
@@ -93,8 +93,8 @@
     <?php if(isset($_SESSION['editPasswordParent'])) {echo $_SESSION['editPasswordParent'];} ?>
 
     <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
-        <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
-        <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
+        <label for="password"> Définir mon mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>  <br/> 
+        <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm password" required> </label> <br/> 
         <input class="btn btn-primary" type="submit" value="Modifier le mot de passe">  
     </form>
     <a id="deleteProfil" class="btn btn-danger" href="index.php?action=deleteParent">Supprimer mon profil</a> <br/>

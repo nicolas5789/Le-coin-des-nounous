@@ -20,8 +20,8 @@
 		<thead>
 			<tr>
 				<th>Pseudo</th>
-				<th>Expérience</th>
-				<th>Place(s) disponible(s)</th>
+				<th class="xp_table">Expérience</th>
+				<th class="xp_table">Place(s) disponible(s)</th>
 				<th>Ville de résidence</th>
 				<th>Note moyenne</th>
 				<!--<th>Profil</th>-->
@@ -33,8 +33,8 @@
 				
 				<td><a href="index.php?action=showNounou&amp;idNounou= <?= $nounou->id(); ?>"><?= $nounou->pseudo(); ?></a></td>
 				<!--<td><?= $nounou->pseudo(); ?></td>-->
-				<td><?= $nounou->experience(); ?> an(s)</td>
-				<td><?= $nounou->place_dispo(); ?></td>
+				<td class="xp_table"><?= $nounou->experience(); ?> an(s)</td>
+				<td class="xp_table"><?= $nounou->place_dispo(); ?></td>
 				<td><?= $nounou->ville(); ?></td>
 				<td><?= $nounou->note(); ?>/10</td>
 				<!--<td><a href="index.php?action=showNounou&amp;idNounou= <?= $nounou->id(); ?>">Découvrir</a></td>-->

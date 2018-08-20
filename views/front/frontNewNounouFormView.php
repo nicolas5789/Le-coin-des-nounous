@@ -6,6 +6,7 @@
             <img src="public/images/parents.gif">  
         </div>
         <h2>Formulaire d'inscription NOUNOU</h2>
+        <p>Les données fournis serons visibles par les utilisateurs du site.</p>
     </div>
 </div>
 <!--

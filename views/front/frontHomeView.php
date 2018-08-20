@@ -38,9 +38,55 @@
 
 	</div>
 
+	<div id="notice">
+			<div class="notice-type" id="notice_head">
+				<h1>Le coin des Nounous</h1>
+				<p>Bienvenue, vous cherchez à faire garder votre enfant...Mais comment trouver la nounou idéale ?</p>
+				<div id="img_accueil">
+					<img src="public/images/mainsEnfants.jpg">
+				</div>
+				<p>Afin de découvrir les nounous qui vous correspondent, connectez-vous, ou inscrivez-vous, puis cliquez votre département.</p>
+			</div>
 
+			<div id="connectHomeRight">
+				<div class="notice-type" id="formulaire_connexion" style="text-align: center;">
+					<h2>Me connecter</h2>
+				    <form action="index.php?action=connect" method="POST">
+				    	<div class="form-group">
+				        	<label for="pseudo"> Pseudo  :  </label>
+				        	<input class="form-control" type="text" name="pseudo" id="pseudo" required> 
+				        </div>
+				        <div class="form-group">
+				        	<label for="password"> Mot de passe :  </label>
+				        	<input class="form-control" type="password" name="password" id="password" required>  
+				        </div> 
+				        <div class="form-group">
+				        	<input class="btn btn-primary" type="submit" value="M'identifier"/> 
+				        	<a class="btn btn-primary" href="index.php?action=logout">Me déconnecter</a>  
+				        </div>   
+				    </form>
+
+					    <?php if(isset($_SESSION['connect_message'])) { ?>
+					    	<div class="notice-type" id="connectHome_message">
+					    		<p> <?= $_SESSION['connect_message'] ?> </p>
+					    	</div>
+						<?php } ?>
+				</div>
+
+				<div class="notice-type" id="inscriptions">
+					<h2>Pas encore inscrit ?</h2>
+					<p>Choisissez votre profil et créez votre compte.</p>
+				    <a class="btn btn-primary" href="index.php?action=newParentForm">Créer un compte Parent</a> <br/>
+				    <a class="btn btn-primary" href="index.php?action=newNounouForm">Créer un compte Nounou</a> 	
+				</div>
+			</div>
+		</div>
 
 	<div id="dept_login">
+
+		<div class="notice-type" id="dept_choice">
+			<p>Choisissez un département</p>
+		</div>
 
 		<div class="departements" id="dept_col1">
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=95">
@@ -57,55 +103,6 @@
 			</a>
 		</div>
 
-
-			
-
-
-
-		<div id="notice">
-			<div class="notice-type" id="notice_head">
-				<h1>Le coin des Nounous</h1>
-				<p>Bienvenue, vous cherchez à faire garder votre enfant...Mais comment trouver la nounou idéale ?</p>
-				<div id="img_accueil">
-					<img src="public/images/mainsEnfants.jpg">
-				</div>
-				<p>Afin de découvrir les nounous qui vous correspondent, connectez-vous, ou inscrivez-vous, puis cliquez votre département.</p>
-			</div>
-
-			<div class="notice-type" id="formulaire_connexion" style="text-align: center;">
-				<h2>Me connecter</h2>
-			    <form action="index.php?action=connect" method="POST">
-			    	<div class="form-group">
-			        	<label for="pseudo"> Pseudo  :  </label>
-			        	<input class="form-control" type="text" name="pseudo" id="pseudo" required> 
-			        </div>
-			        <div class="form-group">
-			        	<label for="password"> Mot de passe :  </label>
-			        	<input class="form-control" type="password" name="password" id="password" required>  
-			        </div> 
-			        <div class="form-group">
-			        	<input class="btn btn-primary" type="submit" value="M'identifier"/> 
-			        	<a class="btn btn-primary" href="index.php?action=logout">Me déconnecter</a>  
-			        </div>   
-			    </form>
-
-				    <?php if(isset($_SESSION['connect_message'])) { ?>
-				    	<div class="notice-type" id="connectHome_message">
-				    		<p> <?= $_SESSION['connect_message'] ?> </p>
-				    	</div>
-					<?php } ?>
-			</div>
-
-			<div class="notice-type" id="inscriptions">
-				<h2>Pas encore inscrit ?</h2>
-				<p>Choisissez votre profil et créez votre compte.</p>
-			    <a class="btn btn-primary" href="index.php?action=newParentForm">Créer un compte Parent</a> 
-			    <a class="btn btn-primary" href="index.php?action=newNounouForm">Créer un compte Nounou</a> 	
-			</div>
-		</div>
-
-
-
 		<div class="departements" id="dept_col2">
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=93">
 					<img src="public/images/logo93.png">	
@@ -120,6 +117,15 @@
 					<img src="public/images/logo91.png">	
 			</a>
 		</div>
+			
+
+
+
+		
+
+
+
+		
 	
 	</div>
 

@@ -32,6 +32,10 @@ if(isset($_action)) {
 			FrontController::home();
 		} break;
 
+		case "howItWorks":
+			FrontController::howItWorks();
+			break;
+
 		case "showNounou":
 		if(isset($_idNounou) && $_idNounou > 0){
 			FrontController::showNounou($_idNounou);

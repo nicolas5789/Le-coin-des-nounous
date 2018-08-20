@@ -115,9 +115,9 @@
 
 
     <form action="index.php?action=updatePasswordNounou&amp;pseudo=<?= $nounou->pseudo(); ?>" method="POST">
-        <label for="password"> Définir mon mot de passe : <input type="password" name="password" id="password" required> </label>  <br/> 
-        <label for="confirm_password"> Confirmation mot de passe  : <input type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-        <input type="submit" value="Modifier le mot de passe">  <br>
+        <label for="password"> Définir mon mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>  <br/> 
+        <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm password" required> </label> <br/> 
+        <input class="btn btn-primary"  type="submit" value="Modifier le mot de passe">  <br>
         <a id="deleteProfil" class="btn btn-danger" href="index.php?action=deleteNounou&amp;idNounou=<?= $nounou->id(); ?>">Supprimer mon profil</a>
     </form>
 </div>

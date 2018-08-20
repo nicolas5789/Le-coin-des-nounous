@@ -15,6 +15,7 @@
 	<meta property="og:url" content=""/>
 	<link rel="icon" type="image/png" href="" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="public/css/style.css">
 	<title>Le coin des Nounous</title>
@@ -30,7 +31,7 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="#">Comment ca marche ?</a>
+					<a class="nav-link" href="index.php?action=howItWorks">Comment ca marche ?</a>
 				</li>
 				<?php if(!isset($_SESSION['profil'])) { ?>
 				<li class="nav-item">
@@ -83,7 +84,14 @@
 
 <footer class="container-fluid" id="footer">
 	
-	<a class="nav-link" href="index.php?action=adminLogin">Admin</a>
+	<a href="#" class="fab fa-facebook-square"></a>
+	<a href="#" class="fab fa-twitter-square"></a>
+	<a href="#" class="fab fa-linkedin"></a>
+	<a href="#" class="fab fa-instagram"></a>
+	<a class="nav-link" href="index.php?action=adminLogin">Admin</a> 
+	<a href="#">Mentions légales</a> 	
+
+
 	
 </footer>
 

@@ -40,8 +40,8 @@
 		<thead>
 			<tr>
 				<th>Pseudo</th>
-				<th>Commentaires</th>
-				<th>Notes</th>
+				<th>Avis</th>
+				<th class="xp_table">Notes</th>
 				<th>Signaler</th>
 			</tr>
 		</thead>
@@ -50,8 +50,8 @@
 				<tr>
 					<td> <?= $avis->pseudo_parent() ?></td>
 					<td> <?= $avis->contenu() ?></td>
-					<td> <?= $avis->note() ?>/10</td>
-					<td><a class="btn btn-info" href="index.php?action=reportAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $nounou->id(); ?>">Signaler cet avis</a></td>
+					<td class="xp_table"> <?= $avis->note() ?>/10</td>
+					<td><a class="btn btn-info" href="index.php?action=reportAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $nounou->id(); ?>">Signaler <span class="xp_table">cet avis</span></a></td>
 				</tr>
 			<?php endforeach ?>	
 		</tbody>
@@ -134,7 +134,7 @@
 
 		<hr>
 
-		<div id="form_mail_nounou">
+		<div class="formulaire_profil" id="form_mail_nounou">
 		    <div class="form-area">  
 		        <form action="index.php?action=mailToNounou&amp;idNounou=<?= $nounou->id(); ?>" method="POST">
                     <h3>Contacter la nounou</h3>
