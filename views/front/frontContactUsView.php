@@ -18,19 +18,12 @@
             <div class="form-group">
             	<label for="message">Votre message : <textarea rows="7" class="form-control" type="text" name="message" placeholder="Tapez votre message ici" required></textarea></label>                 
             </div>
-            <input class="btn btn-primary" type="submit" value="Envoyer votre message">
+            <input class="btn btn-primary" type="submit" value="Envoyer votre message" onclick="return confirm('Etes-vous sûr de vouloir envoyer votre message ?');">
         </form>
         <?php if(isset($_SESSION['info_messageContactUs'])){ echo $_SESSION['info_messageContactUs']; } ?>
     </div>
-    
     <div id="map"> </div>
-        
-    
-
 </div>
-
-
-
 
 <?php $content = ob_get_clean(); ?>
 

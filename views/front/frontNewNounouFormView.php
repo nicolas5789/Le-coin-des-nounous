@@ -9,64 +9,10 @@
         <p>Les données fournis serons visibles par les utilisateurs du site.</p>
     </div>
 </div>
-<!--
-<div id="formulaire_newNounou" style="text-align: center;">
-    <form action="index.php?action=addNounou" method="POST">
-        <div class="form-group">
-            <label for="pseudo"> Pseudo  : <input class="form-control" type="text" name="pseudo" id="pseudo" required> </label> 
-        </div>
-        <div class="form-group">
-            <label for="nom"> Nom  : <input class="form-control" type="text" name="nom" id="nom" required> </label> 
-        </div>
-        <div class="form-group">
-            <label for="prenom"> Prenom  : <input class="form-control" type="text" name="prenom" id="prenom" required> </label> 
-        </div>
-        <div class="form-group">
-            <label for="email"> Adresse email  : <input class="form-control" type="email" name="email" id="email" required> </label>
-        </div>
-        <div class="form-group">
-            <label for="confirm_email"> Confirmation adresse email  : <input class="form-control" type="email" name="confirm email" id="confirm email" required> </label>
-        </div>
-        <div class="form-group">
-            <label for="password"> Mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>
-        </div>
-        <div class="form-group">
-            <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm password" required> </label>
-        </div>
-        <div class="form-group">
-            <label for="experience"> Expérience : <input class="form-control" type="number" name="experience" id="experience" required> an(s) </label>
-        </div>
-        <div class="form-group"> 
-            <label for="dispo"> Place disponible  : <input class="form-control" type="number" name="dispo" id="dispo" required> </label>
-        </div>
-        <label for="departement"> Département  : 
-            <select class="deptSelect" required name="departement" id="departement">
-                <option value="75">Paris</option>
-                <option value="78">Yvelines</option>
-                <option value="91">Essonne</option>
-                <option value="92">Hauts de Seine</option>
-                <option value="93">Seine Saint Denis</option>
-                <option value="94">Val de Marne</option>
-                <option value="95">Val d'Oise</option>
-                <option value="77">Seine et Marne</option>
-            </select> 
-        </label> 
-        <label for="ville"> Ville : 
-            <select class="cityContainer" type="text" name="ville" id="ville" required> 
-            </select>
-        </label>  <br/> 
-        <input type="submit" value="Envoyer"/>      
 
-    </form>
-
-    <?php if(isset($_SESSION['form_message'])) {
-        echo $_SESSION['form_message'];
-    } ?>
-</div>
--->
 <div class="formulaire_profil" style="text-align: center;">
     <p>Remplissez les champs ci dessous pour vous inscrire</p>
-    <form action="index.php?action=addParent" method="POST">
+    <form action="index.php?action=addNounou" method="POST">
         <table>
             <tr>
                 <td>
@@ -171,9 +117,8 @@
             </tr>
         </table>
         <input class="btn btn-primary" type="submit" value="M'inscrire"/>
-        <a class="btn btn-primary" href="index.php?action=login">Me connecter</a>
+        <a class="btn btn-primary" href="index.php?action=login#ancreConnect">Me connecter</a>
     </form>
-
     <?php if(isset($_SESSION['form_message'])) {
         echo $_SESSION['form_message'];
     } ?>

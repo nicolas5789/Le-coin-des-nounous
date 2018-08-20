@@ -125,6 +125,12 @@ table .btn-primary {
 		width: 100%;
 	}
 }
+#ancreConnect {
+	position: absolute;
+	bottom: 55px;
+	width: 1px;
+	height:1px;
+}
 #formulaire_connexion {
 	margin-right: 0;
 }
@@ -214,6 +220,22 @@ table .btn-primary {
 	width: 350px;
 	text-align: center;
 }
+#logo78 {
+	position: relative;
+	top: 10px;
+}
+#logo92 {
+	position: relative;
+	top: 30px;
+}
+#logo93 {
+	position: relative;
+	top: 20px;
+}
+#logo77 {
+	position: relative;
+	top: 17px;
+}
 #inscriptions {
 	text-align: center;
 }
@@ -224,6 +246,9 @@ table .btn-primary {
 #explain {
 	width: 60%;
 	margin-top: 76px;
+}
+#explain a {
+	color : purple;
 }
 #explain h3 {
 	text-align: center;
@@ -422,5 +447,8 @@ h2 {
 	background-color: #343a40;
 	margin-top: 100px;
 	position: relative;
-	bottom: -5px;
+	bottom: -10px;
+}
+#footer a, #footer p {
+	color: #999c99;
 }

@@ -3,14 +3,14 @@
 <div id="frontlistview">
 	<div class="dept" id="dept_list">
 		<?php 
-			if($_GET['idDept'] == "77"){echo '<img src="public/images/logo77.png">';} 
-			elseif($_GET['idDept'] == "78"){echo '<img src="public/images/logo78.png">';} 
-			elseif($_GET['idDept'] == "92"){echo '<img src="public/images/logo92.png">';} 
-			elseif($_GET['idDept'] == "94"){echo '<img src="public/images/logo94.png">';} 
-			elseif($_GET['idDept'] == "95"){echo '<img src="public/images/logo95.png">';} 
-			elseif($_GET['idDept'] == "93"){echo '<img src="public/images/logo93.png">';} 
-			elseif($_GET['idDept'] == "75"){echo '<img src="public/images/logo75.png">';} 
-			elseif($_GET['idDept'] == "91"){echo '<img src="public/images/logo91.png">';} 
+			if($_GET['idDept'] == "77"){echo '<img id="logo77" src="public/images/logo77.png">';} 
+			elseif($_GET['idDept'] == "78"){echo '<img id="logo78" src="public/images/logo78.png">';} 
+			elseif($_GET['idDept'] == "92"){echo '<img id="logo92" src="public/images/logo92.png">';} 
+			elseif($_GET['idDept'] == "94"){echo '<img id="logo94" src="public/images/logo94.png">';} 
+			elseif($_GET['idDept'] == "95"){echo '<img id="logo95" src="public/images/logo95.png">';} 
+			elseif($_GET['idDept'] == "93"){echo '<img id="logo93" src="public/images/logo93.png">';} 
+			elseif($_GET['idDept'] == "75"){echo '<img id="logo75" src="public/images/logo75.png">';} 
+			elseif($_GET['idDept'] == "91"){echo '<img id="logo91" src="public/images/logo91.png">';} 
 		?>
 	</div>
 
@@ -24,20 +24,16 @@
 				<th class="xp_table">Place(s) disponible(s)</th>
 				<th>Ville de résidence</th>
 				<th>Note moyenne</th>
-				<!--<th>Profil</th>-->
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($nounous as $nounou): ?>
 			<tr>
-				
-				<td><a href="index.php?action=showNounou&amp;idNounou= <?= $nounou->id(); ?>"><?= $nounou->pseudo(); ?></a></td>
-				<!--<td><?= $nounou->pseudo(); ?></td>-->
-				<td class="xp_table"><?= $nounou->experience(); ?> an(s)</td>
-				<td class="xp_table"><?= $nounou->place_dispo(); ?></td>
-				<td><?= $nounou->ville(); ?></td>
-				<td><?= $nounou->note(); ?>/10</td>
-				<!--<td><a href="index.php?action=showNounou&amp;idNounou= <?= $nounou->id(); ?>">Découvrir</a></td>-->
+				<td><a href="index.php?action=showNounou&amp;idNounou= <?= htmlspecialchars($nounou->id()); ?>"><?= htmlspecialchars($nounou->pseudo()); ?></a></td>
+				<td class="xp_table"><?= htmlspecialchars($nounou->experience()); ?> an(s)</td>
+				<td class="xp_table"><?= htmlspecialchars($nounou->place_dispo()); ?></td>
+				<td><?= htmlspecialchars($nounou->ville()); ?></td>
+				<td><?= htmlspecialchars($nounou->note()); ?>/10</td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>

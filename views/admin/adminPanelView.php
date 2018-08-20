@@ -6,7 +6,6 @@
 	<a class="btn btn-secondary"href="#ancreAvis">Gestion des avis</a>
 </div>
 
-
 <h2 id="ancreNounous">Liste des Nounous</h2>
 
 <table class="table_pag" id="table_nounous">
@@ -23,12 +22,12 @@
 	<tbody>
 		<?php foreach ($nounous as $nounou): ?>
 			<tr>
-				<td><?= $nounou->pseudo(); ?></td>
-				<td class="respDesign"><?= $nounou->experience(); ?> an(s)</td>
-				<td class="respDesign"><?= $nounou->place_dispo(); ?></td>
-				<td class="respDesign"><?= $nounou->ville(); ?></td>
-				<td><?= $nounou->signalement(); ?></td>
-				<td><a class="btn btn-primary" href="index.php?action=adminEditNounou&amp;pseudo=<?= $nounou->pseudo(); ?>">Gérer</a></td>
+				<td><?= htmlspecialchars($nounou->pseudo()); ?></td>
+				<td class="respDesign"><?= htmlspecialchars($nounou->experience()); ?> an(s)</td>
+				<td class="respDesign"><?= htmlspecialchars($nounou->place_dispo()); ?></td>
+				<td class="respDesign"><?= htmlspecialchars($nounou->ville()); ?></td>
+				<td><?= htmlspecialchars($nounou->signalement()); ?></td>
+				<td><a class="btn btn-primary" href="index.php?action=adminEditNounou&amp;pseudo=<?= htmlspecialchars($nounou->pseudo()); ?>">Gérer</a></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -51,11 +50,11 @@
 	<tbody>
 		<?php foreach ($parents as $parent): ?>
 			<tr>
-				<td><?= $parent->pseudo(); ?></td>
-				<td class="respDesign"><?= $parent->nom(); ?></td>
-				<td class="respDesign"><?= $parent->prenom(); ?></td>
-				<td><?= $parent->ville(); ?></td>	
-				<td><a class="btn btn-primary" href="index.php?action=adminEditParent&amp;pseudo=<?= $parent->pseudo(); ?>">Gérer</a></td>
+				<td><?= htmlspecialchars($parent->pseudo()); ?></td>
+				<td class="respDesign"><?= htmlspecialchars($parent->nom()); ?></td>
+				<td class="respDesign"><?= htmlspecialchars($parent->prenom()); ?></td>
+				<td><?= htmlspecialchars($parent->ville()); ?></td>	
+				<td><a class="btn btn-primary" href="index.php?action=adminEditParent&amp;pseudo=<?= htmlspecialchars($parent->pseudo()); ?>">Gérer</a></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>
@@ -80,12 +79,12 @@
 	<tbody>
 		<?php foreach ($listAvis as $avis): ?>
 			<tr>
-				<td><?= $avis->pseudo_parent(); ?></td>
-				<td><?= $avis->contenu(); ?></td>
-				<td class="respDesign"><?= $avis->note(); ?></td>
-				<td class="respDesign"><?= $avis->signalement(); ?></td>
-				<td class="respDesign"><a class="btn btn-danger" href="index.php?action=adminPanelDeleteAvis&amp;idAvis=<?= $avis->id(); ?>">Supprimer</a></td>
-				<td><a class="btn btn-primary" href="index.php?action=adminShowAvis&amp;idNounou=<?= $avis->id_nounou(); ?>#avis_nounou">Nounou liée</a></td>	
+				<td><?= htmlspecialchars($avis->pseudo_parent()); ?></td>
+				<td><?= htmlspecialchars($avis->contenu()); ?></td>
+				<td class="respDesign"><?= htmlspecialchars($avis->note()); ?></td>
+				<td class="respDesign"><?= htmlspecialchars($avis->signalement()); ?></td>
+				<td class="respDesign"><a class="btn btn-danger" href="index.php?action=adminPanelDeleteAvis&amp;idAvis=<?= htmlspecialchars($avis->id()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet avis ?');">Supprimer</a></td>
+				<td><a class="btn btn-primary" href="index.php?action=adminShowAvis&amp;idNounou=<?= htmlspecialchars($avis->id_nounou()); ?>#avis_nounou">Nounou liée</a></td>	
 			</tr>
 		<?php endforeach; ?>
 	</tbody>

@@ -1,12 +1,8 @@
-
-
 <?php ob_start(); ?>
 
 <div id="accueil">
-
 	<div id="presentation">
 		<h1>Le coin des Nounous</h1>
-
 		<div id="carouselPresentation" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselPresentation" data-slide-to="0" class="active"></li>
@@ -25,17 +21,14 @@
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselPresentation" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
 			</a>
 			<a class="carousel-control-next" href="#carouselPresentation" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
 			</a>
 		</div>
-
-
-
 	</div>
 
 	<div id="notice">
@@ -47,10 +40,10 @@
 				</div>
 				<p>Afin de découvrir les nounous qui vous correspondent, connectez-vous, ou inscrivez-vous, puis cliquez votre département.</p>
 			</div>
-
+			<div id="ancreConnect"></div>
 			<div id="connectHomeRight">
 				<div class="notice-type" id="formulaire_connexion" style="text-align: center;">
-					<h2>Me connecter</h2>
+					<h2>Connexion</h2>
 				    <form action="index.php?action=connect" method="POST">
 				    	<div class="form-group">
 				        	<label for="pseudo"> Pseudo  :  </label>
@@ -66,11 +59,11 @@
 				        </div>   
 				    </form>
 
-					    <?php if(isset($_SESSION['connect_message'])) { ?>
-					    	<div class="notice-type" id="connectHome_message">
-					    		<p> <?= $_SESSION['connect_message'] ?> </p>
-					    	</div>
-						<?php } ?>
+				    <?php if(isset($_SESSION['connect_message'])) { ?>
+				    	<div class="notice-type" id="connectHome_message">
+				    		<p> <?= $_SESSION['connect_message'] ?> </p>
+				    	</div>
+					<?php } ?>
 				</div>
 
 				<div class="notice-type" id="inscriptions">
@@ -83,53 +76,41 @@
 		</div>
 
 	<div id="dept_login">
-
 		<div class="notice-type" id="dept_choice">
 			<p>Choisissez un département</p>
 		</div>
-
 		<div class="departements" id="dept_col1">
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=95">
-					<img src="public/images/logo95.png">	
+				<img id="logo95" src="public/images/logo95.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=78">
-					<img src="public/images/logo78.png">	
+				<img id="logo78" src="public/images/logo78.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=92">
-					<img src="public/images/logo92.png">	
+				<img id="logo92" src="public/images/logo92.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=75">
-					<img src="public/images/logo75.png">	
+				<img id="logo75" src="public/images/logo75.png">	
 			</a>
 		</div>
 
 		<div class="departements" id="dept_col2">
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=93">
-					<img src="public/images/logo93.png">	
+				<img id="logo93" src="public/images/logo93.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=94">
-					<img src="public/images/logo94.png">	
+				<img id="logo94" src="public/images/logo94.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=77">
-					<img src="public/images/logo77.png">	
+				<img id="logo77" src="public/images/logo77.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=91">
-					<img src="public/images/logo91.png">	
+				<img id="logo91" src="public/images/logo91.png">	
 			</a>
-		</div>
-			
-
-
-
-		
-
-
-
-		
-	
+		</div>	
 	</div>
-
 </div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require("views/template.php"); ?>

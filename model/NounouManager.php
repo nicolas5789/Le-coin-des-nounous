@@ -97,13 +97,10 @@ class NounouManager extends Database
 	//modifier un profil de nounou (UPDATE)
 	public function updateNounou($nounou)
 	{
-		//$password = htmlspecialchars($nounou->password());
-		
 		$pseudoSafe = htmlspecialchars($nounou->pseudo());
 		$nomSafe = htmlspecialchars($nounou->nom());
 		$prenomSafe = htmlspecialchars($nounou->prenom());
 		$emailSafe = htmlspecialchars($nounou->email());
-		//$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
 		$experienceSafe = htmlspecialchars($nounou->experience());
 		$dispoSafe = htmlspecialchars($nounou->place_dispo());
 		$villeSafe = htmlspecialchars($nounou->ville());
@@ -114,7 +111,6 @@ class NounouManager extends Database
 		} else {
 			$pseudoCurrent = $_SESSION['pseudo'];
 			}
-
 
 		$db = $this->dbConnect();
 		$req = $db->prepare("UPDATE nounous SET pseudo= ?, nom= ?, prenom= ?, email= ?, experience= ?, place_dispo= ?, ville= ?, departement= ? WHERE pseudo= ?");
@@ -178,8 +174,6 @@ class NounouManager extends Database
 
 		return $existMailNounou;
 	}
-
-
 
 	//contrôle le mdp en fonction du pseudo
 	public function accessNounou($nounou)

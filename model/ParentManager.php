@@ -33,13 +33,10 @@ class ParentManager extends Database
 
 	public function updateParent($parent) // UPDATE
 	{
-		//$password = htmlspecialchars($parent->password());
-		
 		$pseudoSafe = htmlspecialchars($parent->pseudo());
 		$nomSafe = htmlspecialchars($parent->nom());
 		$prenomSafe = htmlspecialchars($parent->prenom());
 		$emailSafe = htmlspecialchars($parent->email());
-		//$passwordSafe = password_hash($password, PASSWORD_DEFAULT);
 		$villeSafe = htmlspecialchars($parent->ville());
 		$departementSafe = htmlspecialchars($parent->departement());
 		
@@ -134,6 +131,4 @@ class ParentManager extends Database
 		$req = $db->prepare("UPDATE parents SET password= ? WHERE pseudo= ?");
 		$req->execute(array($passwordSafe, $pseudo));
 	}
-
-
 }

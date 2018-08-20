@@ -19,7 +19,7 @@
                         <label for="pseudo">Pseudo  : </label> 
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="pseudo" id="pseudo_nounou" value="<?= $nounou->pseudo(); ?>" required> 
+                        <input class="form-control" type="text" name="pseudo" id="pseudo_nounou" value="<?= htmlspecialchars($nounou->pseudo()); ?>" required> 
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +27,7 @@
                         <label for="nom">Nom  : </label> 
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="nom" id="nom" value="<?= $nounou->nom(); ?>" required> 
+                        <input class="form-control" type="text" name="nom" id="nom" value="<?= htmlspecialchars($nounou->nom()); ?>" required> 
                     </td>
                 </tr>
                 <tr>
@@ -35,7 +35,7 @@
                         <label for="prenom">Prenom  : </label> 
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="prenom" id="prenom" value="<?= $nounou->prenom(); ?>" required>
+                        <input class="form-control" type="text" name="prenom" id="prenom" value="<?= htmlspecialchars($nounou->prenom()); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                         <label for="email">Adresse email  : </label> 
                     </td>
                     <td>
-                        <input class="form-control" type="email" name="email" id="email" value="<?= $nounou->email(); ?>" required>
+                        <input class="form-control" type="email" name="email" id="email" value="<?= htmlspecialchars($nounou->email()); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                        <label for="confirm_email">Confirmation adresse email  : </label> 
                     </td>
                     <td>
-                        <input  class="form-control" type="email" name="confirm email" id="confirm email" value="<?= $nounou->email(); ?>" required>
+                        <input  class="form-control" type="email" name="confirm email" id="confirm email" value="<?= htmlspecialchars($nounou->email()); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -59,7 +59,7 @@
                        <label for="experience">Année(s) d'expérience  : </label> 
                     </td>
                     <td>
-                        <input class="form-control" type="number" name="experience" id="experience" value="<?= $nounou->experience(); ?>" required>
+                        <input class="form-control" type="number" name="experience" id="experience" value="<?= htmlspecialchars($nounou->experience()); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +67,7 @@
                        <label for="dispo">Place(s) disponible(s)  : </label> 
                     </td>
                     <td>
-                        <input class="form-control" type="number" name="place_dispo" id="dispo" value="<?= $nounou->place_dispo(); ?>" required>
+                        <input class="form-control" type="number" name="place_dispo" id="dispo" value="<?= htmlspecialchars($nounou->place_dispo()); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -93,7 +93,7 @@
                     </td>
                     <td>
                         <select class="cityContainer" type="text" name="ville" id="ville" required> 
-                            <option><?= $nounou->ville(); ?></option>
+                            <option><?= htmlspecialchars($nounou->ville()); ?></option>
                         </select>
                     </td>
                 </tr>
@@ -103,13 +103,13 @@
 <hr>
     <div id="adminUpdatePassword">
         <?php if(isset($_SESSION['editPasswordNounou'])) {echo $_SESSION['editPasswordNounou'];} ?>
-        <form action="index.php?action=updatePasswordNounou&amp;pseudo=<?= $nounou->pseudo(); ?>" method="POST">
+        <form action="index.php?action=updatePasswordNounou&amp;pseudo=<?= htmlspecialchars($nounou->pseudo()); ?>" method="POST">
             <label for="password"> Changer mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>  <br/> 
             <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-            <input class="btn btn-primary" type="submit" value="Modifier le mot de passe">  
+            <input class="btn btn-primary" type="submit" value="Modifier le mot de passe" onclick="return confirm('Etes-vous sûr de vouloir modifier ce mot de passe ?');">  
         </form>
     </div>
-    <a id="deleteProfil" class="btn btn-danger" href="index.php?action=adminDeleteNounou&amp;idNounou=<?= $nounou->id(); ?>">Supprimer ce profil</a>
+    <a id="deleteProfil" class="btn btn-danger" href="index.php?action=adminDeleteNounou&amp;idNounou=<?= htmlspecialchars($nounou->id()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce profil ?');">Supprimer ce profil</a>
 </div>
 
 <div id="avis_nounou">
@@ -128,9 +128,9 @@
 		<?php foreach($listingAvis as $avis): ?>
             <tbody>
     			<tr>
-    				<form action="index.php?action=adminEditAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $avis->id_nounou(); ?>" method="POST">
+    				<form action="index.php?action=adminEditAvis&amp;idAvis=<?= htmlspecialchars($avis->id()); ?>&amp;idNounou=<?= htmlspecialchars($avis->id_nounou()); ?>" method="POST">
     					<td class="respDesign"><label for="pseudo"><input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $avis->pseudo_parent(); ?>" required> </label></td>
-    					<td><label><textarea class="form-control" name="contenu" id="contenu" rows="2" cols="30" required><?= $avis->contenu(); ?></textarea> </label></td>
+    					<td><label><textarea class="form-control" name="contenu" id="contenu" rows="2" cols="30" required><?= htmlspecialchars($avis->contenu()); ?></textarea> </label></td>
     					<td class="respDesign">
     						<label for="note"> 
     							<select required name="note" id="note">
@@ -148,9 +148,9 @@
     							</select> 
     						</label>
     					</td>
-    					<td class="respDesign"><?= $avis->signalement(); ?></td>
+    					<td class="respDesign"><?= htmlspecialchars($avis->signalement()); ?></td>
     					<td><input class="btn btn-primary" type="submit" value="Valider"/></td>  
-    					<td><a class="btn btn-danger" href="index.php?action=adminDeleteAvis&amp;idAvis=<?= $avis->id(); ?>&amp;idNounou=<?= $avis->id_nounou(); ?>">Supprimer</a></td>
+    					<td><a class="btn btn-danger" href="index.php?action=adminDeleteAvis&amp;idAvis=<?= htmlspecialchars($avis->id()); ?>&amp;idNounou=<?= htmlspecialchars($avis->id_nounou()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer cet avis ?');">Supprimer</a></td>
     				</form>
     			</tr>
             </tbody>

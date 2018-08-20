@@ -98,15 +98,12 @@
             </tr>
         </table>
         <input class="btn btn-primary" type="submit" value="M'inscrire"/>
-        <a class="btn btn-primary" href="index.php?action=login">Me connecter</a>
+        <a class="btn btn-primary" href="index.php?action=login#ancreConnect">Me connecter</a>
     </form>
-
     <?php if(isset($_SESSION['form_message'])) {
         echo $_SESSION['form_message'];
     } ?>
-
 </div>
-
 
 <?php $content = ob_get_clean(); ?>
 

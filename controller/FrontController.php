@@ -140,7 +140,6 @@ abstract class FrontController
 
 	public static function login()
 	{
-		//require("views/front/frontLoginView.php");
 		require("views/front/frontHomeView.php");
 	}
 
@@ -169,12 +168,12 @@ abstract class FrontController
 					header("Location: index.php");
 				} else 
 				{
-					$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 1";
+					$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
 					header("Location: index.php?action=login");
 				}
 			} else 
 			{
-				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 2";
+				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
 				header("Location: index.php?action=login");
 			}
 		} elseif(isset($parentOnFile))
@@ -189,20 +188,20 @@ abstract class FrontController
 					$_SESSION['profil'] = "parent";
 					$_SESSION['pseudo'] = $parentOnFile->pseudo();
 					$_SESSION['connect_message'] = "Vous êtes connecté";
-					header("Location: index.php");
+					header("Location: index.php#ancreConnect");
 				} else 
 				{
-					$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 3";
+					$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
 					header("Location: index.php?action=login");
 				}
 			} else 
 			{
-				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 4";
+				$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
 				header("Location: index.php?action=login");
 			}
 		} else 
 		{
-			$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect 5";
+			$_SESSION['connect_message'] = "Pseudo ou mot de passe incorrect";
 			header("Location: index.php?action=login");
 		}
 	}

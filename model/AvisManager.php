@@ -36,7 +36,7 @@ class AvisManager extends Database
 		$contenuSafe = htmlspecialchars($avis->contenu());
 
 		$db = $this->dbConnect();
-		$req = $db->prepare("UPDATE avis SET note= ?, contenu= ? WHERE id_nounou= ? AND pseudo_parent= ? ");
+		$req = $db->prepare("UPDATE avis SET note= ?, contenu= ?, signalement= 0 WHERE id_nounou= ? AND pseudo_parent= ? ");
 		$req->execute(array($noteSafe, $contenuSafe, $id_nounouSafe, $pseudo_parentSafe));
 	}
 
@@ -107,7 +107,7 @@ class AvisManager extends Database
 		$currentPseudo = $_SESSION['pseudoCurrent'];
 
 		$db = $this->dbConnect();
-		$req = $db->prepare("UPDATE avis SET pseudo_parent= ? WHERE pseudo_parent= ?");
+		$req = $db->prepare("UPDATE avis SET pseudo_parent= ?, signalement= 0 WHERE pseudo_parent= ?");
 		$req->execute(array($newPseudoSafe, $currentPseudo));
 	}
 

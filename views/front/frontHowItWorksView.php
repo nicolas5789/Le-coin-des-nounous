@@ -13,10 +13,8 @@
 </div>
 
 <div id="return_home">
-    <a  class="btn btn-primary" href="">Accueil</a>
+    <a  class="btn btn-primary" href="index.php?action=home">Accueil</a>
 </div>
-
-
 
 <?php $content = ob_get_clean(); ?>
 

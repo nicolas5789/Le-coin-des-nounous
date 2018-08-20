@@ -18,7 +18,7 @@
                     <label for="pseudo"> Pseudo  :</label> 
                 </td>
                 <td>
-                    <input class="form-control" type="text" name="pseudo" id="pseudo" required value="<?= $parent->pseudo(); ?>"> 
+                    <input class="form-control" type="text" name="pseudo" id="pseudo" required value="<?= htmlspecialchars($parent->pseudo()); ?>"> 
                 </td>
             </tr>
             <tr>
@@ -26,7 +26,7 @@
                     <label for="nom"> Nom  : </label> 
                 </td>
                 <td>
-                    <input class="form-control" type="text" name="nom" id="nom" required value="<?= $parent->nom(); ?>"> 
+                    <input class="form-control" type="text" name="nom" id="nom" required value="<?= htmlspecialchars($parent->nom()); ?>"> 
                 </td>
             </tr>
             <tr>
@@ -34,7 +34,7 @@
                     <label for="prenom"> Prenom  : </label> 
                 </td>
                 <td>
-                    <input class="form-control" type="text" name="prenom" id="prenom" required value="<?= $parent->prenom(); ?>">
+                    <input class="form-control" type="text" name="prenom" id="prenom" required value="<?= htmlspecialchars($parent->prenom()); ?>">
                 </td>
             </tr>
             <tr>
@@ -42,7 +42,7 @@
                     <label for="email"> Mofifier mon Adresse email  : </label> 
                 </td>
                 <td>
-                    <input class="form-control" type="email" name="email" id="email" required value="<?= $parent->email(); ?>">
+                    <input class="form-control" type="email" name="email" id="email" required value="<?= htmlspecialchars($parent->email()); ?>">
                 </td>
             </tr>
             <tr>
@@ -50,7 +50,7 @@
                    <label for="confirm_email"> Confirmation adresse email  : </label> 
                 </td>
                 <td>
-                    <input class="form-control" type="email" name="confirm email" id="confirm email" required value="<?= $parent->email(); ?>">
+                    <input class="form-control" type="email" name="confirm email" id="confirm email" required value="<?= htmlspecialchars($parent->email()); ?>">
                 </td>
             </tr>
             <tr>
@@ -76,30 +76,26 @@
                 </td>
                 <td>
                     <select class="cityContainer" type="text" name="ville" id="ville" required> 
-                    <option><?= $parent->ville(); ?></option>
+                    <option><?= htmlspecialchars($parent->ville()); ?></option>
                 </select>
                 </td>
             </tr>
         </table>
         <input id="modifParentBouton" class="btn btn-primary" type="submit" value="Enregistrer"/>
-    </form>
-     
-    <?php if(isset($_SESSION['editParent_message'])) {
-        echo $_SESSION['editParent_message'];
-    } ?>
+    </form> 
+    <?php if(isset($_SESSION['editParent_message'])) {echo $_SESSION['editParent_message'];} ?>
 </div>
 
 <hr>
 
 <div class="formulaire_profil" id="updatePassword">
     <?php if(isset($_SESSION['editPasswordParent'])) {echo $_SESSION['editPasswordParent'];} ?>
-
-    <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= $parent->pseudo(); ?>" method="POST">
+    <form action="index.php?action=updatePasswordParent&amp;pseudo=<?= htmlspecialchars($parent->pseudo()); ?>" method="POST">
         <label for="password"> Définir mon mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>  <br/> 
         <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-        <input class="btn btn-primary" type="submit" value="Modifier le mot de passe">  
+        <input class="btn btn-primary" type="submit" value="Modifier le mot de passe" onclick="return confirm('Etes-vous sûr de vouloir modifier votre mot de passe ?');">  
     </form>
-    <a id="deleteProfil" class="btn btn-danger" href="index.php?action=deleteParent">Supprimer mon profil</a> <br/>
+    <a id="deleteProfil" class="btn btn-danger" href="index.php?action=deleteParent" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre profil ?');">Supprimer mon profil</a> <br/>
 </div>
 
 
