@@ -23,9 +23,10 @@ body {
 #bloc_center {
 	margin-top: 56px;
 }
-#table_nounous_length,#table_nounous_filter, #table_avis_length, #table_avis_filter {
+#table_nounous_length,#table_nounous_filter, #table_avis_length, #table_avis_filter, .dataTables_length, .dataTables_filter {
 	display: none;
 }
+
 .table_pag, #table_avis {
 	background-color: #fbf3f3;
 	margin: auto;
@@ -39,6 +40,9 @@ body {
 
 .table_pag th, .table_pag td {
 	border : 1px solid #696464;
+}
+table .btn-primary {
+	margin-top: 0;
 }
 #updatePassword {
 	text-align: center;
@@ -344,8 +348,7 @@ h2 {
 	max-width: 490px;
 	width: 90%;
 	margin: auto;
-	background-color: white;
-	/*background-color: #f9f3f3;*/
+	background-color: #f7f7f7;
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px #696464;
 	padding: 10px;
@@ -385,12 +388,33 @@ h2 {
 
 
 /* début admin */
+#bloc_haut_admin_panel {
+	text-align: center;
+	margin-bottom: 20px;
+}
+#bloc_haut_admin_panel a {
+	margin: 10px;
+}
+#formulaire_connexionAdmin {
+	width: 280px;
+	margin: auto;
+}
 #adminEditParentForm {
 	text-align: right;
 }
 #deleteProfil {
 	margin-top: 20px;
 }
+.dataTables_wrapper {
+	width: 90%;
+	margin: auto;
+}
+@media all and (max-width: 767px){
+	.respDesign {
+		display: none;
+	}
+}
+
 /* fin admin */
 
 #footer {

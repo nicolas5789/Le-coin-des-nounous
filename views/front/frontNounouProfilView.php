@@ -2,7 +2,9 @@
 
 <div class="container">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <div id="logo_form">
+            <img src="public/images/parents.gif">  
+        </div>
         <h2>Mon profil NOUNOU</h2>
     </div>
 </div>
