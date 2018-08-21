@@ -2,8 +2,8 @@
 <div id="bloc_haut_admin_panel">
 	<h1>Administration</h1>
 	<a class="btn btn-secondary" href="#ancreNounous">Gestion des nounous</a>
-	<a class="btn btn-secondary"href="#ancreParents">Gestion des parents</a>
-	<a class="btn btn-secondary"href="#ancreAvis">Gestion des avis</a>
+	<a class="btn btn-secondary" href="#ancreParents">Gestion des parents</a>
+	<a class="btn btn-secondary" href="#ancreAvis">Gestion des avis</a>
 </div>
 
 <h2 id="ancreNounous">Liste des Nounous</h2>

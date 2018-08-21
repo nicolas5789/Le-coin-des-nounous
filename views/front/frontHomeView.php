@@ -36,7 +36,7 @@
 				<h1>Le coin des Nounous</h1>
 				<p>Bienvenue, vous cherchez à faire garder votre enfant...Mais comment trouver la nounou idéale ?</p>
 				<div id="img_accueil">
-					<img src="public/images/mainsEnfants.jpg">
+					<img alt="mains d'enfants " src="public/images/mainsEnfants.jpg">
 				</div>
 				<p>Afin de découvrir les nounous qui vous correspondent, connectez-vous, ou inscrivez-vous, puis cliquez votre département.</p>
 			</div>
@@ -54,8 +54,11 @@
 				        	<input class="form-control" type="password" name="password" id="password" required>  
 				        </div> 
 				        <div class="form-group">
+				        	<?php if(!isset($_SESSION['profil'])) { ?>
 				        	<input class="btn btn-primary" type="submit" value="M'identifier"/> 
+				        	<?php } else { ?>
 				        	<a class="btn btn-primary" href="index.php?action=logout">Me déconnecter</a>  
+				        	<?php } ?>
 				        </div>   
 				    </form>
 
@@ -81,31 +84,31 @@
 		</div>
 		<div class="departements" id="dept_col1">
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=95">
-				<img id="logo95" src="public/images/logo95.png">	
+				<img alt="val d'oise" id="logo95" src="public/images/logo95.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=78">
-				<img id="logo78" src="public/images/logo78.png">	
+				<img alt="yvelines" id="logo78" src="public/images/logo78.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=92">
-				<img id="logo92" src="public/images/logo92.png">	
+				<img alt="hauts de seine" id="logo92" src="public/images/logo92.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=75">
-				<img id="logo75" src="public/images/logo75.png">	
+				<img alt="paris" id="logo75" src="public/images/logo75.png">	
 			</a>
 		</div>
 
 		<div class="departements" id="dept_col2">
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=93">
-				<img id="logo93" src="public/images/logo93.png">	
+				<img alt="seine saint denis" id="logo93" src="public/images/logo93.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=94">
-				<img id="logo94" src="public/images/logo94.png">	
+				<img alt="val de marne" id="logo94" src="public/images/logo94.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=77">
-				<img id="logo77" src="public/images/logo77.png">	
+				<img alt="seine et marne" id="logo77" src="public/images/logo77.png">	
 			</a>
 			<a class="dept" href="index.php?action=listNounous&amp;idDept=91">
-				<img id="logo91" src="public/images/logo91.png">	
+				<img alt="essonne" id="logo91" src="public/images/logo91.png">	
 			</a>
 		</div>	
 	</div>

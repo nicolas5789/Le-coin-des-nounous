@@ -3,7 +3,7 @@
 <div class="container">
     <div class="py-5 text-center">
         <div id="logo_form">
-            <img src="public/images/parents.gif">  
+            <img alt="logo_parent" src="public/images/parents.gif">  
         </div>
         <h2>Editer un profil NOUNOU</h2>
     </div>
@@ -16,7 +16,7 @@
         <table>
                 <tr>
                     <td>
-                        <label for="pseudo">Pseudo  : </label> 
+                        <label for="pseudo_nounou">Pseudo  : </label> 
                     </td>
                     <td>
                         <input class="form-control" type="text" name="pseudo" id="pseudo_nounou" value="<?= htmlspecialchars($nounou->pseudo()); ?>" required> 
@@ -51,7 +51,7 @@
                        <label for="confirm_email">Confirmation adresse email  : </label> 
                     </td>
                     <td>
-                        <input  class="form-control" type="email" name="confirm email" id="confirm email" value="<?= htmlspecialchars($nounou->email()); ?>" required>
+                        <input  class="form-control" type="email" name="confirm email" id="confirm_email" value="<?= htmlspecialchars($nounou->email()); ?>" required>
                     </td>
                 </tr>
                 <tr>
@@ -76,6 +76,7 @@
                     </td>
                     <td>
                         <select class="deptSelect" required name="departement" id="departement">
+                            <option></option>
                             <option <?php if($nounou->departement()=="75"){echo "selected";} ?> value="75">Paris</option>
                             <option <?php if($nounou->departement()=="78"){echo "selected";} ?> value="78">Yvelines</option>
                             <option <?php if($nounou->departement()=="91"){echo "selected";} ?> value="91">Essonne</option>
@@ -92,7 +93,7 @@
                        <label for="ville">Ville : </label> 
                     </td>
                     <td>
-                        <select class="cityContainer" type="text" name="ville" id="ville" required> 
+                        <select class="cityContainer" name="ville" id="ville" required> 
                             <option><?= htmlspecialchars($nounou->ville()); ?></option>
                         </select>
                     </td>
@@ -100,15 +101,17 @@
             </table>
         <input class="btn btn-primary" type="submit" value="Enregistrer"/>
     </form>
+</div>
+
 <hr>
-    <div id="adminUpdatePassword">
-        <?php if(isset($_SESSION['editPasswordNounou'])) {echo $_SESSION['editPasswordNounou'];} ?>
-        <form action="index.php?action=updatePasswordNounou&amp;pseudo=<?= htmlspecialchars($nounou->pseudo()); ?>" method="POST">
-            <label for="password"> Changer mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>  <br/> 
-            <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm password" required> </label> <br/> 
-            <input class="btn btn-primary" type="submit" value="Modifier le mot de passe" onclick="return confirm('Etes-vous sûr de vouloir modifier ce mot de passe ?');">  
-        </form>
-    </div>
+
+<div class="formulaire_profil" id="adminUpdatePassword">
+    <?php if(isset($_SESSION['editPasswordNounou'])) {echo $_SESSION['editPasswordNounou'];} ?>
+    <form action="index.php?action=updatePasswordNounou&amp;pseudo=<?= htmlspecialchars($nounou->pseudo()); ?>" method="POST">
+        <label for="password"> Changer mot de passe : <input class="form-control" type="password" name="password" id="password" required> </label>  <br/> 
+        <label for="confirm_password"> Confirmation mot de passe  : <input class="form-control" type="password" name="confirm password" id="confirm_password" required> </label> <br/> 
+        <input class="btn btn-primary" type="submit" value="Modifier le mot de passe" onclick="return confirm('Etes-vous sûr de vouloir modifier ce mot de passe ?');">  
+    </form>
     <a id="deleteProfil" class="btn btn-danger" href="index.php?action=adminDeleteNounou&amp;idNounou=<?= htmlspecialchars($nounou->id()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce profil ?');">Supprimer ce profil</a>
 </div>
 

@@ -62,10 +62,8 @@ abstract class AdminController
 		$avisManager = new AvisManager();
 		
 		$nounou = $nounouManager->getNounouByPseudo($nounouTarget);
-
 		$listingAvis = $avisManager->listAvis($nounou);
 		
-
 		require("views/admin/adminEditNounouView.php");
 	}
 
@@ -76,10 +74,8 @@ abstract class AdminController
 		$avisManager = new AvisManager();
 		
 		$nounou = $nounouManager->getNounouById($nounouTarget);
-
 		$listingAvis = $avisManager->listAvis($nounou);
 		
-
 		require("views/admin/adminEditNounouView.php");
 	}
 
@@ -89,8 +85,7 @@ abstract class AdminController
 		$avisManager = new AvisManager();
 		$avisManager->updateAvisById($avis);
 
-		header("Location: index.php?action=adminShowAvis&idNounou=".$idNounou);
-		
+		header("Location: index.php?action=adminShowAvis&idNounou=".$idNounou);	
 	}
 
 	public static function adminDeleteAvis($idAvis, $idNounou)
@@ -98,8 +93,6 @@ abstract class AdminController
 		$avis = new Avis(['id'=>$idAvis]);
 		$avisManager = new AvisManager();
 		$avisManager->deleteAvis($avis);
-
-
 
 		header("Location: index.php?action=adminShowAvis&idNounou=".$idNounou);
 	}
@@ -112,11 +105,4 @@ abstract class AdminController
 
 		header("Location: index.php?action=adminPanel");
 	}
-
-
-
-
-
-
-
 }

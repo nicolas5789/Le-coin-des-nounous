@@ -3,22 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<meta name="description" content=""/>
-	<meta name="keywords" content=""/>
+	<meta name="description" content="Le coin des nounous, site de référencement et de notation des nounous par les parents"/>
+	<meta name="keywords" content="coin des nounous, parents, bébé, enfants, assistante maternelle"/>
 	<meta name="twitter:card" content="summary"/>
-	<meta name="twitter:url" content=""/>
-	<meta name="site" content=""/>
-	<meta property="og:title" content=""/>
-	<meta property="og:description" content=""/>
+	<meta name="twitter:url" content="https://lecoindesnounous.com"/>
+	<meta name="site" content="@lecoindesnounous.com"/>
+	<meta property="og:title" content="Le coin des nounous"/>
+	<meta property="og:description" content="Le coin des nounous - Trouvez la nounou idéale"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<link rel="icon" type="image/png" href="" />
+	<meta property="og:image" content="https://lecoindesnounous.sailtheweb.com/public/images/mainsEnfants.jpg"/>
+	<meta property="og:url" content="lecoindesnounous.com"/>
+	<link rel="icon" type="image/png" href="public/images/favicon.ico" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="public/css/style.css">
-	<title>Le coin des Nounous</title>
+	<title>Le Coin Des Nounous</title>
 </head>
 <body>
 
@@ -87,7 +87,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA51WQhNUScdgXw2n10l0xnPY4a5SpbMzE"></script>
-<script src="public/js/listingCities.js"></script>
+<script src="public/js/ListingCities.js"></script>
 <script src="public/js/Carte.js"></script>
 <script src="public/js/script.js" ></script>
 

@@ -7,7 +7,7 @@
 <div class="container">
     <div class="py-5 text-center">
         <div id="logo_form">
-            <img src="public/images/parents.gif">  
+            <img alt="logo_parent" src="public/images/parents.gif">  
         </div>
         <h2>Espace d'administration</h2>
         <p class="lead">Utilisez votre identifiant pour vous connecter.</p>

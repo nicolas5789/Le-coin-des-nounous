@@ -59,7 +59,7 @@ abstract class FormController
 
 	public static function editNounou($pseudoNounou)
 	{
-		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['experience']) && is_numeric($_POST['experience']) && isset($_POST['place_dispo']) && is_numeric($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement']) && $_POST['dispo'] >= 0 && $_POST['experience'] >= 0) 
+		if(isset($_SESSION['pseudo']) && isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['confirm_email']) && isset($_POST['experience']) && is_numeric($_POST['experience']) && isset($_POST['place_dispo']) && is_numeric($_POST['place_dispo']) && isset($_POST['ville']) && isset($_POST['departement']) && is_numeric($_POST['departement']) && $_POST['place_dispo'] >= 0 && $_POST['experience'] >= 0) 
 		{
 			if(($_SESSION['pseudo']!="") && ($_POST['pseudo']!="") && ($_POST['nom']!="") && ($_POST['prenom']!="") && ($_POST['email']!="") && ($_POST['confirm_email']!="") && ($_POST['experience']!="") && ($_POST['place_dispo']!="") && ($_POST['ville']!="") && ($_POST['departement']!="")) 
 			{

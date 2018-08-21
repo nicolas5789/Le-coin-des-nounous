@@ -22,7 +22,7 @@ abstract class FrontController
 	public static function showNounou($idNounou)
 	{
 		$targetNounou = new Nounou(['id'=>$idNounou]);
-		$nounouManager = new NounouManager();
+		$nounouManager = new NounouManager(); 
 		$avisManager = new AvisManager();
 		$parentManager = new ParentManager();
 
@@ -57,7 +57,6 @@ abstract class FrontController
 				$_SESSION['avis'] = "clear";
 			}
 		}
-
 		require("views/front/frontNounouView.php");
 	}
 
@@ -98,7 +97,6 @@ abstract class FrontController
 		$avisManager->deleteAvisByNounou($targetAvis);
 		$nounouManager->deleteNounou($targetNounou);
 		
-
 		if($_SESSION['profil'] == 'admin'){
 			header("Location: index.php?action=adminPanel");
 		} else {
@@ -129,7 +127,6 @@ abstract class FrontController
 		$avisManager->deleteAvisByParent($targetAvis);
 		$parentManager->deleteParent($targetParent);
 		
-
 		if($_SESSION['profil'] == 'admin'){
 			header("Location: index.php?action=adminPanel");
 		} else {
@@ -222,9 +219,6 @@ abstract class FrontController
 		} else {
 			$_SESSION['notice_avis'] = "Saisi incorrecte";
 		}
-		
-
-
 		header("Location: index.php?action=showNounou&idNounou=".$id_nounou);
 	}
 
@@ -258,8 +252,6 @@ abstract class FrontController
 		} else {
 			$_SESSION['notice_avis'] = "Saisi incorrecte";
 		}
-		
-
 		header("Location: index.php?action=showNounou&idNounou=".$id_nounou);
 	}
 
@@ -307,8 +299,5 @@ abstract class FrontController
 		}
 
 		header("Location: index.php?action=contactUs");	
-	}
-
-
-	
+	}	
 }

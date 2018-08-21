@@ -3,7 +3,7 @@
 <div class="container">
     <div class="py-5 text-center">
         <div id="logo_form">
-            <img src="public/images/parents.gif">  
+            <img alt="logo_parents" src="public/images/parents.gif">  
         </div>
         <h2>Mon profil NOUNOU</h2>
     </div>

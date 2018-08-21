@@ -17,7 +17,7 @@
 			<?php if ($nounou->departement() == "75"){echo "Paris";} ?> 
 		</p>
 		<p> Note moyenne de <?= htmlspecialchars($nounou->pseudo()); ?> : <?php echo $noteMoyenne['AVG(note)']; ?> </p>
-		<p><a class="btn btn-info" href="index.php?action=reportNounou&amp;idNounou=<?= htmlspecialchars($nounou->id()); ?>">Signaler le profil</a></p>
+		<p><a id="reportNounouClic" class="btn btn-info" href="index.php?action=reportNounou&amp;idNounou=<?= htmlspecialchars($nounou->id()); ?>">Signaler le profil</a></p>
 	</div>
 	<div id="map"></div>
 </div>
@@ -41,7 +41,7 @@
 					<td> <?= htmlspecialchars($avis->pseudo_parent()); ?></td>
 					<td> <?= htmlspecialchars($avis->contenu()); ?></td>
 					<td class="xp_table"> <?= htmlspecialchars($avis->note()); ?>/10</td>
-					<td><a class="btn btn-info" href="index.php?action=reportAvis&amp;idAvis=<?= htmlspecialchars($avis->id()); ?>&amp;idNounou=<?= htmlspecialchars($nounou->id()); ?>">Signaler <span class="xp_table">cet avis</span></a></td>
+					<td><a id="reportAvisClic" class="btn btn-info" href="index.php?action=reportAvis&amp;idAvis=<?= htmlspecialchars($avis->id()); ?>&amp;idNounou=<?= htmlspecialchars($nounou->id()); ?>">Signaler <span class="xp_table">cet avis</span></a></td>
 				</tr>
 			<?php endforeach ?>	
 		</tbody>

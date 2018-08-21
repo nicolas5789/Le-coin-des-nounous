@@ -6,7 +6,6 @@ class NounouManager extends Database
 	//ajout d'une nounou (CREATE)
 	public function newNounou($nounou)
 	{
-		
 		$password = htmlspecialchars($nounou->password());
 		
 		$pseudoSafe = htmlspecialchars($nounou->pseudo());
@@ -22,7 +21,6 @@ class NounouManager extends Database
 		$db = $this->dbConnect();
 		$req = $db->prepare("INSERT INTO nounous(pseudo, nom, prenom, email, password, experience, place_dispo, ville, departement) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$req->execute(array($pseudoSafe, $nomSafe, $prenomSafe, $emailSafe, $passwordSafe, $experienceSafe, $dispoSafe, $villeSafe, $departementSafe));
-
 	}
 
 	//affichage de la liste des nounous par dept(READ)

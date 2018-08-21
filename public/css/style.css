@@ -427,6 +427,9 @@ h2 {
 #adminEditParentForm {
 	text-align: right;
 }
+#adminUpdatePassword {
+	text-align: center;
+}
 #deleteProfil {
 	margin-top: 20px;
 }
