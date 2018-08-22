@@ -104,7 +104,7 @@
 								<div class="form-group">
 									<label> Commentaire : <textarea class="form-control" name="contenu" id="contenu" rows="2" cols="50" required> <?= htmlspecialchars($avisOnFile->contenu()); ?> </textarea> </label> <br/>
 			        				<input class="btn btn-primary" type="submit" value="Modifier mon avis"/>  
-			        				<a class="btn btn-danger" href="index.php?action=deleteAvis&amp;idAvis=<?= htmlspecialchars($avisOnFile->id()); ?>&amp;idNounou=<?= htmlspecialchars($avisOnFile->id_nounou()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre avis ?');">Supprimer mon avis</a>  
+			        				<a id="frontDeleteAvis" class="btn btn-danger" href="index.php?action=deleteAvis&amp;idAvis=<?= htmlspecialchars($avisOnFile->id()); ?>&amp;idNounou=<?= htmlspecialchars($avisOnFile->id_nounou()); ?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre avis ?');">Supprimer mon avis</a>  
 			        			</div>
 			    			</form>
 						</div>

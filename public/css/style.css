@@ -17,9 +17,6 @@ body {
 #logo_form img {
 	width: 10%;
 }
-#form_contactUs{
-	text-align: center;
-}
 #bloc_center {
 	margin-top: 56px;
 }
@@ -56,7 +53,9 @@ table .btn-primary {
 #return_home a {
 	box-shadow: 5px 5px 5px #696464;
 }
+
 /* HOME */
+
 #presentation h1 {
 	text-align: center;
 	color: white;
@@ -166,8 +165,6 @@ table .btn-primary {
 	margin-left: auto;
 	margin-right: auto;
 }
-
-
 #img_accueil img {
 	max-width: 100%;
 	border-radius: 5px;
@@ -200,11 +197,9 @@ table .btn-primary {
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px #696464;
 }
-
 .dept img {
 	max-width: 100%;
 }
-
 .dept span {
 	display: none;
 	position: relative;
@@ -213,7 +208,6 @@ table .btn-primary {
 	padding-right: 10px;
 	font-family: trebuchet MS;
 }
-
 .logo_dept {
 	/*border: 1px solid #1be3f2;*/
 	height: 110px;
@@ -241,7 +235,7 @@ table .btn-primary {
 }
 /* FIN HOME */
 
-/* début comment ca marche */
+/* DEBUT COMMENT CA MARCHE */
 
 #explain {
 	width: 60%;
@@ -253,21 +247,19 @@ table .btn-primary {
 #explain h3 {
 	text-align: center;
 }
+/* FIN COMMENT CA MARCHE */
 
-/* fin comment ca marche */
+/* DEBUT LISTE DEPT */
 
-/* Liste du dept */
 #frontlistview h2 {
 	margin-top: 15px;
 }
 #frontlistview p {
 	text-align: center;
 }
-
 #dept_list {
 	margin: auto;
 }
-
 #table_nounous {
 	width: 90%;
 }
@@ -276,10 +268,10 @@ table .btn-primary {
 		display: none;
 	}
 }
+/*FIN LISTE DEPT */
 
-/*Fin Liste du dept */
+/*DEBUT SHOW NOUNOU */
 
-/*Début show nounou */
 #infos_nounou {
 	margin: auto;
 	background-color: white;
@@ -317,6 +309,11 @@ table .btn-primary {
 		margin-top: 20px;
 	}
 }
+#frontDeleteAvis {
+	position: relative;
+	top: 5px;
+}
+
 #forms_avis {
 	margin: auto;
 }
@@ -327,7 +324,6 @@ table .btn-primary {
 	width: 80%;
 	margin: auto;
 }
-
 #avis_part {
 	display: inline-flex;
 	background-color: white;
@@ -366,9 +362,10 @@ h2 {
 	max-width: 400px;
 	text-align: center;
 }
-/* Fin show nounou */
+/* FIN SHOW NOUNOU */
 
-/* form inscrip */
+/* DEBUT FORM INSCRIPTION */
+
 .formulaire_profil {
 	max-width: 490px;
 	width: 90%;
@@ -378,7 +375,6 @@ h2 {
 	box-shadow: 5px 5px 5px #696464;
 	padding: 10px;
 }
-
 .formulaire_profil td {
 	text-align: right;
 }
@@ -386,33 +382,41 @@ h2 {
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
-/* fin form inscrip */
+/* FIN FORM INSCRIPTION */
 
-/*form modif*/
+/* DEBUT FORM MODIF */
 #modifParentBouton {
 	margin-left: 37%;
 	margin-right: 37%;
 }
-/*fin form modif*/
+/* FIN FORM MODIF */
 
-/* début contact */
+/* DEBUT CONTACT */
 #part_contactUs {
 	display: flex;
 }
-
+@media all and (max-width: 1023px){
+	#part_contactUs {
+		display: block;
+	}
+}
 #part_contactUs #map {
 	height: 450px;
 }
-
+@media all and (max-width: 1023px){
+	#part_contactUs #map {
+		max-width: 450px;
+		margin-top: 20px;
+	}
+}
 #form_contactUs {
 	margin-top: 76px;
-	width: 450px;
+	max-width: 450px;
+	text-align: center;
 }
+/* FIN CONTACT */
 
-/* fin contact */
-
-
-/* début admin */
+/* DEBUT ADMIN */
 #bloc_haut_admin_panel {
 	text-align: center;
 	margin-bottom: 20px;
@@ -437,13 +441,17 @@ h2 {
 	width: 90%;
 	margin: auto;
 }
+@media all and (max-width: 574px){
+	.dataTables_wrapper {
+		width: initial;
+	}
+}
 @media all and (max-width: 767px){
 	.respDesign {
 		display: none;
 	}
 }
-
-/* fin admin */
+/* FIN ADMIN */
 
 #footer {
 	text-align: center;

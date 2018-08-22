@@ -132,11 +132,11 @@
             <tbody>
     			<tr>
     				<form action="index.php?action=adminEditAvis&amp;idAvis=<?= htmlspecialchars($avis->id()); ?>&amp;idNounou=<?= htmlspecialchars($avis->id_nounou()); ?>" method="POST">
-    					<td class="respDesign"><label for="pseudo"><input class="form-control" type="text" name="pseudo" id="pseudo" value="<?= $avis->pseudo_parent(); ?>" required> </label></td>
-    					<td><label><textarea class="form-control" name="contenu" id="contenu" rows="2" cols="30" required><?= htmlspecialchars($avis->contenu()); ?></textarea> </label></td>
+    					<td class="respDesign"><label for="pseudo"><input class="form-control" type="text" name="pseudo" value="<?= $avis->pseudo_parent(); ?>" required> </label></td>
+    					<td><label><textarea class="form-control" name="contenu" rows="2" cols="30" required><?= htmlspecialchars($avis->contenu()); ?></textarea> </label></td>
     					<td class="respDesign">
     						<label for="note"> 
-    							<select required name="note" id="note">
+    							<select required name="note">
     								<option value="" selected disabled hidden>Modifier la note ici</option>
     								<option <?php if($avis->note()=="1"){echo "selected";} ?> >1</option>
     								<option <?php if($avis->note()=="2"){echo "selected";} ?> >2</option>
