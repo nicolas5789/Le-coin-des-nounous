@@ -145,7 +145,7 @@
 	<?php } else { ?>
 		<div id="invit_connect">
 			<p>Vous devez avoir un profil "parent" pour noter ou contacter une nounou.</p>
-			<p><a href="index.php?action=login#ancreConnect">Créer un profil nounou</a></p>
+			<p><a href="index.php?action=login#ancreConnect">Créer un profil</a></p>
 		</div>
 	<?php } ?>
 </div>
