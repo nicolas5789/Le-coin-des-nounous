@@ -33,7 +33,9 @@
 				<td class="xp_table"><?= htmlspecialchars($nounou->experience()); ?> an(s)</td>
 				<td class="xp_table"><?= htmlspecialchars($nounou->place_dispo()); ?></td>
 				<td><?= htmlspecialchars($nounou->ville()); ?></td>
-				<td><?= htmlspecialchars(round($nounou->note())); ?>/10</td>
+				<td>
+					<?php if($nounou->note() == 0) {echo "Aucune note";} else {echo htmlspecialchars(round($nounou->note()))."/10";} ?>
+				</td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>

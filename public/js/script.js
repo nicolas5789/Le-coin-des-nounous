@@ -17,6 +17,8 @@ $(document).ready( function () {
 
 /* Animations */
 
+//Retour accueil si clic return après modif formulaire dans admin
+
 	if($("#adminUpdatePassword").html() != null) {
 		if (window.history && window.history.pushState) {
 	    	window.history.pushState('forward', null, './#forward');
@@ -26,6 +28,8 @@ $(document).ready( function () {
 		}
 	}
 
+// Alert si signalement
+
   $("#reportNounouClic").click(function(){
     alert("Signalement pris en compte");
   })
@@ -33,5 +37,6 @@ $(document).ready( function () {
   $("#reportAvisClic").click(function(){
     alert("Signalement pris en compte");
   })
+
 });
 
