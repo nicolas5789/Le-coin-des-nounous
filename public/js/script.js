@@ -1,6 +1,13 @@
 $(document).ready( function () {
 
-    $('.table_pag').DataTable();
+//pagination tables avec traduction
+    $('.table_pag').dataTable( {
+        "language": {
+            "info": "Vu de la page _PAGE_ sur _PAGES_", "paginate": {
+                "next": "Suivant", "previous" : "Précédent"
+            }
+        }
+    });
 
     if($("#address").html() != null) {
       var carteNounou = Object.create(Carte);
@@ -38,5 +45,7 @@ $(document).ready( function () {
     alert("Signalement pris en compte");
   })
 
+
 });
+
 

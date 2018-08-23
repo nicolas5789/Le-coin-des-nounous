@@ -3,14 +3,7 @@
 <div id="frontlistview">
 	<div class="dept" id="dept_list">
 		<?php 
-			if($_GET['idDept'] == "77"){echo '<img alt="seine et marne" id="logo77" src="public/images/logo77.png">';} 
-			elseif($_GET['idDept'] == "78"){echo '<img alt="yvelines" id="logo78" src="public/images/logo78.png">';} 
-			elseif($_GET['idDept'] == "92"){echo '<img alt="hauts de seine" id="logo92" src="public/images/logo92.png">';} 
-			elseif($_GET['idDept'] == "94"){echo '<img alt="val de marne" id="logo94" src="public/images/logo94.png">';} 
-			elseif($_GET['idDept'] == "95"){echo '<img alt="val d\'oise" id="logo95" src="public/images/logo95.png">';} 
-			elseif($_GET['idDept'] == "93"){echo '<img alt="seine saint denis" id="logo93" src="public/images/logo93.png">';} 
-			elseif($_GET['idDept'] == "75"){echo '<img alt="paris" id="logo75" src="public/images/logo75.png">';} 
-			elseif($_GET['idDept'] == "91"){echo '<img alt="essonne" id="logo91" src="public/images/logo91.png">';} 
+			if(isset($_GET['idDept'])){echo '<img alt="logo du département'.$_GET['idDept'].'" id="logo'.$_GET['idDept'].'" src="public/images/logo'.$_GET['idDept'].'.png">' ;} 
 		?>
 	</div>
 
